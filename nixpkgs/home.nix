@@ -19,7 +19,13 @@
   # changes in each release.
   home.stateVersion = "21.05";
 
+  home.packages = with pkgs; [
+    tig
+    mcfly
+  ];
+
   programs.fzf.enable = true;
+  programs.exa.enable = true;
 
   programs.bat = {
     enable = true;

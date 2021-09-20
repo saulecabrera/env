@@ -25,6 +25,9 @@ set -xg BAT_THEME "Nord"
 
 alias vim="nvim"
 alias gcbr="git rev-parse --abbrev-ref HEAD"
+alias ls = "exa"
+alias ll = "exa -ll"
+alias la = "exa -a"
 
 # dev -----------------------------
 source /opt/dev/dev.fish
