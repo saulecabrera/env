@@ -89,6 +89,8 @@
       vim-surround
       vim-which-key
       vim-illuminate
+
+      vim-floaterm
     ];
   };
 
