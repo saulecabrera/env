@@ -153,7 +153,6 @@ nnoremap <silent> <leader>wk <C-w>k
 
 
 nnoremap <silent> <leader>w/ <cmd>:Windows<CR>
-nnoremap <silent> <leader>wz <cmd>:ZenMode<CR>
 
 " Hop
 nnoremap gw :HopWord<cr>
@@ -163,6 +162,9 @@ nnoremap gs :HopPattern<cr>
 
 " Last Buffer
 nnoremap <leader><tab> :e#<cr>
+
+" Floaterm
+nnoremap <leader>ftt <cmd>:FloatermToggle<CR>
 
 " Mappings
 
