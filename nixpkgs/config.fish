@@ -24,7 +24,6 @@ set -xg PATH $HOME/.local/bin $PATH
 set -xg BAT_THEME "Nord"
 
 alias vim="nvim"
-alias gcbr="git rev-parse --abbrev-ref HEAD"
 alias ls = "exa"
 
 # dev -----------------------------

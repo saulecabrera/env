@@ -91,6 +91,7 @@
       vim-illuminate
 
       vim-floaterm
+      vim-test
     ];
   };
 

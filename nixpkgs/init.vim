@@ -68,6 +68,8 @@ set ignorecase
 set smartcase
 set showmatch
 
+set guifont=PragmataPro\ Mono\ Liga:h14
+
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
 
@@ -164,7 +166,9 @@ nnoremap gs :HopPattern<cr>
 nnoremap <leader><tab> :e#<cr>
 
 " Floaterm
-nnoremap <leader>ftt <cmd>:FloatermToggle<CR>
+nnoremap <leader>ftt <cmd>:FloatermToggle<CR>i
+noremap! <leader>ftt <Esc>:FloatermToggle<CR>i
+tnoremap <leader>ftt  <C-\><C-n>:FloatermToggle<CR>
 
 " Mappings
 
