@@ -68,7 +68,7 @@ set ignorecase
 set smartcase
 set showmatch
 
-set guifont=PragmataPro\ Mono\ Liga:h14
+set guifont=PragmataPro\ Mono\ Liga:h13
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬

@@ -24,7 +24,6 @@ set -xg PATH $HOME/.local/bin $PATH
 set -xg BAT_THEME "Nord"
 
 alias vim="nvim"
-alias ls = "exa"
 
 # dev -----------------------------
 source /opt/dev/dev.fish
