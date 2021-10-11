@@ -21,7 +21,7 @@ set -xg EDITOR nvim
 set -xg NVM_DIR $HOME/.nvm
 set -xg PATH $GOPATH/bin $PATH
 set -xg PATH $HOME/.local/bin $PATH
-set -xg BAT_THEME "Nord"
+set -xg BAT_THEME "gruvbox-dark"
 
 alias vim="nvim"
 

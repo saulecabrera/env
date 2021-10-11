@@ -32,7 +32,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Nord";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };
@@ -69,6 +69,7 @@
       vim-gitgutter
 
       gruvbox
+      vim-gruvbox8
       base16-vim
       papercolor-theme
       nord-vim
