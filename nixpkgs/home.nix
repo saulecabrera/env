@@ -93,6 +93,9 @@
 
       vim-floaterm
       vim-test
+
+      limelight-vim
+      goyo-vim
     ];
   };
 
