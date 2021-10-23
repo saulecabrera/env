@@ -24,6 +24,7 @@ set -xg PATH $HOME/.local/bin $PATH
 set -xg BAT_THEME "gruvbox-dark"
 
 alias vim="nvim"
+alias gvim="nvim-qt"
 
 # dev -----------------------------
 source /opt/dev/dev.fish
