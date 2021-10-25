@@ -68,7 +68,7 @@ set ignorecase
 set smartcase
 set showmatch
 
-set guifont=PragmataPro\ Mono\ Liga:h13
+set guifont=Iosevka\ Term\ SS08:h13.5
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
@@ -82,6 +82,7 @@ set background=dark
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1
 let g:airline_theme='base16'
+let g:airline#extensions#tabline#enabled = 1
 let g:solarized_termcolors=256
 
 highlight Comment cterm=italic gui=italic
