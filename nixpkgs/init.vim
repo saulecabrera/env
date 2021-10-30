@@ -68,7 +68,7 @@ set ignorecase
 set smartcase
 set showmatch
 
-set guifont=Iosevka\ Term\ SS08:h13.5
+set guifont=JetBrains\ Mono:h12
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
@@ -76,13 +76,14 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme gruvbox8
+colorscheme gruvbox8_soft
 " colorscheme base16-tomorrow-night
 set background=dark
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1
 let g:airline_theme='base16'
 let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#show_buffers = 0
 let g:solarized_termcolors=256
 
 highlight Comment cterm=italic gui=italic
