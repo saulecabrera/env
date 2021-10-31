@@ -22,6 +22,8 @@
   home.packages = with pkgs; [
     tig
     mcfly
+    nix-prefetch-git
+    ccls
   ];
 
   programs.fzf.enable = true;
