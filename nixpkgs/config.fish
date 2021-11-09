@@ -6,7 +6,7 @@ if status is-interactive
   fish_vi_key_bindings
 end
 
-set theme_color_scheme gruvbox
+set theme_color_scheme solarized-light
 set -g theme_nerd_fonts no
 set -g theme_powerline_fonts no
 set -g theme_display_date no
