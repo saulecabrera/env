@@ -24,6 +24,7 @@
     mcfly
     nix-prefetch-git
     ccls
+    fd
   ];
 
   programs.fzf.enable = true;
@@ -66,6 +67,7 @@
     plugins = with pkgs.vimPlugins; [
       fzf-vim
       vim-nix
+      vimagit
       vim-airline
       vim-airline-themes
       vim-gitgutter
