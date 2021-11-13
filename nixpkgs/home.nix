@@ -67,7 +67,6 @@
     plugins = with pkgs.vimPlugins; [
       fzf-vim
       vim-nix
-      vimagit
       vim-airline
       vim-airline-themes
       vim-gitgutter
@@ -81,7 +80,7 @@
       coc-nvim
 
       vim-commentary
-      vimagit
+      neogit
       git-blame-nvim
 
       haskell-vim

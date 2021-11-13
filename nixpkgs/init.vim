@@ -137,8 +137,7 @@ set nofoldenable
 set foldlevel=2
 
 
-" Magit
-nnoremap <silent> <leader>m :Magit<CR>
+nnoremap <silent> <leader>m :Neogit<CR>
 
 
 " Windows
