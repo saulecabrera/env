@@ -35,7 +35,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16-256";
+      theme = "Solarized (light)";
       pager = "less -XFr";
     };
   };
@@ -72,6 +72,7 @@
       vim-gitgutter
 
       gruvbox
+      NeoSolarized
       vim-gruvbox8
       base16-vim
       papercolor-theme

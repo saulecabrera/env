@@ -76,7 +76,7 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme PaperColor
+colorscheme NeoSolarized
 " colorscheme base16-tomorrow-night
 set background=light
 let g:gruvbox_contrast_dark='medium'
