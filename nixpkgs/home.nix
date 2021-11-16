@@ -35,7 +35,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Solarized (light)";
+      theme = "base16";
       pager = "less -XFr";
     };
   };
