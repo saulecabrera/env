@@ -171,6 +171,7 @@ nnoremap <leader><tab> :e#<cr>
 nnoremap <leader>ftt <cmd>:FloatermToggle<CR>i
 noremap! <leader>ftt <Esc>:FloatermToggle<CR>i
 tnoremap <leader>ftt  <C-\><C-n>:FloatermToggle<CR>
+let g:floaterm_wintype = 'split'
 
 " Mappings
 
