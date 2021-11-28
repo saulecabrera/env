@@ -25,6 +25,7 @@
     nix-prefetch-git
     ccls
     fd
+    haskellPackages.ghcup
   ];
 
   programs.fzf.enable = true;
