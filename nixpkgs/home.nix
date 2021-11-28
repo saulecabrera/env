@@ -27,6 +27,7 @@
     fd
     haskellPackages.ghcup
     haskellPackages.fast-tags
+    haskellPackages.stack
   ];
 
   programs.direnv.enable = true;
