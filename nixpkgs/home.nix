@@ -71,6 +71,7 @@
       vim-airline
       vim-airline-themes
       vim-gitgutter
+      zig-vim
 
       gruvbox
       NeoSolarized
