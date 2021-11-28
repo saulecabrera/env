@@ -26,8 +26,11 @@
     ccls
     fd
     haskellPackages.ghcup
+    haskellPackages.fast-tags
   ];
 
+  programs.direnv.enable = true;
+  programs.direnv.nix-direnv.enable = true;
   programs.fzf.enable = true;
   programs.exa.enable = true;
 
