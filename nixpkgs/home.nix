@@ -26,7 +26,6 @@
     ccls
     fd
     haskellPackages.ghcup
-    haskellPackages.fast-tags
     haskellPackages.stack
   ];
 
