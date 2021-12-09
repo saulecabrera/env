@@ -76,8 +76,8 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme base16-tomorrow-night
-set background=dark
+colorscheme base16-tomorrow
+set background=light
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1
 let g:airline#extensions#tabline#enabled = 1

@@ -6,7 +6,7 @@ if status is-interactive
   fish_vi_key_bindings
 end
 
-set theme_color_scheme base16-dark
+set theme_color_scheme base16-light
 set -g theme_nerd_fonts no
 set -g theme_powerline_fonts no
 set -g theme_display_date no
@@ -49,3 +49,5 @@ set -gx WASMTIME_HOME "$HOME/.wasmtime"
 string match -r ".wasmtime" "$PATH" > /dev/null; or set -gx PATH "$WASMTIME_HOME/bin" $PATH
 
 mcfly init fish | source
+
+direnv hook fish | source
