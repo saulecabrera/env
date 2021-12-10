@@ -23,7 +23,6 @@
     tig
     mcfly
     nix-prefetch-git
-    ccls
     fd
     haskellPackages.ghcup
     haskellPackages.stack
@@ -39,7 +38,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16";
+      theme = "GitHub";
       pager = "less -XFr";
     };
   };
@@ -55,12 +54,38 @@
       };
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
-        st = "status";
+        s = "status";
         co = "checkout";
         br = "branch";
         d = "diff";
         cbr = "rev-parse --abbrev-ref HEAD";
       };
+    };
+  };
+
+  programs.zsh = {
+    enable = true;
+    autocd = true;
+    dotDir = "~/.zshrc";
+    enableAutosuggestions = true;
+    enableCompletion = true;
+    shellAliases = {
+      ls = "exa";
+      l = "exa -l";
+      la = "exa -la";
+      cl = "clear";
+      vim = "nvim";
+      vi = "nvim";
+    };
+
+    oh-my-zsh = {
+      enable = true;
+      theme = "lambda";
+      plugins = [
+        "git"
+        "vi-mode"
+        "z"
+      ];
     };
   };
 
@@ -106,11 +131,6 @@
       limelight-vim
       goyo-vim
     ];
-  };
-
-  programs.fish = {
-    enable = true;
-    shellInit = builtins.readFile ./config.fish;
   };
 }
 
