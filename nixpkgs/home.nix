@@ -26,6 +26,8 @@
     fd
     haskellPackages.ghcup
     haskellPackages.stack
+    nodejs
+    rustup
   ];
 
   programs.direnv.enable = true;
@@ -85,6 +87,7 @@
         "git"
         "vi-mode"
         "z"
+        "git"
       ];
     };
   };
