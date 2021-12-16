@@ -76,6 +76,8 @@
       [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
       eval "$(mcfly init zsh)"
+
+      export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
     '';
 
     sessionVariables = {
