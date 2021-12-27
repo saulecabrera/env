@@ -28,6 +28,7 @@
     haskellPackages.stack
     nodejs
     rustup
+    hugo
   ];
 
   programs.direnv.enable = true;
@@ -68,6 +69,7 @@
   programs.zsh = {
     enable = true;
     autocd = true;
+    # Installing llvm through brew
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
@@ -78,6 +80,7 @@
       eval "$(mcfly init zsh)"
 
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+      export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
     '';
 
     sessionVariables = {
