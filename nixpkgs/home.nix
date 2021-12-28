@@ -41,7 +41,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "GitHub";
+      theme = "Solarized (light)";
       pager = "less -XFr";
     };
   };
