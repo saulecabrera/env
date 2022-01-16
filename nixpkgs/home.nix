@@ -31,6 +31,7 @@
     hugo
     python3
     python39Packages.pip
+    ripgrep
   ];
 
   programs.direnv.enable = true;
