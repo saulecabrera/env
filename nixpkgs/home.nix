@@ -83,6 +83,7 @@
       eval "$(mcfly init zsh)"
 
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+      export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
     '';
 
     sessionVariables = {
