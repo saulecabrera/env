@@ -49,6 +49,23 @@
     };
   };
 
+  # Install manually:
+  #
+  # PaperColor
+  programs.vscode = {
+    enable = true;
+    extensions = with pkgs.vscode-extensions; [
+      matklad.rust-analyzer
+      vscodevim.vim
+      vspacecode.vspacecode
+      vspacecode.whichkey
+      yzhang.markdown-all-in-one
+      zhuangtongfa.material-theme
+      haskell.haskell
+      bbenoist.nix
+    ];
+  };
+
   programs.git = {
     enable = true;
     userName = "Saúl Cabrera";
