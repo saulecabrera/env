@@ -167,11 +167,10 @@ nnoremap gs :HopPattern<cr>
 " Last Buffer
 nnoremap <leader><tab> :e#<cr>
 
-" Floaterm
-nnoremap <leader>ftt <cmd>:FloatermToggle<CR>i
-noremap! <leader>ftt <Esc>:FloatermToggle<CR>i
-tnoremap <leader>ftt  <C-\><C-n>:FloatermToggle<CR>
-let g:floaterm_wintype = 'split'
+" Neoterm
+let g:neoterm_default_mod = 'botright'
+nnoremap ntt :Ttoggle<cr>
+nnoremap ntn :Tnew<cr>
 
 " Mappings
 
