@@ -32,6 +32,7 @@
     python3
     python39Packages.pip
     ripgrep
+    figlet
   ];
 
   programs.direnv.enable = true;
