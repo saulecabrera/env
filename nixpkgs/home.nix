@@ -172,6 +172,7 @@
       goyo-vim
 
       neoterm
+      presenting-vim
     ];
   };
 }
