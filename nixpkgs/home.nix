@@ -175,6 +175,7 @@
 
       neoterm
       presenting-vim
+      vim-diminactive
     ];
   };
 }
