@@ -169,8 +169,8 @@ nnoremap <leader><tab> :e#<cr>
 
 " Neoterm
 let g:neoterm_default_mod = 'botright'
-nnoremap ntt :Ttoggle<cr>
-nnoremap ntn :Tnew<cr>
+nnoremap <silent> <leader>tt :Ttoggle<cr>
+nnoremap <silent> <leader>tn :Tnew<cr>
 
 " Mappings
 
@@ -184,5 +184,7 @@ let wiki.nested_syntaxes = {'bash': 'bash', 'haskell': 'haskell', 'rust': 'rust'
 let wiki.syntax = 'markdown'
 let wiki.ext = 'md'
 let g:vimwiki_list = [wiki]
+
+lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', jump_on_sole_occurrence = false }
 
 

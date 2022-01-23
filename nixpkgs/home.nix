@@ -33,6 +33,7 @@
     python39Packages.pip
     ripgrep
     figlet
+    slides
   ];
 
   programs.direnv.enable = true;
