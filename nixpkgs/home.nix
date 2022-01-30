@@ -26,6 +26,7 @@
     fd
     haskellPackages.ghcup
     haskellPackages.stack
+    haskellPackages.hspec-discover
     nodejs
     rustup
     hugo
