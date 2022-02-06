@@ -104,6 +104,7 @@
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
       export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
       export PATH="$HOME/.nix-profile/bin:$PATH"
+      export PATH="$HOME/.local/bin:$PATH"
     '';
 
 
