@@ -34,6 +34,7 @@
     ripgrep
     figlet
     slides
+    graph-easy
   ];
 
   programs.direnv.enable = true;
