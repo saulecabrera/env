@@ -161,6 +161,8 @@
       vim-commentary
       plenary-nvim
       neogit
+      vim-rhubarb
+      vim-fugitive
       git-blame-nvim
 
       haskell-vim
