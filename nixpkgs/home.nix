@@ -159,6 +159,7 @@
       coc-nvim
 
       vim-commentary
+      plenary-nvim
       neogit
       git-blame-nvim
 
