@@ -21,7 +21,6 @@
 
   home.packages = with pkgs; [
     tig
-    mcfly
     nix-prefetch-git
     fd
     haskellPackages.ghcup
@@ -99,8 +98,6 @@
       [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
 
       [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
-
-      eval "$(mcfly init zsh)"
 
       export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
       export PATH="/opt/homebrew/opt/llvm/bin:$PATH"
