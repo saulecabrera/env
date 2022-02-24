@@ -182,6 +182,7 @@
       presenting-vim
       vim-diminactive
       vim-abolish
+      vim-smoothie
     ];
   };
 }
