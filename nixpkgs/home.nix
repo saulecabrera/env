@@ -194,6 +194,8 @@
         vim-diminactive
         vim-abolish
         vim-smoothie
+        vimwiki
+        glow-nvim
       ];
   };
 }
