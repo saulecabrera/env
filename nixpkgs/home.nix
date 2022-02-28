@@ -195,7 +195,7 @@
         vim-abolish
         vim-smoothie
         vimwiki
-        glow-nvim
+        markdown-preview-nvim
       ];
   };
 }
