@@ -139,51 +139,62 @@
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
-    plugins = with pkgs.vimPlugins; [
-      fzf-vim
-      vim-nix
-      vim-airline
-      vim-airline-themes
-      vim-gitgutter
-      zig-vim
+    plugins = with pkgs.vimPlugins; 
+      let copilot-vim = pkgs.vimUtils.buildVimPlugin {
+        name = "copilot-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "github";
+          repo = "copilot.vim";
+          rev = "47eb231463d3654de1a205c4e30567fbd006965d";
+          sha256 = "06znz1869h7cdh9xc0b54mysslgpf3qdwsj5zvnzrzk6fnfin03q";
+        };
+      }; 
+      in [
+        copilot-vim
+        fzf-vim
+        vim-nix
+        vim-airline
+        vim-airline-themes
+        vim-gitgutter
+        zig-vim
 
-      gruvbox
-      NeoSolarized
-      vim-gruvbox8
-      base16-vim
-      papercolor-theme
-      nord-vim
+        gruvbox
+        NeoSolarized
+        vim-gruvbox8
+        base16-vim
+        papercolor-theme
+        nord-vim
 
-      coc-nvim
+        coc-nvim
 
-      vim-commentary
-      plenary-nvim
-      neogit
-      vim-rhubarb
-      vim-fugitive
-      git-blame-nvim
+        vim-commentary
+        plenary-nvim
+        neogit
+        vim-rhubarb
+        vim-fugitive
+        git-blame-nvim
 
-      haskell-vim
-      vim-ruby
-      hop-nvim
-      vim-toml
+        haskell-vim
+        vim-ruby
+        hop-nvim
+        vim-toml
 
-      vim-vinegar
-      vim-eunuch
-      vim-surround
-      vim-which-key
-      vim-illuminate
-      vim-test
+        vim-vinegar
+        vim-eunuch
+        vim-surround
+        vim-which-key
+        vim-illuminate
+        vim-test
 
-      limelight-vim
-      goyo-vim
+        limelight-vim
+        goyo-vim
 
-      neoterm
-      presenting-vim
-      vim-diminactive
-      vim-abolish
-      vim-smoothie
-    ];
+        neoterm
+        presenting-vim
+        vim-diminactive
+        vim-abolish
+        vim-smoothie
+      ];
   };
 }
 
