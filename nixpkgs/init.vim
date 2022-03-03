@@ -186,6 +186,7 @@ let wiki.syntax = 'markdown'
 let wiki.ext = 'md'
 let g:vimwiki_list = [wiki]
 
-lua require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', jump_on_sole_occurrence = false }
 
-
+lua << EOF
+require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', jump_on_sole_occurrence = false }
+EOF
