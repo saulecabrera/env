@@ -194,7 +194,6 @@
         vim-diminactive
         vim-abolish
         vim-smoothie
-        vimwiki
         markdown-preview-nvim
       ];
   };
