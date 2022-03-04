@@ -148,10 +148,23 @@
           rev = "47eb231463d3654de1a205c4e30567fbd006965d";
           sha256 = "06znz1869h7cdh9xc0b54mysslgpf3qdwsj5zvnzrzk6fnfin03q";
         };
-      }; 
+      };
+
+      any-jump-vim = pkgs.vimUtils.buildVimPlugin {
+        name = "any-jump-vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "pechorin";
+          repo = "any-jump.vim";
+          rev = "67b17372342826355c015427a5cdbda7c5d3e3b9";
+          sha256 = "1i444f03129x2xqp8pkmmbcrh3ja84gx5iwkflcmhba1rdcyx3xq";
+        };
+      };
+
       in [
         copilot-vim
+        any-jump-vim
         fzf-vim
+        vim-indent-guides
         vim-nix
         vim-airline
         vim-airline-themes
