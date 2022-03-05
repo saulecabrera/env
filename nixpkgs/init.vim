@@ -177,16 +177,6 @@ nnoremap <silent> <leader>tn :Tnew<cr>
 
 nnoremap <leader><leader> <cmd>:Maps<CR>
 
-" Vimwiki
-
-let wiki = {}
-let wiki.path = '~/vimwiki/'
-let wiki.nested_syntaxes = {'bash': 'bash', 'haskell': 'haskell', 'rust': 'rust'}
-let wiki.syntax = 'markdown'
-let wiki.ext = 'md'
-let g:vimwiki_list = [wiki]
-
-
 lua << EOF
 require'hop'.setup { keys = 'etovxqpdygfblzhckisuran', jump_on_sole_occurrence = false }
 EOF
