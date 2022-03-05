@@ -162,6 +162,8 @@
       };
 
       in [
+        orgmode
+        nvim-treesitter
         copilot-vim
         any-jump-vim
         fzf-vim
