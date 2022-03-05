@@ -21,6 +21,7 @@
 
   home.packages = with pkgs; [
     tig
+    shellharden
     nix-prefetch-git
     fd
     haskellPackages.ghcup
