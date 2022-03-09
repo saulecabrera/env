@@ -204,7 +204,7 @@
 
         neoterm
         presenting-vim
-        vim-diminactive
+        vimade
         vim-abolish
         vim-smoothie
         markdown-preview-nvim
