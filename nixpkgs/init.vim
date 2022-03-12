@@ -76,7 +76,7 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme gruvbox
+colorscheme gruvbox8_hard
 set background=dark
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italicize_comments=1
