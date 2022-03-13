@@ -174,6 +174,7 @@ let g:neoterm_default_mod = 'vertical'
 let g:neoterm_size = 100
 nnoremap <silent> <leader>tt :Ttoggle<cr>
 nnoremap <silent> <leader>tn :Tnew<cr>
+autocmd TermOpen * setlocal nonumber norelativenumber
 
 " Mappings
 
