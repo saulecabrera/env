@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 {
   # Let Home Manager install and manage itself.
@@ -35,6 +35,7 @@
     figlet
     slides
     graph-easy
+    yarn
   ];
 
   programs.direnv.enable = true;
@@ -89,7 +90,13 @@
   programs.zsh = {
     enable = true;
     autocd = true;
-    # Installing llvm through brew
+    plugins = [
+      {
+        name = "powerlevel10k";
+        src = pkgs.zsh-powerlevel10k;
+        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+      }
+    ];
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
@@ -102,6 +109,8 @@
       export PATH="$HOME/.nix-profile/bin:$PATH"
       export PATH="$HOME/.local/bin:$PATH"
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
+
+      source $HOME/Developer/env/nixpkgs/.p10k.zsh
     '';
 
 
@@ -109,6 +118,7 @@
       MCFLY_LIGHT = "TRUE";
       MCFLY_KEY_SCHEME = "VIM";
     };
+
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
