@@ -169,6 +169,7 @@
       };
 
       in [
+        vim-plug
         orgmode
         nvim-treesitter
         copilot-vim
