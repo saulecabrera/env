@@ -36,6 +36,7 @@
     slides
     graph-easy
     yarn
+    elixir
   ];
 
   programs.direnv.enable = true;
@@ -169,6 +170,7 @@
       };
 
       in [
+        vim-elixir
         vim-plug
         orgmode
         nvim-treesitter
