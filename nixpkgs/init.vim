@@ -90,6 +90,7 @@ set listchars=tab:▸\ ,eol:¬
 set termguicolors
 colorscheme everforest
 set background=dark
+let g:everforest_background = 'dark'
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_italicize_comments=1
 let g:airline#extensions#tabline#enabled = 1
