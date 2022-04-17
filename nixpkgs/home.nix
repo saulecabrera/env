@@ -37,7 +37,7 @@
     graph-easy
     yarn
     elixir
-    gitui
+    emacs
   ];
 
   programs.direnv.enable = true;
@@ -130,6 +130,7 @@
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
+      m = "emacs -nw --eval \"(magit-status)\"";
     };
 
     oh-my-zsh = {
