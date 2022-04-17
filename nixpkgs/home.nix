@@ -37,6 +37,7 @@
     graph-easy
     yarn
     elixir
+    gitui
   ];
 
   programs.direnv.enable = true;
