@@ -38,6 +38,7 @@
     yarn
     elixir
     emacs
+    rust-analyzer
   ];
 
   programs.direnv.enable = true;
