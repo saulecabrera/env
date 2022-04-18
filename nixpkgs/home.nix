@@ -37,8 +37,6 @@
     graph-easy
     yarn
     elixir
-    emacs
-    rust-analyzer
   ];
 
   programs.direnv.enable = true;
@@ -131,7 +129,6 @@
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
-      m = "emacs -nw --eval \"(magit-status)\"";
     };
 
     oh-my-zsh = {
