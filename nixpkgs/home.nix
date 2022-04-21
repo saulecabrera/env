@@ -49,7 +49,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "gruvbox-dark";
+      theme = "base16";
       pager = "less -XFr";
     };
   };
