@@ -65,6 +65,7 @@
       zhuangtongfa.material-theme
       haskell.haskell
       bbenoist.nix
+      github.copilot
     ];
   };
 
