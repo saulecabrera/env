@@ -37,6 +37,7 @@
     graph-easy
     yarn
     elixir
+    tig
   ];
 
   programs.direnv.enable = true;
