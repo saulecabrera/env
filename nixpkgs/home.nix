@@ -37,7 +37,7 @@
     graph-easy
     yarn
     elixir
-    tig
+    lazygit
   ];
 
   programs.direnv.enable = true;
