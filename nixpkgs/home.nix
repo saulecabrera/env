@@ -38,6 +38,7 @@
     yarn
     elixir
     lazygit
+    rust-analyzer
   ];
 
   programs.direnv.enable = true;
