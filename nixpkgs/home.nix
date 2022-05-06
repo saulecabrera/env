@@ -39,6 +39,7 @@
     elixir
     lazygit
     rust-analyzer
+    tree
   ];
 
   programs.direnv.enable = true;
