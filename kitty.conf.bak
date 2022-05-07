@@ -1,7 +1,7 @@
 # --- FONTS ---
-font_family Menlo
-bold_font Menlo Bold
-italic_font Menlo Italic
+font_family Fira Code
+bold_font Fira Code Bold
+italic_font Fira Code Italic
 
 font_size 12
 
@@ -58,6 +58,6 @@ active_tab_font_style regular
 
 
 # BEGIN_KITTY_THEME
-# PaperColor Light
+# Solarized Light
 include current-theme.conf
 # END_KITTY_THEME

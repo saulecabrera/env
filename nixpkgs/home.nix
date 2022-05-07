@@ -52,7 +52,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16";
+      theme = "GitHub";
       pager = "less -XFr";
     };
   };
