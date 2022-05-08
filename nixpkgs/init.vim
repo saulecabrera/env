@@ -88,7 +88,7 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme PaperColor
+colorscheme everforest
 set background=light
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1

@@ -1,9 +1,17 @@
 # --- FONTS ---
-font_family Menlo
-bold_font Menlo Bold
-italic_font Menlo Italic
+# font_family PragmataPro Mono Liga
+# bold_font PragmataPro Mono Liga
+# italic_font PragmataPro Mono Liga
 
-font_size 12
+# font_features PragmataProMonoLiga-Regular +calt
+# font_features PragmataProMonoLiga-Bold +calt
+# font_features PragmataProMonoLiga-Italic +calt
+# 
+font_family Iosevka Term SS08 Regular
+bold_font Iosevka Term SS08 Bold
+italic_font Iosevka Term SS08 Italic
+
+font_size 13
 
 # --- TABS ---
 
@@ -58,6 +66,6 @@ active_tab_font_style regular
 
 
 # BEGIN_KITTY_THEME
-# PaperColor Light
+# Gruvbox Dark
 include current-theme.conf
 # END_KITTY_THEME
