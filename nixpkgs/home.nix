@@ -52,7 +52,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Solarized (light)";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };
