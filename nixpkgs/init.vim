@@ -15,6 +15,7 @@ endif
 call plug#begin()
 Plug 'rescript-lang/vim-rescript'
 Plug 'sainnhe/everforest'
+Plug 'evanleck/vim-svelte'
 call plug#end()
 
 
