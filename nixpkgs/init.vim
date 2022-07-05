@@ -16,6 +16,7 @@ call plug#begin()
 Plug 'rescript-lang/vim-rescript'
 Plug 'sainnhe/everforest'
 Plug 'evanleck/vim-svelte'
+Plug 'whatyouhide/vim-gotham'
 call plug#end()
 
 
@@ -89,7 +90,7 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme everforest
+colorscheme gotham
 set background=dark
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1
