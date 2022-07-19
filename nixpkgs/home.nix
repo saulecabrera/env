@@ -40,7 +40,6 @@
     lazygit
     rust-analyzer
     tree
-    yasm
   ];
 
   programs.direnv.enable = true;
