@@ -40,6 +40,7 @@
     lazygit
     rust-analyzer
     tree
+    inconsolata
   ];
 
   programs.direnv.enable = true;
