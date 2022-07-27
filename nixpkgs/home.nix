@@ -41,6 +41,7 @@
     rust-analyzer
     tree
     inconsolata
+    jetbrains-mono
   ];
 
   programs.direnv.enable = true;
