@@ -41,7 +41,7 @@
     rust-analyzer
     tree
     inconsolata
-    jetbrains-mono
+    fira-code
   ];
 
   programs.direnv.enable = true;
