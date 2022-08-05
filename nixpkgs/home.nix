@@ -54,7 +54,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Nord";
+      theme = "base16";
       pager = "less -XFr";
     };
   };
@@ -124,6 +124,7 @@
     sessionVariables = {
       MCFLY_LIGHT = "TRUE";
       MCFLY_KEY_SCHEME = "VIM";
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10";
     };
 
     enableAutosuggestions = true;
