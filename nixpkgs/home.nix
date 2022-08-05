@@ -124,7 +124,7 @@
     sessionVariables = {
       MCFLY_LIGHT = "TRUE";
       MCFLY_KEY_SCHEME = "VIM";
-      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=10";
+      ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#969896";
     };
 
     enableAutosuggestions = true;
