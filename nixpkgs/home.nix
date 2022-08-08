@@ -54,7 +54,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };

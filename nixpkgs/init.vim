@@ -90,7 +90,7 @@ set listchars=tab:▸\ ,eol:¬
 " Color scheme (terminal)
 " set t_Co=256
 set termguicolors
-colorscheme base16-tomorrow-night
+colorscheme gruvbox8
 set background=dark
 let g:gruvbox_contrast_dark='medium'
 let g:gruvbox_italicize_comments=1
@@ -99,6 +99,7 @@ let g:airline#extensions#tabline#show_buffers = 0
 let g:airline_powerline_fonts = 1
 " let g:airline_theme='gruvbox'
 let g:solarized_termcolors=256
+let g:goyo_width=120
 
 highlight Comment cterm=italic gui=italic
 
