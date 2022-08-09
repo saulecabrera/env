@@ -42,6 +42,7 @@
     tree
     inconsolata
     fira-code
+    jetbrains-mono
   ];
 
   programs.direnv.enable = true;
