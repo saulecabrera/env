@@ -43,6 +43,7 @@
     inconsolata
     fira-code
     jetbrains-mono
+    vistafonts
   ];
 
   programs.direnv.enable = true;
@@ -187,6 +188,7 @@
         fzf-vim
         vim-indent-guides
         vim-nix
+        # lightline-vim
         vim-airline
         vim-airline-themes
         vim-gitgutter
