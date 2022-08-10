@@ -17,6 +17,7 @@ Plug 'rescript-lang/vim-rescript'
 Plug 'sainnhe/everforest'
 Plug 'evanleck/vim-svelte'
 Plug 'whatyouhide/vim-gotham'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 

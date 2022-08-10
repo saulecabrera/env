@@ -38,7 +38,6 @@
     yarn
     elixir
     lazygit
-    rust-analyzer
     tree
     inconsolata
     fira-code
@@ -188,7 +187,6 @@
         fzf-vim
         vim-indent-guides
         vim-nix
-        # lightline-vim
         vim-airline
         vim-airline-themes
         vim-gitgutter
@@ -200,8 +198,6 @@
         base16-vim
         papercolor-theme
         nord-vim
-
-        coc-nvim
 
         vim-commentary
         plenary-nvim
