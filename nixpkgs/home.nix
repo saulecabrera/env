@@ -189,7 +189,7 @@
         vim-nix
         vim-airline
         vim-airline-themes
-        vim-gitgutter
+        vim-signify
         zig-vim
 
         gruvbox
