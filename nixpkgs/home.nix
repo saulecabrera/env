@@ -24,7 +24,7 @@
     shellharden
     nix-prefetch-git
     fd
-    haskellPackages.ghcup
+    # haskellPackages.ghcup
     haskellPackages.hspec-discover
     nodejs
     rustup
