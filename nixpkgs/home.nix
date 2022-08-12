@@ -39,10 +39,7 @@
     elixir
     lazygit
     tree
-    inconsolata
-    fira-code
-    jetbrains-mono
-    vistafonts
+    nasm
   ];
 
   programs.direnv.enable = true;
