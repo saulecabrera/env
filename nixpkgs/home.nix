@@ -154,17 +154,7 @@
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
     plugins = with pkgs.vimPlugins; 
-      let copilot-vim = pkgs.vimUtils.buildVimPlugin {
-        name = "copilot-vim";
-        src = pkgs.fetchFromGitHub {
-          owner = "github";
-          repo = "copilot.vim";
-          rev = "47eb231463d3654de1a205c4e30567fbd006965d";
-          sha256 = "06znz1869h7cdh9xc0b54mysslgpf3qdwsj5zvnzrzk6fnfin03q";
-        };
-      };
-
-      any-jump-vim = pkgs.vimUtils.buildVimPlugin {
+      let any-jump-vim = pkgs.vimUtils.buildVimPlugin {
         name = "any-jump-vim";
         src = pkgs.fetchFromGitHub {
           owner = "pechorin";
@@ -179,7 +169,6 @@
         vim-plug
         orgmode
         nvim-treesitter
-        copilot-vim
         any-jump-vim
         fzf-vim
         vim-indent-guides
