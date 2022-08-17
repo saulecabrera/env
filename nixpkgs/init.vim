@@ -185,6 +185,9 @@ nnoremap gs :HopPattern<cr>
 " Last Buffer
 nnoremap <leader><tab> :e#<cr>
 
+" Nicer save
+nnoremap <leader>fs :w<cr>
+
 " Neoterm
 let g:neoterm_default_mod = 'vertical'
 let g:neoterm_size = 100
