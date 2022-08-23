@@ -2,8 +2,9 @@
   <h1>@saulecabrera's env<h1>
 </div>
 
-## Usage
+## Pre-requisites
 
-- Install home-manager
-- `ln -s ./nixpkgs ~/.config/nixpkgs`
+- Install ruby
+- Run `ruby setup.rb`
+- Install home-manger
 - `home-manager switch`
