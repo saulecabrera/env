@@ -83,7 +83,7 @@ set ignorecase
 set smartcase
 set showmatch
 
-set guifont=JetBrains\ Mono:h12
+set guifont=Liberation\ Mono:h12
 
 " Visualize tabs and newlines
 set listchars=tab:▸\ ,eol:¬
