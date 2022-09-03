@@ -57,7 +57,7 @@
 
     settings = {
       disable_ligatures = "always";
-      adjust_baseline =  "-10%";
+      # adjust_baseline =  "-10%";
 
       background = "#1d2021";
       foreground = "#d4be98";
@@ -108,7 +108,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Liberation Mono";
+    font.name = "Berkeley Mono";
     font.size = 12;
   };
 
