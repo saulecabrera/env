@@ -17,3 +17,13 @@ SYMLINK.each do |f|
     File.symlink(origin_file, target_file)
   end
 end
+
+emacs_target_config_file = File.join(Dir.home,'.emacs.d', 'init.el')
+
+if File.exists?(emacs_target_config_file) || File.symlink?(emacs_target_config_file)
+  puts "File #{emacs_target_config_file} exists; skipping symlink"
+else
+  origin_file = File.join(Dir.pwd, 'init.el')
+  puts "Creating symlink from #{origin_file} to #{emacs_target_config_file}"
+  File.symlink(origin_file, emacs_target_config_file)
+end

@@ -146,6 +146,7 @@
         tool = "vimdiff";
         conflictstyle = "diff3";
       };
+      commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
         s = "status";
