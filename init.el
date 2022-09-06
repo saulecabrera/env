@@ -121,6 +121,12 @@
   :init (global-company-mode)
   :config (global-set-key (kbd "<tab>") #'company-indent-or-complete-common))
 
+;; Set meta key to Cmd
+(setq mac-option-key-is-meta nil
+      mac-command-key-is-meta t
+      mac-command-modifier 'meta
+      mac-option-modifier 'none)
+
 ;; Fast access to the config file
 (defun open-config-file ()
   (interactive)
