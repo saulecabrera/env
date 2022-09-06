@@ -39,6 +39,7 @@
     lazygit
     tree
     nasm
+    rust-analyzer
   ];
 
   programs.direnv.enable = true;
