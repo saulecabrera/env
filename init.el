@@ -24,10 +24,12 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Berkeley Mono"
-                    :height 120
+                    :family "Bitstream Vera Sans Mono"
+                    :height 110
                     :weight 'normal
                     :width 'normal)
+;; Disable bold
+(set-face-bold-p 'bold nil)
 
 ;; Line numbers
 (global-display-line-numbers-mode 1)
@@ -65,9 +67,13 @@
   :ensure t
   :init
   :hook ((lsp-mode . lsp-enable-which-key-integration))
-  :commands lsp)
+  :commands lsp
+  :config (setq lsp-headerline-breadcrumb-enable-diagnostics nil))
 
 (use-package lsp-ui
+  :hook ((lsp-mode . lsp-ui-mode))
+  :config (setq lsp-ui-sideline-enable t
+		lsp-ui-sideline-show-diagnostics t)
   :ensure t)
 
 ;; Rust
@@ -92,11 +98,11 @@
 	    "e"  'open-env
 	    ;; Windows
 	    "ww"  'other-window
-	    "wv"  'split-window-vertically
-	    "ws"  'split-window-horizontally
+	    "wv"  'split-window-horizontally
+	    "ws"  'split-window-vertically
 	    ;; Projectile
 	    "ff"  'projectile-find-file
-	    "fs"  'projectile-grep
+	    "fs"  'projectile-ripgrep
 	    "pp"  'projectile-switch-project)
   (evil-leader/set-leader "<SPC>"))
 
@@ -116,10 +122,31 @@
 (use-package helm-projectile
   :init (helm-projectile-on))
 
+;; ripgrep
+(use-package ripgrep
+  :ensure t)
+
+(use-package helm-rg
+  :ensure t
+  :after helm)
+
+;; Nix
+(use-package nix-mode
+  :ensure t
+  :mode "\\.nix\\'")
+
+(use-package projectile-ripgrep
+  :after projectile
+  :config (evil-collection-ripgrep-setup)
+  :ensure t)
+
 ;; Company mode
 (use-package company
   :init (global-company-mode)
   :config (global-set-key (kbd "<tab>") #'company-indent-or-complete-common))
+
+(use-package flycheck
+  :ensure t)
 
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil

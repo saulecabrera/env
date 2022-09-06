@@ -40,6 +40,7 @@
     tree
     nasm
     rust-analyzer
+    ttf_bitstream_vera
   ];
 
   programs.direnv.enable = true;
@@ -109,7 +110,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Berkeley Mono";
+    font.name = "Bitstream Vera Sans Mono";
     font.size = 12;
   };
 
