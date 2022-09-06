@@ -145,8 +145,13 @@
   :init (global-company-mode)
   :config (global-set-key (kbd "<tab>") #'company-indent-or-complete-common))
 
+;; Diagnostics
 (use-package flycheck
   :ensure t)
+
+(use-package evil-commentary
+  :ensure t
+  :init (evil-commentary-mode))
 
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
