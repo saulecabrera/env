@@ -14,7 +14,6 @@
 (require 'use-package)
 (setq use-package-always-ensure 't)
 
-
 ;; Keyboard-centric user interface
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -24,8 +23,8 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Bitstream Vera Sans Mono"
-                    :height 110
+                    :family "Liberation Mono"
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -33,11 +32,21 @@
 
 ;; Line numbers
 (global-display-line-numbers-mode 1)
+;; Column number mode
+(setq column-number-mode t)
 
 ;; Theme
-(use-package gruvbox-theme
-  :init (load-theme 'gruvbox-dark-hard t)
-  :config (setq doom-gruvbox-dark-variant "hard"))
+(use-package doom-themes
+  :ensure t
+  :config
+  ;; Global settings (defaults)
+  (setq doom-themes-enable-bold nil
+        doom-themes-enable-italic nil
+	doom-gruvbox-dark-variant "hard") ; if nil, italics is universally disabled
+  (load-theme 'doom-gruvbox t)
+
+  ;; Enable flashing mode-line on errors
+  (doom-themes-visual-bell-config))
 
 ;; Vim
 (use-package evil
@@ -68,13 +77,17 @@
   :init
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
-  :config (setq lsp-headerline-breadcrumb-enable-diagnostics nil))
+  :config (setq lsp-headerline-breadcrumb-enable-diagnostics nil
+		lsp-headerline-breadcrumb-enable nil))
 
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
   :config (setq lsp-ui-sideline-enable t
 		lsp-ui-sideline-show-diagnostics t)
-  :ensure t)
+  :ensure t
+  :init (add-hook 'lsp-ui-doc-frame-hook
+          (lambda (frame _w)
+            (set-face-attribute 'default frame :font "Liberation Mono" :height 120))))
 
 ;; Rust
 (use-package rustic
@@ -152,6 +165,10 @@
 (use-package evil-commentary
   :ensure t
   :init (evil-commentary-mode))
+
+(use-package hl-todo
+  :init (global-hl-todo-mode)
+  :ensure t)
 
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil

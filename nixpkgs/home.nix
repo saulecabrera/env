@@ -110,7 +110,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Bitstream Vera Sans Mono";
+    font.name = "Liberation Mono";
     font.size = 12;
   };
 
