@@ -131,7 +131,8 @@
   :config (projectile-mode +1))
 
 (use-package helm
-  :init (helm-mode 1))
+  :init (helm-mode 1)
+  :config (global-set-key (kbd "M-x") 'helm-M-x))
 
 (use-package helm-projectile
   :init (helm-projectile-on))
