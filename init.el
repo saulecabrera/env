@@ -178,6 +178,13 @@
   :config
   (evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
   :ensure t)
+
+(use-package dired
+  :ensure nil
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-up-directory
+    "l" 'dired-find-file))
   
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
