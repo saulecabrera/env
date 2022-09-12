@@ -117,6 +117,7 @@
 	    "ff"  'projectile-find-file
 	    "fs"  'projectile-ripgrep
 	    "pp"  'projectile-switch-project)
+
   (evil-leader/set-leader "<SPC>"))
 
 ;; Which key
@@ -170,6 +171,13 @@
   :init (global-hl-todo-mode)
   :ensure t)
 
+(use-package evil-easymotion
+  :init
+  (evilem-default-keybindings "SPC")
+  :config
+  (evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
+  :ensure t)
+  
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
