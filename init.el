@@ -77,13 +77,19 @@
   :init
   :hook ((lsp-mode . lsp-enable-which-key-integration))
   :commands lsp
-  :config (setq lsp-headerline-breadcrumb-enable-diagnostics nil
-		lsp-headerline-breadcrumb-enable nil))
+  :config
+  (setq lsp-headerline-breadcrumb-enable-diagnostics nil
+	lsp-headerline-breadcrumb-enable nil)
+  (evil-collection-define-key 'normal 'lsp-mode-map
+    "gd" 'lsp-find-definition
+    "gr" 'lsp-find-references))
 
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
   :config (setq lsp-ui-sideline-enable t
-		lsp-ui-sideline-show-diagnostics t)
+		lsp-ui-sideline-show-diagnostics t
+		lsp-ui-doc-show-with-cursor t
+		lsp-ui-show-with-mouse t)
   :ensure t
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
@@ -100,10 +106,6 @@
   :ensure t
   :init (global-evil-leader-mode)
   :config (evil-leader/set-key
-	    ;; LSP bindings
-	    "gd" 'lsp-find-definition
-	    "gr" 'lsp-find-references
-	    "K"  'lsp-describe-thing-at-point
 	    ;; Magit
 	    "m"  'magit-status
 	    ;; Config file
@@ -128,7 +130,10 @@
 ;; Projectile
 (use-package projectile
   :ensure t
-  :config (projectile-mode +1))
+  :config
+  (projectile-mode +1)
+  (evil-collection-define-key 'normal 'projectile-mode-map
+    "-" 'dired-jump))
 
 (use-package helm
   :init (helm-mode 1)
