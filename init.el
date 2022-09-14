@@ -190,6 +190,26 @@
   (evil-collection-define-key 'normal 'dired-mode-map
     "h" 'dired-up-directory
     "l" 'dired-find-file))
+
+(use-package web-mode
+  :config
+  (setq js-indent-level 2)
+  (setq typescript-indent-level 2)
+  (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
+  (add-hook 'web-mode-hook
+	    (lambda ()
+	      (when (string-equal "tsx" (file-name-extension buffer-file-name))
+		(setup-tide-mode))))
+  :ensure t)
+
+(use-package tide
+  :ensure t
+  :after (typescript-mode company flycheck)
+  :hook ((typescript-mode . tide-setup)
+         (typescript-mode . tide-hl-identifier-mode)))
+
+(use-package graphql-mode
+  :ensure t)
   
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
@@ -205,3 +225,12 @@
 (defun open-env ()
   (interactive)
   (dired "~/Developer/env"))
+
+(defun setup-tide-mode ()
+  (interactive)
+  (tide-setup)
+  (flycheck-mode +1)
+  (setq flycheck-check-syntax-automatically '(save mode-enabled))
+  (eldoc-mode +1)
+  (tide-hl-identifier-mode +1)
+  (company-mode +1))
