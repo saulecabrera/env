@@ -118,7 +118,10 @@
 	    ;; Projectile
 	    "ff"  'projectile-find-file
 	    "fs"  'projectile-ripgrep
-	    "pp"  'projectile-switch-project)
+	    "pp"  'projectile-switch-project
+	    ;; Perspective
+	    "wb"  'persp-list-buffers
+	    "wn"  'persp-switch)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -210,6 +213,11 @@
 
 (use-package graphql-mode
   :ensure t)
+
+(use-package perspective
+  :init
+  (setq persp-suppress-no-prefix-key-warning t)
+  (persp-mode))
   
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
