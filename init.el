@@ -24,7 +24,7 @@
 ;; Font
 (set-face-attribute 'default nil
                     :family "Liberation Mono"
-                    :height 120
+                    :height 130
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -117,11 +117,13 @@
 	    "ws"  'split-window-vertically
 	    ;; Projectile
 	    "ff"  'projectile-find-file
-	    "fs"  'projectile-ripgrep
+	    "f/"  'projectile-ripgrep
 	    "pp"  'projectile-switch-project
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
-	    "wn"  'persp-switch)
+	    "wn"  'persp-switch
+	    ;; General
+	    "fs"  'save-buffer)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -218,6 +220,10 @@
   :init
   (setq persp-suppress-no-prefix-key-warning t)
   (persp-mode))
+
+(use-package persp-projectile
+  :ensure t
+  :init (require 'persp-projectile))
   
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
