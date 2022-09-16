@@ -24,7 +24,7 @@
 ;; Font
 (set-face-attribute 'default nil
                     :family "Liberation Mono"
-                    :height 130
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -82,7 +82,8 @@
 	lsp-headerline-breadcrumb-enable nil)
   (evil-collection-define-key 'normal 'lsp-mode-map
     "gd" 'lsp-find-definition
-    "gr" 'lsp-find-references))
+    "gr" 'lsp-find-references)
+  (add-hook 'c++-mode-hook 'lsp))
 
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
@@ -121,7 +122,10 @@
 	    "pp"  'projectile-switch-project
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
-	    "wn"  'persp-switch
+	    "ww"  'persp-switch
+	    "wn"  'persp-next
+	    "wp"  'persp-prev
+	    "wx"  'persp-kill
 	    ;; General
 	    "fs"  'save-buffer)
 
