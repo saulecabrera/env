@@ -23,7 +23,7 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Liberation Mono"
+                    :family "Bitstream Vera Sans Mono"
                     :height 120
                     :weight 'normal
                     :width 'normal)
@@ -79,11 +79,10 @@
   :commands lsp
   :config
   (setq lsp-headerline-breadcrumb-enable-diagnostics nil
-	lsp-headerline-breadcrumb-enable nil)
+	      lsp-headerline-breadcrumb-enable nil)
   (evil-collection-define-key 'normal 'lsp-mode-map
     "gd" 'lsp-find-definition
-    "gr" 'lsp-find-references)
-  (add-hook 'c++-mode-hook 'lsp))
+    "gr" 'lsp-find-references))
 
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
@@ -94,13 +93,13 @@
   :ensure t
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Liberation Mono" :height 120))))
+            (set-face-attribute 'default frame :font "Bitstream Vera Sans Mono" :height 120))))
 
 ;; Rust
 (use-package rustic
   :ensure t
   :config (setq rustic-lsp-client 'lsp-mode)
-          (setq rustic-analyzer-command '("/Users/saulecabrera/.nix-profile/bin/rust-analyzer")))
+         (setq rustic-analyzer-command '("/Users/saulecabrera/.nix-profile/bin/rust-analyzer")))
 
 ;; Leader configuration
 (use-package evil-leader
@@ -113,9 +112,13 @@
 	    "c"  'open-config-file
 	    "e"  'open-env
 	    ;; Windows
-	    "ww"  'other-window
+	    "wo"  'other-window
 	    "wv"  'split-window-horizontally
 	    "ws"  'split-window-vertically
+	    "wl"  'windmove-right
+	    "wh"  'windmove-left
+	    "wj"  'windmove-down
+	    "wk"  'windmove-up
 	    ;; Projectile
 	    "ff"  'projectile-find-file
 	    "f/"  'projectile-ripgrep
