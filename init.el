@@ -129,6 +129,7 @@
 	    "wn"  'persp-next
 	    "wp"  'persp-prev
 	    "wx"  'persp-kill
+	    "wy"  'persp-scratch-buffer
 	    ;; General
 	    "fs"  'save-buffer)
 
