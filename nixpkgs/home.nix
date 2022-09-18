@@ -41,6 +41,7 @@
     nasm
     rust-analyzer
     ttf_bitstream_vera
+    qemu
   ];
 
   programs.direnv.enable = true;
@@ -110,8 +111,8 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Bitstream Vera Sans Mono";
-    font.size = 12;
+    font.name = "Inconsolata";
+    font.size = 14;
   };
 
   programs.bat = {

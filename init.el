@@ -23,8 +23,8 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Bitstream Vera Sans Mono"
-                    :height 120
+                    :family "Inconsolata"
+                    :height 140
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -83,7 +83,7 @@
   (evil-collection-define-key 'normal 'lsp-mode-map
     "gd" 'lsp-find-definition
     "gr" 'lsp-find-references))
-
+														   
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
   :config (setq lsp-ui-sideline-enable t
@@ -93,7 +93,7 @@
   :ensure t
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Bitstream Vera Sans Mono" :height 120))))
+            (set-face-attribute 'default frame :font "Inconsolata" :height 140))))
 
 ;; Rust
 (use-package rustic
@@ -105,7 +105,7 @@
 (use-package evil-leader
   :ensure t
   :init (global-evil-leader-mode)
-  :config (evil-leader/set-key
+  :config (evil-leader/set-key												      
 	    ;; Magit
 	    "m"  'magit-status
 	    ;; Config file
@@ -208,6 +208,8 @@
   :config
   (setq js-indent-level 2)
   (setq typescript-indent-level 2)
+  (setq web-mode-code-indent-offset 2)
+  (setq web-mode-markup-indent-offset 2)
   (add-to-list 'auto-mode-alist '("\\.tsx\\'" . web-mode))
   (add-hook 'web-mode-hook
 	    (lambda ()
