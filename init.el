@@ -65,7 +65,10 @@
 
 ;; Magit
 (use-package magit
-             :ensure t)
+  :config
+  (evil-collection-define-key 'normal 'magit-mode-map
+    "C-<tab>" 'magit-section-cycle-diffs)
+  :ensure t)
 
 ;; Git
 (use-package git-gutter
