@@ -131,7 +131,12 @@
 	    "wx"  'persp-kill
 	    "wy"  'persp-scratch-buffer
 	    ;; General
-	    "fs"  'save-buffer)
+	    "fs"  'save-buffer
+	    ;; Roam
+	    "rc"  'org-roam-capture
+	    "rt"  'org-roam-tag-add
+	    "rr" 'org-roam-tag-remove
+	    "rf"  'org-roam-node-find)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -234,7 +239,22 @@
 (use-package persp-projectile
   :ensure t
   :init (require 'persp-projectile))
-  
+
+(setq org-directory (concat (getenv "HOME") "/Developer/org/"))
+
+(use-package org-roam
+  :after org
+  :init (setq org-roam-v2-ack t) ;; Acknowledge V2 upgrade
+  :custom
+  (org-roam-directory (file-truename org-directory))
+  :config
+  (org-roam-setup)) 
+
+(use-package org-bullets
+  :ensure t
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
