@@ -23,8 +23,8 @@
 
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Inconsolata"
-                    :height 140
+                    :family "Liberation Mono"
+                    :height 120
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -93,13 +93,13 @@
   :ensure t
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Inconsolata" :height 140))))
+            (set-face-attribute 'default frame :font "Liberation Mono" :height 120))))
 
 ;; Rust
 (use-package rustic
   :ensure t
   :config (setq rustic-lsp-client 'lsp-mode)
-         (setq rustic-analyzer-command '("/Users/saulecabrera/.nix-profile/bin/rust-analyzer")))
+          (setq rustic-analyzer-command '("/Users/saulecabrera/.nix-profile/bin/rust-analyzer")))
 
 ;; Leader configuration
 (use-package evil-leader
