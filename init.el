@@ -21,10 +21,13 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
+(setq font-family "Fira Code")
+(setq font-size 120)
+
 ;; Font
 (set-face-attribute 'default nil
-                    :family "Liberation Mono"
-                    :height 120
+                    :family font-family
+                    :height font-size
                     :weight 'normal
                     :width 'normal)
 ;; Disable bold
@@ -96,7 +99,7 @@
   :ensure t
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
-            (set-face-attribute 'default frame :font "Liberation Mono" :height 120))))
+            (set-face-attribute 'default frame :font font-family :height font-size))))
 
 ;; Rust
 (use-package rustic
@@ -138,8 +141,10 @@
 	    ;; Roam
 	    "rc"  'org-roam-capture
 	    "rt"  'org-roam-tag-add
-	    "rr" 'org-roam-tag-remove
-	    "rf"  'org-roam-node-find)
+	    "rr"  'org-roam-tag-remove
+	    "rf"  'org-roam-node-find
+	    ;; Org
+	    "oa"  'org-agenda)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -244,6 +249,8 @@
   :init (require 'persp-projectile))
 
 (setq org-directory (concat (getenv "HOME") "/Developer/org/"))
+
+(setq org-agenda-files (list "~/Developer/org/life.org"))
 
 (use-package org-roam
   :after org
