@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "Fira Code")
+(setq font-family "Liberation Mono")
 (setq font-size 120)
 
 ;; Font
@@ -248,9 +248,48 @@
   :ensure t
   :init (require 'persp-projectile))
 
-(setq org-directory (concat (getenv "HOME") "/Developer/org/"))
+(use-package org
+  :ensure nil
+  :config (setq org-agenda-files (list "~/Developer/org/life.org")
+		org-directory (concat (getenv "HOME") "/Developer/org/")
+		org-hide-emphasis-markers t)
+  (let* ((variable-tuple
+	  (cond ((x-list-fonts "Karla")           '(:font "Karla"))
+		((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
+		(nil (warn "Cannot find font for org mode"))))
+	 (base-font-color     (face-foreground 'default nil 'default))
+	 (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
 
-(setq org-agenda-files (list "~/Developer/org/life.org"))
+    (custom-theme-set-faces
+     'user
+     `(org-level-8 ((t (,@headline ,@variable-tuple))))
+     `(org-level-7 ((t (,@headline ,@variable-tuple))))
+     `(org-level-6 ((t (,@headline ,@variable-tuple))))
+     `(org-level-5 ((t (,@headline ,@variable-tuple))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.1))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(variable-pitch ((t (:family "Karla" :height 150))))
+     '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
+
+     '(org-block ((t (:inherit fixed-pitch))))
+     '(org-code ((t (:inherit (shadow fixed-pitch)))))
+     '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
+     '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+     '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
+     '(org-drawer ((t (:inherit fixed-pitch))) t)
+     '(org-document-title ((t (:inherit fixed-pitch))) t)
+     '(org-date ((t (:inherit fixed-pitch))) t)
+     '(org-property-value ((t (:inherit fixed-pitch))) t)
+     '(org-special-keyword ((t (:inherit (fixed-pitch)))))
+     '(org-tag ((t (:inherit (shadow fixed-pitch) :weight bold :height 0.8))))
+     '(org-verbatim ((t (:inherit (shadow fixed-pitch)))))
+     '(line-number ((t (:inherit (shadow fixed-pitch)))))
+     '(line-number-current-line ((t (:inherit (shadow fixed-pitch)))))
+     ))
+  (add-hook 'org-mode-hook 'variable-pitch-mode)
+  (add-hook 'org-mode-hook 'writeroom-mode))
 
 (use-package org-roam
   :after org
@@ -260,10 +299,9 @@
   :config
   (org-roam-setup)) 
 
-(use-package org-bullets
+(use-package writeroom-mode
   :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+  :config (setq writeroom-width 140))
 
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
