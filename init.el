@@ -124,6 +124,7 @@
 	    ;; Projectile
 	    "ff"  'projectile-find-file
 	    "f/"  'projectile-ripgrep
+	    "fr"  'helm-buffer-list
 	    "pp"  'projectile-switch-project
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
@@ -140,7 +141,9 @@
 	    "rr"  'org-roam-tag-remove
 	    "rf"  'org-roam-node-find
 	    ;; Org
-	    "oa"  'org-agenda)
+	    "oa"  'org-agenda
+	    ;; Enhanced search via swoop
+	    "s"   'helm-swoop)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -273,7 +276,7 @@
      `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Crimson Pro" :height 180))))
+     '(variable-pitch ((t (:family "Crimson Pro" :height 170))))
      '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
