@@ -31,10 +31,8 @@
                     :weight 'normal
                     :width 'normal)
 ;; Line numbers
-(use-package linum-off
-  :config
-  (global-linum-mode t)
-  (setq column-number-mode t))
+(setq column-number-mode t)
+(global-display-line-numbers-mode 1)
 
 ;; Theme
 (use-package doom-themes
@@ -162,12 +160,16 @@
 (use-package helm
   :init (helm-mode 1)
   :config (global-set-key (kbd "M-x") 'helm-M-x))
+(use-package helm-swoop
+  :after helm)
 
 (use-package helm-projectile
   :init (helm-projectile-on))
 
 ;; ripgrep
 (use-package ripgrep
+  :config
+  (rg-enable-menu)
   :ensure t)
 
 (use-package helm-rg
@@ -291,7 +293,8 @@
      ))
   (add-hook 'org-mode-hook 'variable-pitch-mode)
   (add-hook 'org-mode-hook 'writeroom-mode)
-  (add-hook 'org-mode-hook 'org-indent-mode))
+  (add-hook 'org-mode-hook 'org-indent-mode)
+  (add-hook 'org-mode-hook '(lambda () (global-display-line-numbers-mode nil))))
 
 (use-package org-roam
   :after org

@@ -203,6 +203,7 @@
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
+      e = "open /Applications/Emacs.app";
     };
 
     oh-my-zsh = {
