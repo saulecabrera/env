@@ -30,13 +30,11 @@
                     :height font-size
                     :weight 'normal
                     :width 'normal)
-;; Disable bold
-(set-face-bold-p 'bold nil)
-
 ;; Line numbers
-(global-display-line-numbers-mode 1)
-;; Column number mode
-(setq column-number-mode t)
+(use-package linum-off
+  :config
+  (global-linum-mode t)
+  (setq column-number-mode t))
 
 ;; Theme
 (use-package doom-themes
@@ -252,13 +250,14 @@
   :ensure nil
   :config (setq org-agenda-files (list "~/Developer/org/life.org")
 		org-directory (concat (getenv "HOME") "/Developer/org/")
-		org-hide-emphasis-markers t)
+		org-hide-emphasis-markers t
+		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Karla")           '(:font "Karla"))
+	  (cond ((x-list-fonts "Inter")           '(:font "Inter"))
 		((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
-	 (headline           `(:inherit default :weight bold :foreground ,base-font-color)))
+	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
 
     (custom-theme-set-faces
      'user
@@ -266,11 +265,13 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 1.1))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
-     '(variable-pitch ((t (:family "Karla" :height 150))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
+     '(org-done ((t (:inherit fixed-pitch))))
+     '(org-todo ((t (:inherit fixed-pitch))))
+     '(variable-pitch ((t (:family "Crimson Pro" :height 180))))
      '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
@@ -289,7 +290,8 @@
      '(line-number-current-line ((t (:inherit (shadow fixed-pitch)))))
      ))
   (add-hook 'org-mode-hook 'variable-pitch-mode)
-  (add-hook 'org-mode-hook 'writeroom-mode))
+  (add-hook 'org-mode-hook 'writeroom-mode)
+  (add-hook 'org-mode-hook 'org-indent-mode))
 
 (use-package org-roam
   :after org
@@ -301,7 +303,7 @@
 
 (use-package writeroom-mode
   :ensure t
-  :config (setq writeroom-width 140))
+  :config (setq writeroom-width 160))
 
 ;; Set meta key to Cmd
 (setq mac-option-key-is-meta nil
