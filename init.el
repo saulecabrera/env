@@ -258,7 +258,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Inter")           '(:font "Inter"))
+	  (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
 		((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
@@ -276,7 +276,7 @@
      `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Crimson Pro" :height 170))))
+     '(variable-pitch ((t (:family "Source Sans Pro" :height 140))))
      '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
