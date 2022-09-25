@@ -296,8 +296,9 @@
      ))
   (add-hook 'org-mode-hook 'variable-pitch-mode)
   (add-hook 'org-mode-hook 'writeroom-mode)
-  (add-hook 'org-mode-hook 'org-indent-mode)
-  (add-hook 'org-mode-hook '(lambda () (global-display-line-numbers-mode nil))))
+			   
+			  
+  (add-hook 'org-mode-hook 'org-indent-mode))
 
 (use-package org-roam
   :after org
@@ -308,10 +309,13 @@
   (org-roam-setup)) 
 
 (use-package writeroom-mode
-  :ensure t
-  :config (setq writeroom-width 160))
+    :after org
+    :config
+    (setq writeroom-width 160)
+    (add-hook 'writeroom-mode-hook '(lambda () (display-line-numbers-mode nil)))
+    :ensure t)
 
-;; Set meta key to Cmd
+;; package meta key to Cmd
 (setq mac-option-key-is-meta nil
       mac-command-key-is-meta t
       mac-command-modifier 'meta
