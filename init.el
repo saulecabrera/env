@@ -125,7 +125,7 @@
 	    ;; Projectile
 	    "ff"  'projectile-find-file
 	    "f/"  'projectile-ripgrep
-	    "fr"  'helm-buffer-list
+	    "fr"  'helm-buffers-list
 	    "pp"  'projectile-switch-project
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
