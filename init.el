@@ -110,6 +110,7 @@
   :config (evil-leader/set-key												      
 	    ;; Magit
 	    "m"  'magit-status
+	    "gb"  'magit-blame
 	    ;; Config file
 	    "c"  'open-config-file
 	    "e"  'open-env
