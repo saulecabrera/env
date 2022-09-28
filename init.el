@@ -259,7 +259,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Source Sans Pro") '(:font "Source Sans Pro"))
+	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
 		((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
@@ -271,13 +271,13 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 130))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 130))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 130))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 130))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Source Sans Pro" :height 140))))
+     '(variable-pitch ((t (:family "Berkeley Mono" :height 130))))
      '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
