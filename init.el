@@ -212,6 +212,7 @@
   (evilem-default-keybindings "SPC")
   :config
   (evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
+  (evilem-define (kbd "SPC gW") 'evil-backward-word-begin)
   :ensure t)
 
 (use-package dired
