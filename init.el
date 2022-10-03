@@ -260,8 +260,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
-		((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
+	  (cond ((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -278,7 +277,7 @@
      `(org-level-1 ((t (,@headline ,@variable-tuple :height 130))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Berkeley Mono" :height 130))))
+     '(variable-pitch ((t (:family "Liberation Mono" :height 120))))
      '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
