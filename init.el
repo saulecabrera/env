@@ -157,6 +157,7 @@
 (use-package projectile
   :ensure t
   :config
+  (setq projectile-project-search-path '("~/Developer/" "~/src/github.com/"))
   (projectile-mode +1)
   (evil-collection-define-key 'normal 'projectile-mode-map
     "-" 'dired-jump))
