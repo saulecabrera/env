@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "Liberation Mono")
+(setq font-family "Berkeley Mono")
 (setq font-size 120)
 
 ;; Font
@@ -74,6 +74,7 @@
 (use-package git-gutter
   :init (global-git-gutter-mode t))
 
+
 ;; LSP
 (use-package lsp-mode
   :ensure t
@@ -97,6 +98,15 @@
   :init (add-hook 'lsp-ui-doc-frame-hook
           (lambda (frame _w)
             (set-face-attribute 'default frame :font font-family :height font-size))))
+
+;; Haskell
+(use-package haskell-mode
+  :ensure t)
+
+(use-package lsp-haskell
+  :ensure t
+  :config
+  (add-hook 'haskell-mode-hook #'lsp))
 
 ;; Rust
 (use-package rustic
@@ -262,7 +272,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
+	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -279,8 +289,8 @@
      `(org-level-1 ((t (,@headline ,@variable-tuple :height 130))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Liberation Mono" :height 120))))
-     '(fixed-pitch ((t ( :family "Liberation Mono" :height 120))))
+     `(variable-pitch ((t (:family font-family :height 130))))
+     `(fixed-pitch ((t ( :family font-family :height 130))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
