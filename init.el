@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "Berkeley Mono")
+(setq font-family "Liberation Mono")
 (setq font-size 120)
 
 ;; Font
@@ -39,9 +39,9 @@
   :ensure t
   :config
   ;; Global settings (defaults)
-  (setq doom-themes-enable-bold nil
+  (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil
-	doom-gruvbox-dark-variant "hard") ; if nil, italics is universally disabled
+	doom-gruvbox-dark-variant "hard")
   (load-theme 'doom-gruvbox t)
 
   ;; Enable flashing mode-line on errors
@@ -134,7 +134,7 @@
 	    "wj"  'windmove-down
 	    "wk"  'windmove-up
 	    ;; Projectile
-	    "ff"  'projectile-find-file
+	    "ff"  'fzf-projectile
 	    "f/"  'projectile-ripgrep
 	    "fr"  'helm-buffers-list
 	    "pp"  'projectile-switch-project
@@ -163,6 +163,16 @@
 (use-package which-key
   :ensure t
   :init (which-key-mode))
+
+(use-package fzf
+  :ensure t
+  :config
+  (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"
+	fzf/executable "fzf"
+	fzf/git-grep-args "-i --line-number %s"
+	fzf/grep-command "rg --no-heading -nH"
+	fzf/position-bottom t
+	fzf/window-height 15))
 
 ;; Projectile
 (use-package projectile
@@ -267,12 +277,12 @@
 
 (use-package org
   :ensure nil
-  :config (setq org-agenda-files (list "~/Developer/org/life.org")
+  :config (setq org-agenda-files (list "~/Developer/org/")
 		org-directory (concat (getenv "HOME") "/Developer/org/")
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
+	  (cond ((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -283,14 +293,14 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 130))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 130))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 130))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 130))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 120))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     `(variable-pitch ((t (:family font-family :height 130))))
-     `(fixed-pitch ((t ( :family font-family :height 130))))
+     `(variable-pitch ((t (:family font-family :height 120))))
+     `(fixed-pitch ((t ( :family font-family :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
