@@ -42,7 +42,7 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil
 	doom-gruvbox-dark-variant "hard")
-  (load-theme 'doom-gruvbox t)
+  (load-theme 'solarized-light-high-contrast t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -71,8 +71,12 @@
   :ensure t)
 
 ;; Git
-(use-package git-gutter
-  :init (global-git-gutter-mode t))
+;; (use-package git-gutter
+;;   :init (global-git-gutter-mode t))
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-dired-mode))
 
 
 ;; LSP
