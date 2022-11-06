@@ -43,7 +43,7 @@
         doom-themes-enable-italic nil
 	doom-gruvbox-dark-variant "hard")
 
-  (load-theme 'doom-nord-light t)
+  (load-theme 'doom-gruvbox t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))

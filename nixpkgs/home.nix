@@ -59,16 +59,16 @@
     ];
 
     settings = {
-      disable_ligatures = "always";
+ disable_ligatures = "always";
       # adjust_baseline =  "-10%";
 
-      background = "#eeeeee";
-      foreground = "#444444";
+      background = "#1d2021";
+      foreground = "#d4be98";
 
-      selection_background = "#e9e2cb";
-      selection_foreground = "#fcf4dc";
+      selection_background = "#d4be98";
+      selection_foreground = "#1d2021";
 
-      cursor = "#444444";
+      cursor = "#a89984";
       cursor_text_color = "background";
 
       active_tab_background = "#1d2021";
@@ -78,29 +78,37 @@
       inactive_tab_foreground = "#a89984";
       inactive_tab_font_style = "normal";
 
-      color0 = "#eeeeee";
-      color8 = "#bcbcbc";
+      # Black
+      color0 = "#665c54";
+      color8 = "#928374";
 
-      color1 = "#af0000";
-      color9 = "#d70000";
+      # Red
+      color1 = "#ea6962";
+      color9 = "#ea6962";
 
-      color2 = "#008700";
-      color10 = "#d70087";
+      # Green
+      color2 = "#a9b665";
+      color10 = "#a9b665";
 
-      color3 = "#5f8700";
-      color11 = "#8700af";
+      # Yellow
+      color3 = "#e78a4e";
+      color11 = "#d8a657";
 
-      color4 = "#0087af";
-      color12 = "#d75f00";
+      # Blue
+      color4 = "#7daea3";
+      color12 = "#7daea3";
 
-      color5 = "#878787";
-      color13 = "#d75f00";
+      # Magenta
+      color5 = "#d3869b";
+      color13 = "#d3869b";
 
-      color6 = "#005f87";
-      color14 = "#005faf";
+      # Cyan
+      color6 = "#89b482";
+      color14 = "#89b482";
 
-      color7 = "#444444";
-      color15 = "#005f87";
+      # White
+      color7 = "#d4be98";
+      color15 = "#d4be98";
     };
 
     font.name = "Liberation Mono";
