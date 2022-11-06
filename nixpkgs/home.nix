@@ -62,13 +62,13 @@
       disable_ligatures = "always";
       # adjust_baseline =  "-10%";
 
-      background = "#1d2021";
-      foreground = "#d4be98";
+      background = "#eeeeee";
+      foreground = "#444444";
 
-      selection_background = "#d4be98";
-      selection_foreground = "#1d2021";
+      selection_background = "#e9e2cb";
+      selection_foreground = "#fcf4dc";
 
-      cursor = "#a89984";
+      cursor = "#444444";
       cursor_text_color = "background";
 
       active_tab_background = "#1d2021";
@@ -78,37 +78,29 @@
       inactive_tab_foreground = "#a89984";
       inactive_tab_font_style = "normal";
 
-      # Black
-      color0 = "#665c54";
-      color8 = "#928374";
+      color0 = "#eeeeee";
+      color8 = "#bcbcbc";
 
-      # Red
-      color1 = "#ea6962";
-      color9 = "#ea6962";
+      color1 = "#af0000";
+      color9 = "#d70000";
 
-      # Green
-      color2 = "#a9b665";
-      color10 = "#a9b665";
+      color2 = "#008700";
+      color10 = "#d70087";
 
-      # Yellow
-      color3 = "#e78a4e";
-      color11 = "#d8a657";
+      color3 = "#5f8700";
+      color11 = "#8700af";
 
-      # Blue
-      color4 = "#7daea3";
-      color12 = "#7daea3";
+      color4 = "#0087af";
+      color12 = "#d75f00";
 
-      # Magenta
-      color5 = "#d3869b";
-      color13 = "#d3869b";
+      color5 = "#878787";
+      color13 = "#d75f00";
 
-      # Cyan
-      color6 = "#89b482";
-      color14 = "#89b482";
+      color6 = "#005f87";
+      color14 = "#005faf";
 
-      # White
-      color7 = "#d4be98";
-      color15 = "#d4be98";
+      color7 = "#444444";
+      color15 = "#005f87";
     };
 
     font.name = "Liberation Mono";
@@ -120,7 +112,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "gruvbox-dark";
+      theme = "GitHub";
       pager = "less -XFr";
     };
   };

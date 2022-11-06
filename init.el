@@ -42,7 +42,8 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil
 	doom-gruvbox-dark-variant "hard")
-  (load-theme 'solarized-light-high-contrast t)
+
+  (load-theme 'doom-nord-light t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -171,7 +172,7 @@
 (use-package fzf
   :ensure t
   :config
-  (setq fzf/args "-x --color bw --print-query --margin=1,0 --no-hscroll"
+  (setq fzf/args "-x --print-query --margin=1,0 --no-hscroll"
 	fzf/executable "fzf"
 	fzf/git-grep-args "-i --line-number %s"
 	fzf/grep-command "rg --no-heading -nH"
