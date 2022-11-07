@@ -79,6 +79,9 @@
   (global-diff-hl-mode)
   (diff-hl-dired-mode))
 
+;; ILE
+(add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
+
 
 ;; LSP
 (use-package lsp-mode
