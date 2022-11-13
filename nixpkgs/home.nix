@@ -111,8 +111,8 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Liberation Mono";
-    font.size = 12;
+    font.name = "PragmataPro Mono Liga";
+    font.size = 14;
   };
 
   programs.bat = {
@@ -120,7 +120,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "GitHub";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };
