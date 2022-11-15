@@ -21,7 +21,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "PragmataPro Mono Liga")
+(setq font-family "Inconsolata")
 (setq font-size 140)
 
 ;; Font
@@ -290,7 +290,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "PragmataPro Mono Liga") '(:font "PragmataPro Mono Liga"))
+	  (cond ((x-list-fonts "JetBrains Mono") '(:font "JetBrains Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))

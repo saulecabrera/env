@@ -111,7 +111,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "PragmataPro Mono Liga";
+    font.name = "Inconsolata";
     font.size = 14;
   };
 
