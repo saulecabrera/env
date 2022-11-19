@@ -14,6 +14,10 @@
 (require 'use-package)
 (setq use-package-always-ensure 't)
 
+(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook
+  '(lambda() (set-fill-column 80)))
+
 ;; Keyboard-centric user interface
 (setq inhibit-startup-message t)
 (tool-bar-mode -1)
@@ -21,8 +25,8 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "Inconsolata")
-(setq font-size 140)
+(setq font-family "Liberation Mono")
+(setq font-size 120)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -40,13 +44,18 @@
   :config
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold t
-        doom-themes-enable-italic nil
+        doom-themes-enable-italic t
 	doom-gruvbox-dark-variant "hard")
 
   (load-theme 'doom-gruvbox t)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
+
+(use-package yaml-mode
+  :ensure t
+  :config (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  )
 
 ;; Vim
 (use-package evil
@@ -290,7 +299,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "JetBrains Mono") '(:font "JetBrains Mono"))
+	  (cond ((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -301,14 +310,14 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 140))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 120))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     `(variable-pitch ((t (:family font-family :height 140))))
-     `(fixed-pitch ((t ( :family font-family :height 140))))
+     `(variable-pitch ((t (:family font-family :height 120))))
+     `(fixed-pitch ((t ( :family font-family :height 120))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
@@ -326,9 +335,6 @@
      '(line-number-current-line ((t (:inherit (shadow fixed-pitch)))))
      ))
   (add-hook 'org-mode-hook 'variable-pitch-mode)
-  (add-hook 'org-mode-hook 'writeroom-mode)
-			   
-			  
   (add-hook 'org-mode-hook 'org-indent-mode))
 
 (use-package org-roam
@@ -338,13 +344,6 @@
   (org-roam-directory (file-truename org-directory))
   :config
   (org-roam-setup)) 
-
-(use-package writeroom-mode
-    :after org
-    :config
-    (setq writeroom-width 160)
-    (add-hook 'writeroom-mode-hook '(lambda () (display-line-numbers-mode nil)))
-    :ensure t)
 
 ;; package meta key to Cmd
 (setq mac-option-key-is-meta nil

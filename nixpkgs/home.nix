@@ -42,6 +42,7 @@
     rust-analyzer
     ttf_bitstream_vera
     qemu
+    vistafonts
   ];
 
   programs.direnv.enable = true;
@@ -111,8 +112,8 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Inconsolata";
-    font.size = 14;
+    font.name = "Liberation Mono";
+    font.size = 12;
   };
 
   programs.bat = {
@@ -203,7 +204,8 @@
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
-      e = "open /Applications/Emacs.app";
+      e = "/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
+      ew = "/Applications/Emacs.app/Contents/MacOS/Emacs";
     };
 
     oh-my-zsh = {
