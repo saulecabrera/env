@@ -280,6 +280,9 @@
   :hook ((typescript-mode . tide-setup)
          (typescript-mode . tide-hl-identifier-mode)))
 
+(use-package rust-playground
+  :ensure t)
+
 (use-package graphql-mode
   :ensure t)
 
