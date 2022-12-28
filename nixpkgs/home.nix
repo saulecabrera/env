@@ -43,6 +43,7 @@
     ttf_bitstream_vera
     qemu
     vistafonts
+    dejavu_fonts
   ];
 
   programs.direnv.enable = true;
@@ -60,7 +61,7 @@
     ];
 
     settings = {
- disable_ligatures = "always";
+      disable_ligatures = "always";
       # adjust_baseline =  "-10%";
 
       background = "#1d2021";
@@ -204,8 +205,7 @@
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
-      e = "/Applications/Emacs.app/Contents/MacOS/Emacs -nw";
-      ew = "/Applications/Emacs.app/Contents/MacOS/Emacs";
+      e = "open /Applications/Emacs.app";
     };
 
     oh-my-zsh = {
