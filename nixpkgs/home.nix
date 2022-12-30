@@ -36,7 +36,6 @@
     graph-easy
     yarn
     elixir
-    lazygit
     tree
     nasm
     rust-analyzer
@@ -113,7 +112,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "Liberation Mono";
+    font.name = "DejaVu Sans Mono";
     font.size = 12;
   };
 
