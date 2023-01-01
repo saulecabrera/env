@@ -25,7 +25,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "DejaVu Sans Mono")
+(setq font-family "Droid Sans Mono")
 (setq font-size 120)
 
 ;; Font
@@ -302,7 +302,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "DejaVu Sans Mono") '(:font "DejaVu Sans Mono"))
+	  (cond ((x-list-fonts "Droid Sans Mono") '(:font "Droid Sans Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))

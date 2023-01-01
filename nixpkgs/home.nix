@@ -112,7 +112,7 @@
       color15 = "#d4be98";
     };
 
-    font.name = "DejaVu Sans Mono";
+    font.name = "Droid Sans Mono";
     font.size = 12;
   };
 
