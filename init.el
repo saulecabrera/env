@@ -25,8 +25,8 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "Liberation Mono")
-(setq font-size 120)
+(setq font-family "Inconsolata")
+(setq font-size 140)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -302,7 +302,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Liberation Mono") '(:font "Liberation Mono"))
+	  (cond ((x-list-fonts "Inconsolata") '(:font "Inconsolata"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -313,14 +313,14 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 120))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 120))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 120))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 120))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 140))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 140))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 140))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 140))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     `(variable-pitch ((t (:family font-family :height 120))))
-     `(fixed-pitch ((t ( :family font-family :height 120))))
+     `(variable-pitch ((t (:family font-family :height 140))))
+     `(fixed-pitch ((t ( :family font-family :height 140))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
