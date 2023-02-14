@@ -63,27 +63,58 @@
       disable_ligatures = "always";
       # adjust_baseline =  "-10%";
 
-      background = "#fdf6e3";
-      foreground = "#52676f";
-      cursor                = "#52676f";
-      selection_background =  "#e9e2cb";
-        color0 = "#e4e4e4";
-        color8 = "#ffffd7";
-        color1 = "#d70000";
-        color9 = "#d75f00";
-        color2 = "#5f8700";
-        color10 = "#585858";
-        color3 = "#af8700";
-        color11 = "#626262";
-        color4 = "#0087ff";
-        color12 = "#808080";
-        color5 = "#af005f";
-        color13 = "#5f5faf";
-        color6 = "#00afaf";
-        color14 = "#8a8a8a";
-        color7 = "#262626";
-        color15 = "#1c1c1c";
-        selection_foreground = "#fcf4dc";
+      cursor                  = "#928374";
+      cursor_text_color       = "#fbf1c7";
+
+      url_color               = "#458588";
+
+      visual_bell_color       = "#689d6a";
+      bell_border_color       = "#689d6a";
+
+      active_border_color     = "#b16286";
+      inactive_border_color   = "#1d2021";
+
+      foreground              = "#3c3836";
+      background              = "#f2e5bc";
+      selection_foreground    = "#928374";
+      selection_background    = "#3c3836";
+
+      active_tab_foreground   = "#282828";
+      active_tab_background   = "#928374";
+      inactive_tab_foreground = "#7c6f64";
+      inactive_tab_background = "#ebdbb2";
+
+      # white (bg3/bg4)
+      color0                  = "#bdae93";
+      color8                  = "#a89984";
+
+      # red
+      color1                  = "#cc241d";
+      color9                  = "#9d0006";
+
+      # green
+      color2                  = "#98971a";
+      color10                 = "#79740e";
+
+      # yellow
+      color3                  = "#d79921";
+      color11                 = "#b57614";
+
+      # blue
+      color4                  = "#458588";
+      color12                 = "#076678";
+
+      # purple
+      color5                  = "#b16286";
+      color13                 = "#8f3f71";
+
+      # aqua
+      color6                  = "#689d6a";
+      color14                 = "#427b58";
+
+      # black (fg4/fg3)
+      color7                  = "#7c6f64";
+      color15                 = "#665c54";
     };
 
     font.name = "PragmataPro";

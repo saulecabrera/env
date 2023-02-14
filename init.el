@@ -38,6 +38,22 @@
 (setq column-number-mode t)
 (global-display-line-numbers-mode 1)
 
+;; Bullets
+(use-package org-bullets
+  :ensure t
+  :after org
+  :config
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+;; Evil org
+(use-package evil-org
+  :ensure t
+  :after org
+  :hook (org-mode . (lambda () evil-org-mode))
+  :config
+  (require 'evil-org-agenda)
+  (evil-org-agenda-set-keys))
+
 ;; Multiple cursors
 (use-package evil-mc
   :config
@@ -50,10 +66,9 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil
-	doom-solarized-light-brighter-comments t
-	doom-gruvbox-dark-variant "hard")
+	doom-gruvbox-light-variant "soft")
 
-  (load-theme 'doom-solarized-light t)
+  (load-theme 'doom-gruvbox-light)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
