@@ -66,9 +66,9 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil
-	doom-gruvbox-light-variant "soft")
+	doom-gruvbox-dark-variant "hard")
 
-  (load-theme 'doom-gruvbox-light)
+  (load-theme 'doom-gruvbox)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))

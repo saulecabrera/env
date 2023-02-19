@@ -63,58 +63,53 @@
       disable_ligatures = "always";
       # adjust_baseline =  "-10%";
 
-      cursor                  = "#928374";
-      cursor_text_color       = "#fbf1c7";
+background = "#1d2021";
+      foreground = "#d4be98";
 
-      url_color               = "#458588";
+      selection_background = "#d4be98";
+      selection_foreground = "#1d2021";
 
-      visual_bell_color       = "#689d6a";
-      bell_border_color       = "#689d6a";
+      cursor = "#a89984";
+      cursor_text_color = "background";
 
-      active_border_color     = "#b16286";
-      inactive_border_color   = "#1d2021";
+      active_tab_background = "#1d2021";
+      active_tab_foreground = "#d4be98";
+      active_tab_font_style = "bold";
+      inactive_tab_background = "#1d2021";
+      inactive_tab_foreground = "#a89984";
+      inactive_tab_font_style = "normal";
 
-      foreground              = "#3c3836";
-      background              = "#f2e5bc";
-      selection_foreground    = "#928374";
-      selection_background    = "#3c3836";
+      # Black
+      color0 = "#665c54";
+      color8 = "#928374";
 
-      active_tab_foreground   = "#282828";
-      active_tab_background   = "#928374";
-      inactive_tab_foreground = "#7c6f64";
-      inactive_tab_background = "#ebdbb2";
+      # Red
+      color1 = "#ea6962";
+      color9 = "#ea6962";
 
-      # white (bg3/bg4)
-      color0                  = "#bdae93";
-      color8                  = "#a89984";
+      # Green
+      color2 = "#a9b665";
+      color10 = "#a9b665";
 
-      # red
-      color1                  = "#cc241d";
-      color9                  = "#9d0006";
+      # Yellow
+      color3 = "#e78a4e";
+      color11 = "#d8a657";
 
-      # green
-      color2                  = "#98971a";
-      color10                 = "#79740e";
+      # Blue
+      color4 = "#7daea3";
+      color12 = "#7daea3";
 
-      # yellow
-      color3                  = "#d79921";
-      color11                 = "#b57614";
+      # Magenta
+      color5 = "#d3869b";
+      color13 = "#d3869b";
 
-      # blue
-      color4                  = "#458588";
-      color12                 = "#076678";
+      # Cyan
+      color6 = "#89b482";
+      color14 = "#89b482";
 
-      # purple
-      color5                  = "#b16286";
-      color13                 = "#8f3f71";
-
-      # aqua
-      color6                  = "#689d6a";
-      color14                 = "#427b58";
-
-      # black (fg4/fg3)
-      color7                  = "#7c6f64";
-      color15                 = "#665c54";
+      # White
+      color7 = "#d4be98";
+      color15 = "#d4be98";
     };
 
     font.name = "PragmataPro";
@@ -126,7 +121,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Solarized (light)";
+      theme = "Solarized (dark)";
       pager = "less -XFr";
     };
   };
