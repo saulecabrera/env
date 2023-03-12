@@ -61,58 +61,31 @@
 
     settings = {
       disable_ligatures = "always";
-      # adjust_baseline =  "-10%";
 
-background = "#1d2021";
-      foreground = "#d4be98";
-
-      selection_background = "#d4be98";
-      selection_foreground = "#1d2021";
-
-      cursor = "#a89984";
-      cursor_text_color = "background";
-
-      active_tab_background = "#1d2021";
-      active_tab_foreground = "#d4be98";
-      active_tab_font_style = "bold";
-      inactive_tab_background = "#1d2021";
-      inactive_tab_foreground = "#a89984";
-      inactive_tab_font_style = "normal";
-
-      # Black
-      color0 = "#665c54";
-      color8 = "#928374";
-
-      # Red
-      color1 = "#ea6962";
-      color9 = "#ea6962";
-
-      # Green
-      color2 = "#a9b665";
-      color10 = "#a9b665";
-
-      # Yellow
-      color3 = "#e78a4e";
-      color11 = "#d8a657";
-
-      # Blue
-      color4 = "#7daea3";
-      color12 = "#7daea3";
-
-      # Magenta
-      color5 = "#d3869b";
-      color13 = "#d3869b";
-
-      # Cyan
-      color6 = "#89b482";
-      color14 = "#89b482";
-
-      # White
-      color7 = "#d4be98";
-      color15 = "#d4be98";
+      background =            "#fdf6e3";
+      foreground =            "#52676f";
+      cursor =                "#52676f";
+      selection_background  = "#e9e2cb";
+      color0 = "#e4e4e4";
+      color8 = "#ffffd7";
+      color1 = "#d70000";
+      color9 = "#d75f00";
+      color2 = "#5f8700";
+      color10 = "#585858";
+      color3 = "#af8700";
+      color11 = "#626262";
+      color4 = "#0087ff";
+      color12 = "#808080";
+      color5 = "#af005f";
+      color13 = "#5f5faf";
+      color6 = "#00afaf";
+      color14 = "#8a8a8a";
+      color7 = "#262626";
+      color15 = "#1c1c1c";
+      selection_foreground = "#fcf4dc";
     };
 
-    font.name = "PragmataPro";
+    font.name = "PragmataPro Mono Liga";
     font.size = 14;
   };
 

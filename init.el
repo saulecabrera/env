@@ -25,7 +25,7 @@
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-(setq font-family "PragmataPro")
+(setq font-family "PragmataPro Mono Liga")
 (setq font-size 140)
 
 ;; Font
@@ -44,6 +44,9 @@
   :after org
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
+(use-package vterm
+  :ensure t)
 
 ;; Evil org
 (use-package evil-org
@@ -66,9 +69,10 @@
   ;; Global settings (defaults)
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil
+	doom-gruvbox-light-variant "hard"
 	doom-gruvbox-dark-variant "hard")
 
-  (load-theme 'doom-gruvbox)
+  (load-theme 'solarized-light-high-contrast)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -101,17 +105,31 @@
     "C-<tab>" 'magit-section-cycle-diffs)
   :ensure t)
 
-;; Git
-;; (use-package git-gutter
-;;   :init (global-git-gutter-mode t))
+(use-package forge
+  :ensure t
+  :after magit
+  :config
+  (setq auth-sources '("~/.authinfo")))
+
+(use-package forge
+  :ensure t
+  :after magit
+  :config (setq forge-owned-accounts '(("saulecabrera"))))
+(setq auth-sources '("~/.authinfo"))
+
 (use-package diff-hl
   :config
   (global-diff-hl-mode)
   (diff-hl-dired-mode))
 
-;; ILE
+;; ISLE
 (add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
 
+
+;; Debugging C++
+(use-package dap-mode
+  :ensure t
+  :after lsp-mode)
 
 ;; LSP
 (use-package lsp-mode
@@ -124,8 +142,11 @@
 	      lsp-headerline-breadcrumb-enable nil)
   (evil-collection-define-key 'normal 'lsp-mode-map
     "gd" 'lsp-find-definition
-    "gr" 'lsp-find-references))
-														   
+    "gr" 'lsp-find-references)
+
+  (add-hook 'c-mode-hook 'lsp)
+  (add-hook 'c++-mode-hook 'lsp))
+
 (use-package lsp-ui
   :hook ((lsp-mode . lsp-ui-mode))
   :config (setq lsp-ui-sideline-enable t
@@ -323,7 +344,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "PragmataPro") '(:font "PragmataPro"))
+	  (cond ((x-list-fonts "PragmataPro Mono Liga") '(:font "PragmataPro Mono Liga"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
