@@ -26,7 +26,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq font-family "PragmataPro Mono Liga")
-(setq font-size 140)
+(setq font-size 150)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -360,14 +360,14 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 140))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 140))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     `(variable-pitch ((t (:family font-family :height 140))))
-     `(fixed-pitch ((t ( :family font-family :height 140))))
+     `(variable-pitch ((t (:family font-family :height 150))))
+     `(fixed-pitch ((t ( :family font-family :height 150))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))

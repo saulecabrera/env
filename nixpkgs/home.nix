@@ -87,7 +87,7 @@
     };
 
     font.name = "PragmataPro Mono Liga";
-    font.size = 14;
+    font.size = 15;
   };
 
   programs.bat = {
