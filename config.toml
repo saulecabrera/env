@@ -1,1 +1,3 @@
-theme = "solarized_light"
+theme = "papercolor-light"
+[editor.file-picker]
+hidden = false

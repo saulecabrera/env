@@ -43,6 +43,7 @@
     qemu
     vistafonts
     dejavu_fonts
+    fennel
   ];
 
   programs.direnv.enable = true;
@@ -209,9 +210,18 @@
         };
       };
 
+      nvim-mapper = pkgs.vimUtils.buildVimPlugin {
+        name = "nvim-mapper";
+        src = pkgs.fetchFromGitHub {
+          owner = "gregorias";
+          repo = "nvim-mapper";
+          rev = "baad83aad85d420cce24dd60106114421ed59039";
+          sha256 = "1yn8b77jyd76h7bl5z97isr3v6b5c5pan0na8wivisfw3y9fgrmf";
+        };
+      };
+
       in [
         vim-elixir
-        vim-plug
         orgmode
         nvim-treesitter
         any-jump-vim
@@ -239,7 +249,7 @@
 
         haskell-vim
         vim-ruby
-        hop-nvim
+        lightspeed-nvim
         vim-toml
 
         vim-vinegar
@@ -259,6 +269,20 @@
         vim-smoothie
         markdown-preview-nvim
         gruvbox-material
+
+        # At the time of writing this is generating an error when
+        # runnin `home-manager switch`
+        # aniseed
+        nvim-lspconfig
+        nvim-mapper
+        papercolor-theme
+        fennel-vim
+        nvim-cmp
+        cmp-cmdline
+        cmp-nvim-lsp
+        cmp-buffer
+        cmp-path
+        todo-comments-nvim
       ];
   };
 }
