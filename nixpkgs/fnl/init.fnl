@@ -21,11 +21,13 @@
   (when lspcfg
     (lspcfg.tsserver.setup {})
     (lspcfg.rust_analyzer.setup {})
+
     (nnoremap :gd "lua vim.lsp.buf.definition()")
     (nnoremap :gD "lua vim.lsp.buf.declaration()")
     (nnoremap :gr "lua vim.lsp.buf.references()")
     (nnoremap :gi "lua vim.lsp.buf.implementation()")
-    (nnoremap :K  "lua vim.lsp.buf.hover()")))
+    (nnoremap :K  "lua vim.lsp.buf.hover()")
+    (nnoremap :ff "lua vim.lsp.buf.format({async = true})")))
 
 (let [cmp (require :cmp)]
   (when cmp
@@ -66,7 +68,7 @@
 (set nvim.o.background :light)
 
 (nvim.ex.colorscheme :PaperColor)
-(nvim.ex.set "clipboard=unnamedplus")
+(nvim.ex.set "clipboard+=unnamedplus")
 (nvim.ex.set "formatoptions=tcqrn1")
 
 ;; Mappings
