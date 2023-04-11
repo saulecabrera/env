@@ -27,7 +27,7 @@
     (nnoremap :gr "lua vim.lsp.buf.references()")
     (nnoremap :gi "lua vim.lsp.buf.implementation()")
     (nnoremap :K  "lua vim.lsp.buf.hover()")
-    (nnoremap :ff "lua vim.lsp.buf.format({async = true})")))
+    (nnoremap :ff "lua vim.lsp.buf.formatting()")))
 
 (let [cmp (require :cmp)]
   (when cmp
