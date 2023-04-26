@@ -36,6 +36,7 @@
                  {:name "buffer"}
                  {:name "path"}]
        })))
+
        ; FIXME: Not entirely sure why this doesn't work.
        ; it complains about `preset` not working.
        ; :mapping (cmp.mapping.preset.insert
@@ -65,9 +66,9 @@
 (set nvim.o.expandtab true)
 (set nvim.o.hidden true)
 (set nvim.o.termguicolors true)
-(set nvim.o.background :light)
+(set nvim.o.background :dark)
 
-(nvim.ex.colorscheme :PaperColor)
+(nvim.ex.colorscheme :gruvbox-material)
 (nvim.ex.set "clipboard+=unnamedplus")
 (nvim.ex.set "formatoptions=tcqrn1")
 

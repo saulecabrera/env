@@ -62,10 +62,6 @@
   :config
   (global-evil-mc-mode  1))
 
-(use-package material-theme
-  :ensure t
-  :config
-  (load-theme 'material-light))
 
 ;; Theme
 (use-package doom-themes
@@ -77,7 +73,7 @@
 	doom-gruvbox-light-variant "soft"
 	doom-gruvbox-dark-variant "hard")
 
-  ;; (load-theme 'doom-tomorrow-day)
+  (load-theme 'doom-gruvbox)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))

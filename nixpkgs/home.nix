@@ -64,26 +64,33 @@
       disable_ligatures = "always";
 
 
-        foreground =		"#444444";
-        background =		"#eeeeee";
-        cursor	=		"#444444";
+        foreground =		"#d4be98";
+        background =		"#1d2021";
+        cursor	=		"#a89984";
         cursor_text_color =	"background";
-        color0	=		"#eeeeee";
-        color8	=		"#bcbcbc";
-        color1	=		"#af0000";
-        color9	=		"#d70000";
-        color2	=		"#008700";
-        color10=		"#d70087";
-        color3	=		"#5f8700";
-        color11=		"#8700af";
-        color4	=		"#0087af";
-        color12=		"#d75f00";
-        color5	=		"#878787";
-        color13=		"#d75f00";
-        color6	=		"#005f87";
-        color14=		"#005faf";
-        color7	=		"#444444";
-        color15=		"#005f87";
+        color0	=		"#665c54";
+        color8	=		"#928374";
+        color1	=		"#ea6962";
+        color9	=		"#ea6962";
+        color2	=		"#a9b665";
+        color10=		"#a9b665";
+        color3	=		"#e78a4e";
+        color11=		"#d8a657";
+        color4	=		"#7daea3";
+        color12=		"#7daea3";
+        color5	=		"#d3869b";
+        color13=		"#d3869b";
+        color6	=		"#89b482";
+        color14=		"#89b482";
+        color7	=		"#d4be98";
+        color15=		"#d4be98";
+
+        active_tab_background = "#1d2021";
+        active_tab_foreground = "#d4be98";
+        active_tab_font_style = "bold";
+        inactive_tab_background = "#1d2021";
+        inactive_tab_foreground = "#a89984";
+        inactive_tab_font_style = "normal";
     };
 
     font.name = "PragmataPro Mono Liga";
@@ -95,7 +102,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16-256";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };

@@ -16,4 +16,6 @@ call plug#begin()
 Plug 'Olical/aniseed'
 call plug#end()
 
+let g:gruvbox_material_background = 'hard'
+let g:gruvbox_material_disable_italic_comment = 1
 let g:aniseed#env = v:true
