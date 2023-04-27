@@ -271,7 +271,6 @@
 
         neoterm
         presenting-vim
-        vimade
         vim-abolish
         vim-smoothie
         markdown-preview-nvim
