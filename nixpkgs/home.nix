@@ -282,7 +282,6 @@
         # aniseed
         nvim-lspconfig
         nvim-mapper
-        papercolor-theme
         fennel-vim
         nvim-cmp
         cmp-cmdline
