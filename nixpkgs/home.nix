@@ -54,11 +54,11 @@
   programs.kitty = {
     enable = true;
 
-    darwinLaunchOptions = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin [
-      "--single-instance"
-      "--directory=/tmp/my-dir"
-      "--listen-on=unix:/tmp/my-socket"
-    ];
+    # darwinLaunchOptions = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin [
+    #   "--single-instance"
+    #   "--directory=/tmp/my-dir"
+    #   "--listen-on=unix:/tmp/my-socket"
+    # ];
 
     settings = {
       disable_ligatures = "always";
@@ -206,32 +206,10 @@
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
-    plugins = with pkgs.vimPlugins; 
-      let any-jump-vim = pkgs.vimUtils.buildVimPlugin {
-        name = "any-jump-vim";
-        src = pkgs.fetchFromGitHub {
-          owner = "pechorin";
-          repo = "any-jump.vim";
-          rev = "67b17372342826355c015427a5cdbda7c5d3e3b9";
-          sha256 = "1i444f03129x2xqp8pkmmbcrh3ja84gx5iwkflcmhba1rdcyx3xq";
-        };
-      };
-
-      nvim-mapper = pkgs.vimUtils.buildVimPlugin {
-        name = "nvim-mapper";
-        src = pkgs.fetchFromGitHub {
-          owner = "gregorias";
-          repo = "nvim-mapper";
-          rev = "baad83aad85d420cce24dd60106114421ed59039";
-          sha256 = "1yn8b77jyd76h7bl5z97isr3v6b5c5pan0na8wivisfw3y9fgrmf";
-        };
-      };
-
-      in [
+    plugins = with pkgs.vimPlugins; [
         vim-elixir
         orgmode
         nvim-treesitter
-        any-jump-vim
         fzf-vim
         vim-indent-guides
         vim-nix
@@ -280,7 +258,6 @@
         # runnin `home-manager switch`
         # aniseed
         nvim-lspconfig
-        nvim-mapper
         fennel-vim
         nvim-cmp
         cmp-cmdline
@@ -288,6 +265,8 @@
         cmp-buffer
         cmp-path
         todo-comments-nvim
+        cmp-vsnip
+        vim-vsnip
       ];
   };
 }

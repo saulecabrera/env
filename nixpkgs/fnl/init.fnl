@@ -13,10 +13,6 @@
   (when neogit
     neogit.setup))
 
-(let [nvim-mapper (require :nvim-mapper)]
-  (when nvim-mapper
-    nvim-mapper.setup))
-
 (let [lspcfg (require :lspconfig)]
   (when lspcfg
     (lspcfg.tsserver.setup {})
@@ -31,20 +27,25 @@
 
 (let [cmp (require :cmp)]
   (when cmp
-    (cmp.setup
-      {:sources [{:name "nvim_lsp"}
-                 {:name "buffer"}
-                 {:name "path"}]
-       })))
-
-       ; FIXME: Not entirely sure why this doesn't work.
-       ; it complains about `preset` not working.
-       ; :mapping (cmp.mapping.preset.insert
-       ;            {"<C-b>" (cmp.mapping.scroll_docs -4)
-       ;             "<C-f>" (cmp.mapping.scroll_docs 4)
-       ;             "<C-Space>" (cmp.mapping.complete)
-       ;             "<C-e>" (cmp.mapping.abort)
-       ;             "<C-CR>" (cmp.mapping.confirm {:select true})})})))
+    (cmp.setup {:snippet
+               {:expand (fn [args]
+                          (vim.fn.vsnip#anonymous args.body))}
+       :mapping
+       {:<C-p> (cmp.mapping.select_prev_item)
+        :<C-n> (cmp.mapping.select_next_item)
+        :<C-d> (cmp.mapping.scroll_docs -4)
+        :<C-f> (cmp.mapping.scroll_docs 4)
+        :<C-Space> (cmp.mapping.complete)
+        :<C-e> (cmp.mapping.close)
+        :<CR> (cmp.mapping.confirm
+                  {:behavior cmp.ConfirmBehavior.Replace
+                   :select true})}
+       :sources
+       [{:name "nvim_lsp"}
+        {:name "vsnip"}
+        {:name "path"}]
+       }
+    )))
 
 (let [t (require :todo-comments)]
   (when t
