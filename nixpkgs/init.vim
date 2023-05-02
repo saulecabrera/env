@@ -14,6 +14,7 @@ endif
 
 call plug#begin()
 Plug 'Olical/aniseed'
+Plug 'pechorin/any-jump.vim'
 call plug#end()
 
 let g:gruvbox_material_background = 'hard'
