@@ -213,8 +213,6 @@
         fzf-vim
         vim-indent-guides
         vim-nix
-        vim-airline
-        vim-airline-themes
         vim-signify
         zig-vim
 
@@ -267,6 +265,8 @@
         todo-comments-nvim
         cmp-vsnip
         vim-vsnip
+        conflict-marker-vim
+        lualine-nvim
       ];
   };
 }
