@@ -29,6 +29,10 @@
     (nnoremap :K  "lua vim.lsp.buf.hover()")
     (nnoremap :ff "lua vim.lsp.buf.formatting()")))
 
+(let [term (require :toggleterm)]
+  (when term
+    (term.setup {:direction "float"})))
+
 (let [cmp (require :cmp)]
   (when cmp
     (cmp.setup {:snippet
@@ -96,3 +100,4 @@
 (w :<leader>wj "<C-w>j")
 (w :<leader>wk "<C-w>k")
 (nnoremap :<leader>m ":Neogit<cr>")
+(nnoremap :<leader>t ":ToggleTerm<cr>")

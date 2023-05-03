@@ -245,7 +245,7 @@
         limelight-vim
         goyo-vim
 
-        neoterm
+        toggleterm-nvim
         presenting-vim
         vim-abolish
         vim-smoothie
