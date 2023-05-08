@@ -17,6 +17,12 @@
   (when lualine
     lualine.setup))
 
+(let [org (require :orgmode)]
+  (when org
+    (org.setup_ts_grammar)
+    (org.setup {:org_agenda_files ["~/Developer/org/*"]
+                })))
+
 (let [lspcfg (require :lspconfig)]
   (when lspcfg
     (lspcfg.tsserver.setup {})
@@ -77,7 +83,7 @@
 (set nvim.o.termguicolors true)
 (set nvim.o.background :dark)
 
-(nvim.ex.colorscheme :gruvbox-material)
+(nvim.ex.colorscheme :everforest)
 (nvim.ex.set "clipboard+=unnamedplus")
 (nvim.ex.set "formatoptions=tcqrn1")
 

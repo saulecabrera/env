@@ -17,6 +17,8 @@ Plug 'Olical/aniseed'
 Plug 'pechorin/any-jump.vim'
 call plug#end()
 
+let g:everforest_enable_italic = 0
+let g:everforest_disable_italic_comment = 1
 let g:gruvbox_material_background = 'hard'
 let g:gruvbox_material_disable_italic_comment = 1
 let g:aniseed#env = v:true

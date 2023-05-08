@@ -64,33 +64,28 @@
       disable_ligatures = "always";
 
 
-        foreground =		"#d4be98";
-        background =		"#1d2021";
-        cursor	=		"#a89984";
-        cursor_text_color =	"background";
-        color0	=		"#665c54";
-        color8	=		"#928374";
-        color1	=		"#ea6962";
-        color9	=		"#ea6962";
-        color2	=		"#a9b665";
-        color10=		"#a9b665";
-        color3	=		"#e78a4e";
-        color11=		"#d8a657";
-        color4	=		"#7daea3";
-        color12=		"#7daea3";
-        color5	=		"#d3869b";
-        color13=		"#d3869b";
-        color6	=		"#89b482";
-        color14=		"#89b482";
-        color7	=		"#d4be98";
-        color15=		"#d4be98";
+        foreground =		"#d8caac";
+        background =		"#323d43";
+        cursor	=		"#d8caac";
+        color0	=		"#3c474d";
+        color8	=		"#868d80";
+        color1	=		"#e68183";
+        color9	=		"#e68183";
+        color2	=		"#a7c080";
+        color10=		"#a7c080";
+        color3	=		"#d9bb80";
+        color11=		"#d9bb80";
+        color4	=		"#83b6af";
+        color12=		"#83b6af";
+        color5	=		"#d39bb6";
+        color13=		"#d39bb6";
+        color6	=		"#87c095";
+        color14=		"#87c095";
+        color7	=		"#868d80";
+        color15=		"#868d80";
 
-        active_tab_background = "#1d2021";
-        active_tab_foreground = "#d4be98";
-        active_tab_font_style = "bold";
-        inactive_tab_background = "#1d2021";
-        inactive_tab_foreground = "#a89984";
-        inactive_tab_font_style = "normal";
+        selection_foreground = "#d8caac";
+        selection_background = "#505a60";
     };
 
     font.name = "PragmataPro Mono Liga";
@@ -102,7 +97,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "gruvbox-dark";
+      theme = "base16";
       pager = "less -XFr";
     };
   };
@@ -267,6 +262,7 @@
         vim-vsnip
         conflict-marker-vim
         lualine-nvim
+        everforest
       ];
   };
 }
