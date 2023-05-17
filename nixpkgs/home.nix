@@ -62,30 +62,30 @@
 
     settings = {
       disable_ligatures = "always";
+      tab_bar_style = "powerline";
 
+      foreground =		"#d8caac";
+      background =		"#323d43";
+      cursor	=		"#d8caac";
+      color0	=		"#3c474d";
+      color8	=		"#868d80";
+      color1	=		"#e68183";
+      color9	=		"#e68183";
+      color2	=		"#a7c080";
+      color10=		"#a7c080";
+      color3	=		"#d9bb80";
+      color11=		"#d9bb80";
+      color4	=		"#83b6af";
+      color12=		"#83b6af";
+      color5	=		"#d39bb6";
+      color13=		"#d39bb6";
+      color6	=		"#87c095";
+      color14=		"#87c095";
+      color7	=		"#868d80";
+      color15=		"#868d80";
 
-        foreground =		"#d8caac";
-        background =		"#323d43";
-        cursor	=		"#d8caac";
-        color0	=		"#3c474d";
-        color8	=		"#868d80";
-        color1	=		"#e68183";
-        color9	=		"#e68183";
-        color2	=		"#a7c080";
-        color10=		"#a7c080";
-        color3	=		"#d9bb80";
-        color11=		"#d9bb80";
-        color4	=		"#83b6af";
-        color12=		"#83b6af";
-        color5	=		"#d39bb6";
-        color13=		"#d39bb6";
-        color6	=		"#87c095";
-        color14=		"#87c095";
-        color7	=		"#868d80";
-        color15=		"#868d80";
-
-        selection_foreground = "#d8caac";
-        selection_background = "#505a60";
+      selection_foreground = "#d8caac";
+      selection_background = "#505a60";
     };
 
     font.name = "PragmataPro Mono Liga";
