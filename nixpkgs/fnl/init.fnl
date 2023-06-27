@@ -89,7 +89,7 @@
 (set nvim.o.expandtab true)
 (set nvim.o.hidden true)
 (set nvim.o.termguicolors true)
-(set nvim.o.background :dark)
+(set nvim.o.background :light)
 
 (nvim.ex.colorscheme :everforest)
 (nvim.ex.set "clipboard+=unnamedplus")
