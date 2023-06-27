@@ -33,11 +33,19 @@
     (nnoremap :gr "lua vim.lsp.buf.references()")
     (nnoremap :gi "lua vim.lsp.buf.implementation()")
     (nnoremap :K  "lua vim.lsp.buf.hover()")
-    (nnoremap :ff "lua vim.lsp.buf.formatting()")))
+    (nnoremap :ff "lua vim.lsp.buf.format()")))
 
 (let [term (require :toggleterm)]
   (when term
     (term.setup {:direction "float"})))
+
+(let [indent (require :indent_blankline)]
+  (when indent
+    (indent.setup {})))
+
+(let [wilder (require :wilder)]
+  (when wilder
+    (wilder.setup {:modes [":" "/" "?"]})))
 
 (let [cmp (require :cmp)]
   (when cmp

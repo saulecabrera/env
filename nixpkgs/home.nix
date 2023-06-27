@@ -26,7 +26,6 @@
     fd
     haskellPackages.hspec-discover
     nodejs
-    rustup
     hugo
     python3
     python39Packages.pip
@@ -263,6 +262,8 @@
         conflict-marker-vim
         lualine-nvim
         everforest
+        indent-blankline-nvim
+        wilder-nvim
       ];
   };
 }
