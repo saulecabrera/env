@@ -26,7 +26,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq font-family "PragmataPro Mono Liga")
-(setq font-size 150)
+(setq font-size 160)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -73,7 +73,7 @@
 	doom-gruvbox-light-variant "soft"
 	doom-gruvbox-dark-variant "hard")
 
-  (load-theme 'doom-gruvbox)
+  (load-theme 'doom-solarized-light)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -194,10 +194,12 @@
 	    "wj"  'windmove-down
 	    "wk"  'windmove-up
 	    ;; Projectile
-	    "ff"  'fzf-projectile
-	    "f/"  'projectile-ripgrep
-	    "fr"  'helm-buffers-list
 	    "pp"  'projectile-switch-project
+	    ;; Consult
+	    "ff"  'consult-find
+	    "f/"  'consult-ripgrep
+	    "fg"  'consult-git-grep
+	    "fm"  'consult-man
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
 	    "ww"  'persp-switch
@@ -213,9 +215,7 @@
 	    "rr"  'org-roam-tag-remove
 	    "rf"  'org-roam-node-find
 	    ;; Org
-	    "oa"  'org-agenda
-	    ;; Enhanced search via swoop
-	    "s"   'helm-swoop)
+	    "oa"  'org-agenda)
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -223,16 +223,6 @@
 (use-package which-key
   :ensure t
   :init (which-key-mode))
-
-(use-package fzf
-  :ensure t
-  :config
-  (setq fzf/args "-x --print-query --margin=1,0 --no-hscroll"
-	fzf/executable "fzf"
-	fzf/git-grep-args "-i --line-number %s"
-	fzf/grep-command "rg --no-heading -nH"
-	fzf/position-bottom t
-	fzf/window-height 15))
 
 ;; Projectile
 (use-package projectile
@@ -243,24 +233,48 @@
   (evil-collection-define-key 'normal 'projectile-mode-map
     "-" 'dired-jump))
 
-(use-package helm
-  :init (helm-mode 1)
-  :config (global-set-key (kbd "M-x") 'helm-M-x))
-(use-package helm-swoop
-  :after helm)
-
-(use-package helm-projectile
-  :init (helm-projectile-on))
-
-;; ripgrep
-(use-package ripgrep
-  :config
-  (rg-enable-menu)
-  :ensure t)
-
-(use-package helm-rg
+(use-package vertico
   :ensure t
-  :after helm)
+  :init
+  (vertico-mode))
+
+(use-package marginalia
+  :bind (:map minibuffer-local-map
+         ("M-A" . marginalia-cycle))
+
+  :init
+  (marginalia-mode))
+
+(use-package consult
+  :hook (completion-list-mode . consult-preview-at-point-mode)
+
+  :init
+  (setq register-preview-delay 0.5
+        register-preview-function #'consult-register-format)
+
+  (advice-add #'register-preview :override #'consult-register-window)
+
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref)
+
+  :config
+
+  (consult-customize
+   consult-theme :preview-key '(:debounce 0.2 any)
+   consult-ripgrep consult-git-grep consult-grep
+   consult-bookmark consult-recent-file consult-xref
+   consult--source-bookmark consult--source-file-register
+   consult--source-recent-file consult--source-project-recent-file
+   :preview-key '(:debounce 0.4 any))
+
+  (setq consult-narrow-key "<") ;; "C-+"
+)
+
+(use-package orderless
+  :ensure t
+  :custom
+  (completion-styles '(orderless basic))
+  (completion-category-overrides '((file (styles basic partial-completion)))))
 
 ;; Nix
 (use-package nix-mode
@@ -356,14 +370,14 @@
      `(org-level-7 ((t (,@headline ,@variable-tuple))))
      `(org-level-6 ((t (,@headline ,@variable-tuple))))
      `(org-level-5 ((t (,@headline ,@variable-tuple))))
-     `(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
-     `(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
+     `(org-level-4 ((t (,@headline ,@variable-tuple :height 160))))
+     `(org-level-3 ((t (,@headline ,@variable-tuple :height 160))))
+     `(org-level-2 ((t (,@headline ,@variable-tuple :height 160))))
+     `(org-level-1 ((t (,@headline ,@variable-tuple :height 160))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     `(variable-pitch ((t (:family font-family :height 150))))
-     `(fixed-pitch ((t ( :family font-family :height 150))))
+     `(variable-pitch ((t (:family font-family :height 160))))
+     `(fixed-pitch ((t ( :family font-family :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
