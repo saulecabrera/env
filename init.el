@@ -51,7 +51,7 @@
 ;; Evil org
 (use-package evil-org
   :ensure t
-  :after org
+  :after '(evil org)
   :hook (org-mode . (lambda () evil-org-mode))
   :config
   (require 'evil-org-agenda)
@@ -59,6 +59,7 @@
 
 ;; Multiple cursors
 (use-package evil-mc
+  :after evil
   :config
   (global-evil-mc-mode  1))
 
@@ -87,15 +88,15 @@
 (use-package evil
   :ensure t
   :init
-  (setq evil-want-integration t) ;; This is optional since it's already set to t by default.
   (setq evil-want-keybinding nil)
+  (setq evil-want-integration t)
   (setq evil-want-C-u-scroll t)
   :config
   (evil-mode 1))
 
 (use-package evil-collection
-  :after evil
   :ensure t
+  :after evil
   :config
   (evil-collection-init))
 
@@ -177,6 +178,7 @@
 ;; Leader configuration
 (use-package evil-leader
   :ensure t
+  :after evil
   :init (global-evil-leader-mode)
   :config (evil-leader/set-key												      
 	    ;; Magit
@@ -200,6 +202,7 @@
 	    "f/"  'consult-ripgrep
 	    "fg"  'consult-git-grep
 	    "fm"  'consult-man
+	    "s"  'consult-line
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
 	    "ww"  'persp-switch
@@ -281,11 +284,6 @@
   :ensure t
   :mode "\\.nix\\'")
 
-(use-package projectile-ripgrep
-  :after projectile
-  :config (evil-collection-ripgrep-setup)
-  :ensure t)
-
 ;; Company mode
 (use-package company
   :init (global-company-mode)
@@ -296,6 +294,7 @@
   :ensure t)
 
 (use-package evil-commentary
+  :after evil
   :ensure t
   :init (evil-commentary-mode))
 
@@ -304,6 +303,7 @@
   :ensure t)
 
 (use-package evil-easymotion
+  :after evil
   :init
   (evilem-default-keybindings "SPC")
   :config
