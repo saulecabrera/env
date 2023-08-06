@@ -352,6 +352,12 @@
   :ensure t
   :init (require 'persp-projectile))
 
+(use-package exec-path-from-shell
+  :ensure t
+  :init
+  (when (memq window-system '(mac ns x))
+    (exec-path-from-shell-initialize)))
+
 (use-package org
   :ensure nil
   :config (setq org-agenda-files (list "~/Developer/org/")
@@ -394,11 +400,11 @@
      
      '(line-number ((t (:inherit (shadow fixed-pitch)))))
      '(line-number-current-line ((t (:inherit (shadow fixed-pitch)))))
-     ))
-  (add-hook 'org-mode-hook 'variable-pitch-mode)
-  (add-hook 'org-mode-hook 'org-indent-mode)
-  (add-hook 'org-mode-hook 'visual-line-mode)
-  (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
+     )
+    (add-hook 'org-mode-hook 'variable-pitch-mode)
+    (add-hook 'org-mode-hook 'org-indent-mode)
+    (add-hook 'org-mode-hook 'visual-line-mode)
+    (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
 
 (use-package org-roam
   :after org
