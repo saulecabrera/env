@@ -96,7 +96,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "base16";
+      theme = "ansi";
       pager = "less -XFr";
     };
   };

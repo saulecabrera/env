@@ -74,7 +74,7 @@
 	doom-gruvbox-light-variant "soft"
 	doom-gruvbox-dark-variant "hard")
 
-  (load-theme 'doom-solarized-light)
+  (load-theme 'doom-tomorrow-night)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -202,6 +202,7 @@
 	    "f/"  'consult-ripgrep
 	    "fg"  'consult-git-grep
 	    "fm"  'consult-man
+	    "fr"  'consult-project-buffer
 	    "s"  'consult-line
 	    ;; Perspective
 	    "wb"  'persp-list-buffers
@@ -365,7 +366,7 @@
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t)
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Iosevka Aile") '(:font "Iosevka Aile"))
+	  (cond ((x-list-fonts "Iosevka Term SS08") '(:font "Iosevka Aile"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -376,13 +377,13 @@
      '(org-level-7 ((t (,@headline ,@variable-tuple))))
      '(org-level-6 ((t (,@headline ,@variable-tuple))))
      '(org-level-5 ((t (,@headline ,@variable-tuple))))
-     '(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
-     '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.25))))
-     '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.5))))
-     '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.75))))
+     '(org-level-4 ((t (,@headline ,@variable-tuple :height 1))))
+     '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Iosevka Aile" :height 165))))
+     '(variable-pitch ((t (:family "Iosevka Term SS08" :height 160))))
      '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
@@ -404,7 +405,9 @@
     (add-hook 'org-mode-hook 'variable-pitch-mode)
     (add-hook 'org-mode-hook 'org-indent-mode)
     (add-hook 'org-mode-hook 'visual-line-mode)
-    (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0))))
+    (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
+    (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
+    (add-hook 'org-mode-hook 'turn-on-auto-fill))
 
 (use-package org-roam
   :after org
