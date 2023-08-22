@@ -48,6 +48,13 @@
 (use-package vterm
   :ensure t)
 
+(use-package svelte-mode
+  :ensure t)
+
+(use-package vterm-toggle
+  :ensure t
+  :after evil)
+
 ;; Evil org
 (use-package evil-org
   :ensure t
@@ -126,7 +133,14 @@
 
 ;; ISLE
 (add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
+;; WAT
+(add-to-list 'auto-mode-alist '("\\.wat\\'" . lisp-mode))
+(add-to-list 'auto-mode-alist '("\\.wast\\'" . lisp-mode))
 
+
+(use-package dumb-jump
+  :after evil
+  :ensure t)
 
 ;; Debugging C++
 (use-package dap-mode
@@ -218,8 +232,16 @@
 	    "rt"  'org-roam-tag-add
 	    "rr"  'org-roam-tag-remove
 	    "rf"  'org-roam-node-find
+	    "rd"  'org-roam-dailies-capture-today
+	    "rx"  'org-roam-dailies-find-date
 	    ;; Org
-	    "oa"  'org-agenda)
+	    "oa"  'org-agenda
+	    ;; Dumb jump
+	    "jg"  'dumb-jump-go-other-window
+	    ;; Vterm
+	    "vt"  'vterm-toggle
+	    "vc"  'vterm-toggle-cd
+	  )
 
   (evil-leader/set-leader "<SPC>"))
 
@@ -364,9 +386,11 @@
   :config (setq org-agenda-files (list "~/Developer/org/")
 		org-directory (concat (getenv "HOME") "/Developer/org/")
 		org-hide-emphasis-markers t
-		org-hide-leading-stars t)
+		org-hide-leading-stars t
+		org-refile-targets '((org-agenda-files :maxlevel . 3)))
+
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Iosevka Term SS08") '(:font "Iosevka Aile"))
+	  (cond ((x-list-fonts "Monaco") '(:font "Monaco"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -383,7 +407,7 @@
      '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Iosevka Term SS08" :height 160))))
+     '(variable-pitch ((t (:family "Monaco" :height 140))))
      '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
