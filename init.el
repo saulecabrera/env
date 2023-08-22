@@ -45,6 +45,13 @@
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+(use-package org-fancy-priorities
+  :diminish
+  :ensure t
+  :hook (org-mode . org-fancy-priorities-mode)
+  :config
+  (setq org-fancy-priorities-list '("🅰" "🅱" "🅲" "🅳" "🅴")))
+
 (use-package vterm
   :ensure t)
 
@@ -390,7 +397,7 @@
 		org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Monaco") '(:font "Monaco"))
+	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -401,13 +408,13 @@
      '(org-level-7 ((t (,@headline ,@variable-tuple))))
      '(org-level-6 ((t (,@headline ,@variable-tuple))))
      '(org-level-5 ((t (,@headline ,@variable-tuple))))
-     '(org-level-4 ((t (,@headline ,@variable-tuple :height 1))))
-     '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.1))))
-     '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
-     '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
+     '(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
+     '(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
+     '(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Monaco" :height 140))))
+     '(variable-pitch ((t (:family "Berkeley Mono" :height 150))))
      '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
@@ -431,7 +438,13 @@
     (add-hook 'org-mode-hook 'visual-line-mode)
     (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
     (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
-    (add-hook 'org-mode-hook 'turn-on-auto-fill))
+    (add-hook 'org-mode-hook 'turn-on-auto-fill)
+    (add-hook 'org-mode-hook (lambda ()
+			       "Beautify Org Checkbox Symbol"
+			       (push '("[ ]" .  "☐") prettify-symbols-alist)
+			       (push '("[X]" . "☑" ) prettify-symbols-alist)
+			       (push '("[-]" . "❍" ) prettify-symbols-alist)
+			       (prettify-symbols-mode))))
 
 (use-package org-roam
   :after org
@@ -440,6 +453,8 @@
   (org-roam-directory (file-truename org-directory))
   :config
   (org-roam-setup)) 
+
+
 
 ;; package meta key to Cmd
 (setq mac-option-key-is-meta nil
