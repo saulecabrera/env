@@ -397,7 +397,7 @@
 		org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "Berkeley Mono") '(:font "Berkeley Mono"))
+	  (cond ((x-list-fonts "PragmataPro Mono Liga") '(:font "PragmataPro Mono Liga"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -408,13 +408,13 @@
      '(org-level-7 ((t (,@headline ,@variable-tuple))))
      '(org-level-6 ((t (,@headline ,@variable-tuple))))
      '(org-level-5 ((t (,@headline ,@variable-tuple))))
-     '(org-level-4 ((t (,@headline ,@variable-tuple :height 150))))
-     '(org-level-3 ((t (,@headline ,@variable-tuple :height 150))))
-     '(org-level-2 ((t (,@headline ,@variable-tuple :height 150))))
-     '(org-level-1 ((t (,@headline ,@variable-tuple :height 150))))
+     '(org-level-4 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-3 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-2 ((t (,@headline ,@variable-tuple :height 1.1))))
+     '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "Berkeley Mono" :height 150))))
+     '(variable-pitch ((t (:family "PragmataPro Mono Liga" :height 160))))
      '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
@@ -437,6 +437,7 @@
     (add-hook 'org-mode-hook 'org-indent-mode)
     (add-hook 'org-mode-hook 'visual-line-mode)
     (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
+    (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode 0) (setq truncate-lines 1)))
     (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
     (add-hook 'org-mode-hook 'turn-on-auto-fill)
     (add-hook 'org-mode-hook (lambda ()
@@ -454,7 +455,12 @@
   :config
   (org-roam-setup)) 
 
-
+(use-package writeroom-mode
+  :ensure t
+  :init
+  (add-hook 'org-mode-hook 'writeroom-mode)
+  (add-hook 'org-agenda-mode-hook 'writeroom-mode)
+  :after org)
 
 ;; package meta key to Cmd
 (setq mac-option-key-is-meta nil
