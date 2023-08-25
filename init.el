@@ -43,6 +43,7 @@
   :ensure t
   :after org
   :config
+  (setq org-bullets-bullet-list '("⁖" "◉" "○" "○○" "○○○"))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package org-fancy-priorities
@@ -86,9 +87,9 @@
   (setq doom-themes-enable-bold nil
         doom-themes-enable-italic nil
 	doom-gruvbox-light-variant "soft"
-	doom-gruvbox-dark-variant "hard")
+	doom-gruvbox-dark-variant "soft")
 
-  (load-theme 'doom-tomorrow-night)
+  (load-theme 'doom-gruvbox)
 
   ;; Enable flashing mode-line on errors
   (doom-themes-visual-bell-config))
@@ -438,7 +439,6 @@
     (add-hook 'org-mode-hook 'visual-line-mode)
     (add-hook 'org-mode-hook (lambda () (display-line-numbers-mode 0)))
     (add-hook 'org-agenda-mode-hook (lambda () (display-line-numbers-mode 0) (setq truncate-lines 1)))
-    (add-hook 'org-mode-hook '(lambda () (setq fill-column 80)))
     (add-hook 'org-mode-hook 'turn-on-auto-fill)
     (add-hook 'org-mode-hook (lambda ()
 			       "Beautify Org Checkbox Symbol"
@@ -460,6 +460,8 @@
   :init
   (add-hook 'org-mode-hook 'writeroom-mode)
   (add-hook 'org-agenda-mode-hook 'writeroom-mode)
+  :config
+  (setq writeroom-width 95)
   :after org)
 
 ;; package meta key to Cmd
