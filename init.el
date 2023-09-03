@@ -43,7 +43,7 @@
   :ensure t
   :after org
   :config
-  (setq org-bullets-bullet-list '("⁖" "◉" "○" "○○" "○○○"))
+  (setq org-bullets-bullet-list '("⁖" "⁖" "⁖" "⁖" "⁖"))
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
 (use-package org-fancy-priorities
@@ -315,11 +315,6 @@
   :ensure t
   :mode "\\.nix\\'")
 
-;; Company mode
-(use-package company
-  :init (global-company-mode)
-  :config (global-set-key (kbd "<tab>") #'company-indent-or-complete-common))
-
 ;; Diagnostics
 (use-package flycheck
   :ensure t)
@@ -391,14 +386,16 @@
 
 (use-package org
   :ensure nil
-  :config (setq org-agenda-files (list "~/Developer/org/")
+  :config (setq org-agenda-files (list "~/Developer/org/" "~/Developer/org/daily")
 		org-directory (concat (getenv "HOME") "/Developer/org/")
 		org-hide-emphasis-markers t
 		org-hide-leading-stars t
+		org-startup-indented t
+		org-indent-mode-turns-on-hiding-stars t
 		org-refile-targets '((org-agenda-files :maxlevel . 3)))
 
   (let* ((variable-tuple
-	  (cond ((x-list-fonts "PragmataPro Mono Liga") '(:font "PragmataPro Mono Liga"))
+	  (cond ((x-list-fonts "PragmataPro") '(:font "PragmataPro"))
 		(nil (warn "Cannot find font for org mode"))))
 	 (base-font-color     (face-foreground 'default nil 'default))
 	 (headline           `(:weight bold :inherit default :foreground ,base-font-color)))
@@ -415,14 +412,15 @@
      '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "PragmataPro Mono Liga" :height 160))))
+     '(variable-pitch ((t (:family "PragmataPro" :height 170))))
      '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
      '(org-document-info ((t (:foreground "dark orange"))))
      '(org-document-info-keyword ((t (:inherit (shadow fixed-pitch)))))
-     '(org-indent ((t (:inherit fixed-pitch))))
+     '(org-indent ((t (:inherit (org-hide fixed-pitch)))))
+     '(org-hide ((t (:inherit fixed-pitch))))
      '(org-link ((t (:foreground "royal blue" :underline t))))
      '(org-meta-line ((t (:inherit (font-lock-comment-face fixed-pitch)))))
      '(org-property-value ((t (:inherit fixed-pitch))) t)
@@ -485,5 +483,4 @@
   (flycheck-mode +1)
   (setq flycheck-check-syntax-automatically '(save mode-enabled))
   (eldoc-mode +1)
-  (tide-hl-identifier-mode +1)
-  (company-mode +1))
+  (tide-hl-identifier-mode +1))
