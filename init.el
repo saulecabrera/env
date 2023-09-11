@@ -26,7 +26,7 @@
 (defalias 'yes-or-no-p 'y-or-n-p)
 
 (setq font-family "PragmataPro Mono Liga")
-(setq font-size 160)
+(setq font-size 150)
 
 ;; Font
 (set-face-attribute 'default nil
@@ -84,10 +84,10 @@
   :ensure t
   :config
   ;; Global settings (defaults)
-  (setq doom-themes-enable-bold nil
+  (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil
-	doom-gruvbox-light-variant "soft"
-	doom-gruvbox-dark-variant "soft")
+	doom-gruvbox-light-variant "medium"
+	doom-gruvbox-dark-variant "medium")
 
   (load-theme 'doom-gruvbox)
 
@@ -412,8 +412,8 @@
      '(org-level-1 ((t (,@headline ,@variable-tuple :height 1.1))))
      '(org-done ((t (:inherit fixed-pitch))))
      '(org-todo ((t (:inherit fixed-pitch))))
-     '(variable-pitch ((t (:family "PragmataPro" :height 170))))
-     '(fixed-pitch ((t (:family "PragmataPro" :height 160))))
+     '(variable-pitch ((t (:family "PragmataPro" :height 150))))
+     '(fixed-pitch ((t (:family "PragmataPro" :height 150))))
 
      '(org-block ((t (:inherit fixed-pitch))))
      '(org-code ((t (:inherit (shadow fixed-pitch)))))
