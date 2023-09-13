@@ -87,7 +87,7 @@
   (setq doom-themes-enable-bold t
         doom-themes-enable-italic nil
 	doom-gruvbox-light-variant "medium"
-	doom-gruvbox-dark-variant "medium")
+	doom-gruvbox-dark-variant "hard")
 
   (load-theme 'doom-gruvbox)
 
@@ -148,12 +148,10 @@
 
 (use-package dumb-jump
   :after evil
-  :ensure t)
-
-;; Debugging C++
-(use-package dap-mode
   :ensure t
-  :after lsp-mode)
+  :config
+  (add-hook 'xref-backend-functions #'dumb-jump-xref-activate))
+
 
 ;; LSP
 (use-package lsp-mode
@@ -244,8 +242,6 @@
 	    "rx"  'org-roam-dailies-find-date
 	    ;; Org
 	    "oa"  'org-agenda
-	    ;; Dumb jump
-	    "jg"  'dumb-jump-go-other-window
 	    ;; Vterm
 	    "vt"  'vterm-toggle
 	    "vc"  'vterm-toggle-cd
