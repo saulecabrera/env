@@ -106,7 +106,7 @@
 (nnoremap :<leader>ff "<cmd>:Files<cr>")
 (nnoremap :<leader>f/ "<cmd>:Rg<cr>")
 (nnoremap :<leader>fr "<cmd>:Buffers<cr>")
-(nnoremap :<leader>fs ":w<cr>")
+(nnoremap :<c-s> ":w")
 (w :<leader>wv "<C-w>v")
 (w :<leader>ws "<C-w>s")
 (w :<leader>wl "<C-w>l")

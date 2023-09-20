@@ -263,7 +263,9 @@
         lualine-nvim
         everforest
         indent-blankline-nvim
+        ale
         wilder-nvim
+        rust-vim
       ];
   };
 }
