@@ -96,7 +96,7 @@
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "ansi";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };

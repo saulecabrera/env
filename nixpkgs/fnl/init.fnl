@@ -11,11 +11,17 @@
 ;; Pkg setup
 (let [neogit (require :neogit)]
   (when neogit
-    neogit.setup))
+    (neogit.setup)))
 
 (let [lualine (require :lualine)]
   (when lualine
-    lualine.setup))
+    (lualine.setup {:sections {:lualine_a ["mode"]
+                               :lualine_b ["branch" "diff"]
+                               :lualine_c ["filename"]
+                               :lualine_x ["encoding" "fileformat" "filetype"]
+                               :lualine_y ["progress"]
+                               :lualine_z ["location"]}
+                    })))
 
 (let [org (require :orgmode)]
   (when org
@@ -71,7 +77,10 @@
 
 (let [t (require :todo-comments)]
   (when t
-    t.setup))
+    (t.setup {:signs false
+              :keywords {:TODO {:color "#689d6a"}
+                        :WARN {:color "#d79921" :alt ["XXX" "WARNING"]}
+                        :NOTE {:color "#a89984"}}})))
 
 (require :lightspeed)
 
