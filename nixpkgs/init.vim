@@ -15,14 +15,8 @@ endif
 call plug#begin()
 Plug 'Olical/aniseed'
 Plug 'pechorin/any-jump.vim'
+Plug 'Zeioth/compiler.nvim'
+Plug 'stevearc/overseer.nvim'
 call plug#end()
 
-let g:everforest_background = 'soft'
-let g:everforest_enable_italic = 0
-let g:everforest_disable_italic_comment = 1
-let g:gruvbox_material_background = 'hard'
-let g:gruvbox_material_palette = 'mix'
-let g:gruvbox_material_disable_italic_comment = 1
 let g:aniseed#env = v:true
-let g:rustfmt_emit_files = 1
-let g:rustfmt_fail_silently = 0

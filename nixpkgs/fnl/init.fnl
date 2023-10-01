@@ -84,6 +84,15 @@
 
 (require :lightspeed)
 
+(let [t (require :telescope)]
+  (t.setup))
+
+(let [c (require :compiler)]
+  (c.setup))
+
+(let [o (require :overseer)]
+  (o.setup))
+
 (set nvim.g.mapleader " ")
 
 (set nvim.o.completeopt "menuone,noselect")
@@ -100,6 +109,16 @@
 (set nvim.o.termguicolors true)
 (set nvim.o.background :dark)
 
+(tset vim.g :everforest_background "soft")
+(tset vim.g :everforest_enable_italic 0)
+(tset vim.g :everforest_disable_italic_comment 1)
+(tset vim.g :gruvbox_material_background "hard")
+(tset vim.g :gruvbox_material_palette "material")
+(tset vim.g :gruvbox_material_disable_italic_comment 1)
+(tset vim.g :rustfmt_emit_files 1)
+(tset vim.g :rustfmt_fail_silently 0)
+(tset vim.g :rustfmt_autosave 1)
+
 (nvim.ex.colorscheme :gruvbox-material)
 (nvim.ex.set "clipboard+=unnamedplus")
 (nvim.ex.set "formatoptions=tcqrn1")
@@ -112,9 +131,9 @@
   (let [map-opts {:noremap true}]
     (nvim.set_keymap :n from to map-opts)))
 
-(nnoremap :<leader>ff "<cmd>:Files<cr>")
-(nnoremap :<leader>f/ "<cmd>:Rg<cr>")
-(nnoremap :<leader>fr "<cmd>:Buffers<cr>")
+(nnoremap :<leader>ff "<cmd>:Telescope find_files<cr>")
+(nnoremap :<leader>f/ "<cmd>:Telescope grep_string<cr>")
+(nnoremap :<leader>fr "<cmd>:Telescope buffers<cr>")
 (nnoremap :<c-s> ":w")
 (w :<leader>wv "<C-w>v")
 (w :<leader>ws "<C-w>s")
