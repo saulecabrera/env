@@ -1,6 +1,11 @@
 { config, pkgs, lib, ... }:
 
-{
+let
+  # Compile Fennel to Lua
+  luaCfg = pkgs.runCommandLocal "init.lua" {} ''
+    ${pkgs.fennel}/bin/fennel --compile ${./init.fnl} > $out
+  '';
+in {
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
@@ -146,77 +151,83 @@
     };
   };
 
- programs.neovim = {
+  programs.neovim = {
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
+    extraLuaConfig = builtins.readFile luaCfg;
     plugins = with pkgs.vimPlugins; [
-        vim-elixir
-        orgmode
-        nvim-treesitter
-        vim-indent-guides
-        vim-nix
-        vim-signify
-        zig-vim
+      vim-elixir
+      orgmode
+      nvim-treesitter
+      vim-indent-guides
+      vim-nix
+      vim-signify
+      zig-vim
 
-        gruvbox
-        NeoSolarized
-        vim-gruvbox8
-        base16-vim
-        papercolor-theme
-        nord-vim
+      gruvbox
+      NeoSolarized
+      vim-gruvbox8
+      base16-vim
+      papercolor-theme
+      nord-vim
 
-        vim-commentary
-        plenary-nvim
-        neogit
-        vim-rhubarb
-        vim-fugitive
-        git-blame-nvim
+      vim-commentary
+      plenary-nvim
+      neogit
+      vim-rhubarb
+      vim-fugitive
+      git-blame-nvim
 
-        haskell-vim
-        vim-ruby
-        lightspeed-nvim
-        vim-toml
+      haskell-vim
+      vim-ruby
+      lightspeed-nvim
+      vim-toml
 
-        vim-vinegar
-        vim-eunuch
-        vim-surround
-        vim-which-key
-        vim-illuminate
-        vim-test
+      vim-vinegar
+      vim-eunuch
+      vim-surround
+      vim-which-key
+      vim-illuminate
+      vim-test
 
-        limelight-vim
-        goyo-vim
+      limelight-vim
+      goyo-vim
 
-        toggleterm-nvim
-        presenting-vim
-        vim-abolish
-        vim-smoothie
-        markdown-preview-nvim
-        gruvbox-material
+      toggleterm-nvim
+      presenting-vim
+      vim-abolish
+      vim-smoothie
+      markdown-preview-nvim
+      gruvbox-material
 
-        # At the time of writing this is generating an error when
-        # runnin `home-manager switch`
-        # aniseed
-        nvim-lspconfig
-        fennel-vim
-        nvim-cmp
-        cmp-cmdline
-        cmp-nvim-lsp
-        cmp-buffer
-        cmp-path
-        todo-comments-nvim
-        cmp-vsnip
-        vim-vsnip
-        conflict-marker-vim
-        lualine-nvim
-        everforest
-        indent-blankline-nvim
-        ale
-        wilder-nvim
-        rust-vim
-        telescope-nvim
-      ];
+          # At the time of writing this is generating an error when
+          # runnin `home-manager switch`
+          # aniseed
+          nvim-lspconfig
+          fennel-vim
+          nvim-cmp
+          cmp-cmdline
+          cmp-nvim-lsp
+          cmp-buffer
+          cmp-path
+          todo-comments-nvim
+          cmp-vsnip
+          vim-vsnip
+          conflict-marker-vim
+          lualine-nvim
+          everforest
+          indent-blankline-nvim
+          ale
+          wilder-nvim
+          rust-vim
+          telescope-nvim
+          hotpot-nvim
+        ];
+      };
+  programs.wezterm = {
+    enable = true;
+    extraConfig = builtins.readFile ./.wezterm.lua;
   };
 }
 

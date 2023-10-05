@@ -13,10 +13,5 @@ if empty(glob(data_dir . '/autoload/plug.vim'))
 endif
 
 call plug#begin()
-Plug 'Olical/aniseed'
 Plug 'pechorin/any-jump.vim'
-Plug 'Zeioth/compiler.nvim'
-Plug 'stevearc/overseer.nvim'
 call plug#end()
-
-let g:aniseed#env = v:true
