@@ -84,6 +84,7 @@
 
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
+(tset vim.o :colorcolumn "80")
 (nvim.nvim_set_option "completeopt" "menuone,noselect")
 (nvim.nvim_buf_set_option 0 "modeline" false)
 (nvim.nvim_win_set_option 0 "number" true)
