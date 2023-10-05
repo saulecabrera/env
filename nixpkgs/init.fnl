@@ -83,12 +83,12 @@
   (t.setup))
 
 (tset vim.g :mapleader " ")
+(tset vim.o :textwidth 80)
 (nvim.nvim_set_option "completeopt" "menuone,noselect")
 (nvim.nvim_buf_set_option 0 "modeline" false)
 (nvim.nvim_win_set_option 0 "number" true)
 (nvim.nvim_buf_set_option 0 "fileencoding" "utf-8")
 (nvim.nvim_set_option "mouse" "a")
-(nvim.nvim_set_option "textwidth" 79)
 (nvim.nvim_set_option "tabstop" 2)
 (nvim.nvim_set_option "softtabstop" 2)
 (nvim.nvim_set_option "shiftwidth" 2)
@@ -112,9 +112,6 @@
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
 ;; Mappings
-
-(fn w [from to]
-    (nvim.nvim_set_keymap :n from to {:noremap true}))
 
 (nnoremap "<leader>ff" "<cmd>Telescope find_files<cr>")
 (nnoremap "<leader>f/" "<cmd>Telescope live_grep<cr>")
