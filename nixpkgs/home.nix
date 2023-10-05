@@ -66,21 +66,6 @@
     };
   };
 
-  programs.vscode = {
-    enable = true;
-    extensions = with pkgs.vscode-extensions; [
-      matklad.rust-analyzer
-      vscodevim.vim
-      vspacecode.vspacecode
-      vspacecode.whichkey
-      yzhang.markdown-all-in-one
-      zhuangtongfa.material-theme
-      haskell.haskell
-      bbenoist.nix
-      github.copilot
-    ];
-  };
-
   programs.git = {
     enable = true;
     userName = "Saúl Cabrera";
@@ -161,7 +146,7 @@
     };
   };
 
-  programs.neovim = {
+ programs.neovim = {
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
