@@ -38,7 +38,7 @@
 
 (let [term (require :toggleterm)]
   (when term
-    (term.setup {:direction "float"})))
+    (term.setup {:direction "tab"})))
 
 (let [indent (require :ibl)]
   (when indent
@@ -127,3 +127,5 @@
 (nnoremap "<leader>wk" "<C-w>k")
 (nnoremap "<leader>m" "<cmd>Neogit<cr>")
 (nnoremap "<leader>t" "<cmd>ToggleTerm<cr>")
+(nnoremap "<leader>gb" "<cmd>Git blame<cr>")
+(nnoremap "<leader>gs" "<cmd>GBrowse<cr>")

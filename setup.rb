@@ -1,9 +1,6 @@
 #! /usr/bin/env ruby
 
 # Laptop setup
-#
-# TODO: Setup fnl/init.fnl to point to
-# ~/.config/nvim/fnl/init.fnl
 
 SYMLINK = ['config.nix', 'config.dev.nix', 'home.nix']
 
