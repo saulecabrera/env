@@ -223,6 +223,7 @@ in {
       wilder-nvim
       rust-vim
       telescope-nvim
+      vim-liquid
     ];
   };
   programs.wezterm = {
