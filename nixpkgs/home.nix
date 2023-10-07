@@ -202,30 +202,29 @@ in {
       markdown-preview-nvim
       gruvbox-material
 
-          # At the time of writing this is generating an error when
-          # runnin `home-manager switch`
-          # aniseed
-          nvim-lspconfig
-          fennel-vim
-          nvim-cmp
-          cmp-cmdline
-          cmp-nvim-lsp
-          cmp-buffer
-          cmp-path
-          todo-comments-nvim
-          cmp-vsnip
-          vim-vsnip
-          conflict-marker-vim
-          lualine-nvim
-          everforest
-          indent-blankline-nvim
-          ale
-          wilder-nvim
-          rust-vim
-          telescope-nvim
-          hotpot-nvim
-        ];
-      };
+      # At the time of writing this is generating an error when
+      # runnin `home-manager switch`
+      # aniseed
+      nvim-lspconfig
+      fennel-vim
+      nvim-cmp
+      cmp-cmdline
+      cmp-nvim-lsp
+      cmp-buffer
+      cmp-path
+      todo-comments-nvim
+      cmp-vsnip
+      vim-vsnip
+      conflict-marker-vim
+      lualine-nvim
+      everforest
+      indent-blankline-nvim
+      ale
+      wilder-nvim
+      rust-vim
+      telescope-nvim
+    ];
+  };
   programs.wezterm = {
     enable = true;
     extraConfig = builtins.readFile ./.wezterm.lua;
