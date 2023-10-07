@@ -11,7 +11,8 @@
 #     pinentry-program /opt/homebrew/bin/pinentry-mac
 #     default-cache-ttl max-cache-ttl
 # - Tell git about the GPG key: https://docs.github.com/en/authentication/managing-commit-signature-verification/telling-git-about-your-signing-key
-#     git config --global user.signingkey 3AA5C34371567BD2
+#     git config --global user.signingkey 3AA5C34371567BD2 (example key taken
+#     from GitHub's link)
 
 
 SYMLINK = ['config.nix', 'config.dev.nix', 'home.nix']
