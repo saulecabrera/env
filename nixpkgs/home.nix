@@ -52,7 +52,7 @@ in {
 
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
-  programs.exa.enable = true;
+  programs.eza.enable = true;
 
   programs.kitty = {
     enable = true;
@@ -80,7 +80,7 @@ in {
         tool = "vimdiff";
         conflictstyle = "diff3";
       };
-      core.editor = "hx";
+      core.editor = "nvim";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
@@ -130,9 +130,9 @@ in {
     enableAutosuggestions = true;
     enableCompletion = true;
     shellAliases = {
-      ls = "exa";
-      l = "exa -l";
-      la = "exa -la";
+      ls = "eza";
+      l = "eza -l";
+      la = "eza -la";
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
