@@ -40,9 +40,9 @@
   (when term
     (term.setup {:direction "tab"})))
 
-(let [indent (require :ibl)]
-  (when indent
-    (indent.setup {})))
+; (let [indent (require :ibl)]
+;   (when indent
+;     (indent.setup {})))
 
 (let [wilder (require :wilder)]
   (when wilder
