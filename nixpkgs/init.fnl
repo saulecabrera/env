@@ -18,12 +18,6 @@
                                :lualine_z ["location"]}
                     })))
 
-(let [org (require :orgmode)]
-  (when org
-    (org.setup_ts_grammar)
-    (org.setup {:org_agenda_files ["~/Developer/org/*"]
-                })))
-
 (let [lspcfg (require :lspconfig)]
   (when lspcfg
     (lspcfg.tsserver.setup {})

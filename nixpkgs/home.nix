@@ -159,7 +159,6 @@ in {
     extraLuaConfig = builtins.readFile luaCfg;
     plugins = with pkgs.vimPlugins; [
       vim-elixir
-      orgmode
       nvim-treesitter
       vim-indent-guides
       vim-nix
@@ -202,9 +201,6 @@ in {
       markdown-preview-nvim
       gruvbox-material
 
-      # At the time of writing this is generating an error when
-      # runnin `home-manager switch`
-      # aniseed
       nvim-lspconfig
       fennel-vim
       nvim-cmp
@@ -218,7 +214,6 @@ in {
       conflict-marker-vim
       lualine-nvim
       everforest
-      indent-blankline-nvim
       ale
       wilder-nvim
       rust-vim
