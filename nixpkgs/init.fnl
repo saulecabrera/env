@@ -111,6 +111,7 @@
 (nnoremap "<leader>ff" "<cmd>Telescope find_files<cr>")
 (nnoremap "<leader>f/" "<cmd>Telescope live_grep<cr>")
 (nnoremap "<leader>fc" "<cmd>Telescope grep_string<cr>")
+(nnoremap "<leader>fs" "<cmd>Telescope current_buffer_fuzzy_find<cr>")
 (nnoremap "<leader>fr" "<cmd>Telescope buffers<cr>")
 (nnoremap "<c-s>" "<cmd>w<cr>")
 (nnoremap "<leader>wv" "<C-w>v")
