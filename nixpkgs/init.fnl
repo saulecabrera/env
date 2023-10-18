@@ -102,7 +102,7 @@
 (nvim.nvim_set_var "rustfmt_fail_silently" 0)
 (nvim.nvim_set_var "rustfmt_autosave" 1)
 
-(nvim.nvim_command "colorscheme everforest")
+(nvim.nvim_command "colorscheme gruvbox-material")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
