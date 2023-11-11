@@ -8,8 +8,8 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
-config.font = wezterm.font('PragmataPro Mono Liga')
-config.font_size = 15.5
+config.font = wezterm.font('Monaspace Krypton')
+config.font_size = 14
 
 config.color_scheme = 'Gruvbox dark, pale (base16)'
 return config
