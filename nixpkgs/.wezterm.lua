@@ -11,5 +11,5 @@ end
 config.font = wezterm.font('PragmataPro Mono Liga')
 config.font_size = 15.5
 
-config.color_scheme = 'Gruvbox dark, pale (base16)'
+config.color_scheme = 'Rosé Pine Dawn (base16)'
 return config

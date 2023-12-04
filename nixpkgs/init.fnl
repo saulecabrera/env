@@ -30,13 +30,6 @@
     (nnoremap "K"  "<cmd>lua vim.lsp.buf.hover()<cr>")
     (nnoremap "ff" "<cmd>lua vim.lsp.buf.format()<cr>")))
 
-(let [term (require :toggleterm)]
-  (when term
-    (term.setup {:direction "tab"})))
-
-; (let [indent (require :ibl)]
-;   (when indent
-;     (indent.setup {})))
 
 (let [wilder (require :wilder)]
   (when wilder
@@ -76,6 +69,9 @@
 (let [t (require :telescope)]
   (t.setup))
 
+(let [rp (require :rose-pine)]
+  (rp.setup {:disable_italics true}))
+
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
 (tset vim.o :colorcolumn "80")
@@ -90,7 +86,7 @@
 (nvim.nvim_set_option "expandtab" true)
 (nvim.nvim_set_option "hidden" true)
 (nvim.nvim_set_option "termguicolors" true)
-(nvim.nvim_set_option "background" "dark")
+(nvim.nvim_set_option "background" "light")
 
 (nvim.nvim_set_var "everforest_background" "soft")
 (nvim.nvim_set_var "everforest_enable_italic" 0)
@@ -101,8 +97,9 @@
 (nvim.nvim_set_var "rustfmt_emit_files" 1)
 (nvim.nvim_set_var "rustfmt_fail_silently" 0)
 (nvim.nvim_set_var "rustfmt_autosave" 1)
+(nvim.nvim_set_var "solarized_italics" 0)
 
-(nvim.nvim_command "colorscheme gruvbox-material")
+(nvim.nvim_command "colorscheme rose-pine")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
@@ -121,6 +118,5 @@
 (nnoremap "<leader>wj" "<C-w>j")
 (nnoremap "<leader>wk" "<C-w>k")
 (nnoremap "<leader>m" "<cmd>Neogit<cr>")
-(nnoremap "<leader>t" "<cmd>ToggleTerm<cr>")
 (nnoremap "<leader>gb" "<cmd>Git blame<cr>")
 (nnoremap "<leader>gs" "<cmd>GBrowse<cr>")

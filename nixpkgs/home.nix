@@ -102,6 +102,11 @@ in {
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
+      {
+        name = "zsh-vi-mode";
+        src = pkgs.zsh-vi-mode;
+        file = "share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
+      }
     ];
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
@@ -144,7 +149,6 @@ in {
       theme = "lambda";
       plugins = [
         "git"
-        "vi-mode"
         "z"
         "git"
         "command-not-found"
@@ -194,7 +198,6 @@ in {
       limelight-vim
       goyo-vim
 
-      toggleterm-nvim
       presenting-vim
       vim-abolish
       vim-smoothie
@@ -219,6 +222,7 @@ in {
       rust-vim
       telescope-nvim
       vim-liquid
+      rose-pine
     ];
   };
   programs.wezterm = {
