@@ -102,11 +102,6 @@ in {
         src = pkgs.zsh-powerlevel10k;
         file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
       }
-      {
-        name = "zsh-vi-mode";
-        src = pkgs.zsh-vi-mode;
-        file = "share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh";
-      }
     ];
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
@@ -122,6 +117,7 @@ in {
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
 
+      source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source $HOME/Developer/env/nixpkgs/.p10k.zsh
     '';
 
