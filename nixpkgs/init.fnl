@@ -3,11 +3,6 @@
 (fn nnoremap [from to]
     (nvim.nvim_set_keymap :n from to {:noremap true}))
 
-;; Pkg setup
-(let [neogit (require :neogit)]
-  (when neogit
-    (neogit.setup)))
-
 (let [lualine (require :lualine)]
   (when lualine
     (lualine.setup {:sections {:lualine_a ["mode"]
@@ -67,10 +62,13 @@
 (require :lightspeed)
 
 (let [t (require :telescope)]
-  (t.setup))
+  (t.setup)
+  (t.load_extension "lazygit"))
 
 (let [rp (require :rose-pine)]
-  (rp.setup {:disable_italics true}))
+  (rp.setup {:disable_italics true
+             :variant "dawn"
+             }))
 
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
@@ -117,6 +115,6 @@
 (nnoremap "<leader>wh" "<C-w>h")
 (nnoremap "<leader>wj" "<C-w>j")
 (nnoremap "<leader>wk" "<C-w>k")
-(nnoremap "<leader>m" "<cmd>Neogit<cr>")
+(nnoremap "<leader>m" "<cmd>LazyGit<cr>")
 (nnoremap "<leader>gb" "<cmd>Git blame<cr>")
 (nnoremap "<leader>gs" "<cmd>GBrowse<cr>")

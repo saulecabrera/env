@@ -48,6 +48,7 @@ in {
     vistafonts
     dejavu_fonts
     fennel
+    lazygit
   ];
 
   programs.direnv.enable = true;
@@ -174,7 +175,7 @@ in {
 
       vim-commentary
       plenary-nvim
-      neogit
+      lazygit-nvim
       vim-rhubarb
       vim-fugitive
       git-blame-nvim
