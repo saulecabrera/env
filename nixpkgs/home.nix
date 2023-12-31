@@ -49,6 +49,8 @@ in {
     dejavu_fonts
     fennel
     lazygit
+    jrnl
+    glow
   ];
 
   programs.direnv.enable = true;
@@ -166,7 +168,7 @@ in {
       vim-signify
       zig-vim
 
-      gruvbox
+      gruvbox-nvim
       NeoSolarized
       vim-gruvbox8
       base16-vim

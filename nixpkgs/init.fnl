@@ -26,10 +26,6 @@
     (nnoremap "ff" "<cmd>lua vim.lsp.buf.format()<cr>")))
 
 
-(let [wilder (require :wilder)]
-  (when wilder
-    (wilder.setup {:modes [":" "/" "?"]})))
-
 (let [cmp (require :cmp)]
   (when cmp
     (cmp.setup {:snippet
@@ -70,6 +66,18 @@
              :variant "dawn"
              }))
 
+(let [g (require :gruvbox)]
+  (g.setup {:terminal_colors true
+            :bold false
+            :italic {:strings false
+                     :comments false
+                     :operators false
+                     :folds false}
+            :underline false
+            :comment false
+            :contrast "soft"
+            }))
+
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
 (tset vim.o :colorcolumn "80")
@@ -84,20 +92,17 @@
 (nvim.nvim_set_option "expandtab" true)
 (nvim.nvim_set_option "hidden" true)
 (nvim.nvim_set_option "termguicolors" true)
-(nvim.nvim_set_option "background" "light")
+(nvim.nvim_set_option "background" "dark")
 
 (nvim.nvim_set_var "everforest_background" "soft")
 (nvim.nvim_set_var "everforest_enable_italic" 0)
 (nvim.nvim_set_var "everforest_disable_italic_comment" 1)
-(nvim.nvim_set_var "gruvbox_material_background" "hard")
-(nvim.nvim_set_var "gruvbox_material_palette" "material")
-(nvim.nvim_set_var "gruvbox_material_disable_italic_comment" 1)
 (nvim.nvim_set_var "rustfmt_emit_files" 1)
 (nvim.nvim_set_var "rustfmt_fail_silently" 0)
 (nvim.nvim_set_var "rustfmt_autosave" 1)
 (nvim.nvim_set_var "solarized_italics" 0)
 
-(nvim.nvim_command "colorscheme rose-pine")
+(nvim.nvim_command "colorscheme gruvbox")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
