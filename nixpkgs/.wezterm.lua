@@ -9,7 +9,7 @@ if wezterm.config_builder then
 end
 
 config.font = wezterm.font('PragmataPro Mono Liga')
-config.font_size = 14
+config.font_size = 14.5
 
 config.color_scheme = 'Gruvbox dark, medium (base16)'
 return config
