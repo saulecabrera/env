@@ -51,6 +51,7 @@ in {
     lazygit
     jrnl
     glow
+    zellij
   ];
 
   programs.direnv.enable = true;
@@ -222,6 +223,7 @@ in {
       telescope-nvim
       vim-liquid
       rose-pine
+      bigfile-nvim
     ];
   };
   programs.wezterm = {

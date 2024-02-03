@@ -78,6 +78,9 @@
             :contrast "soft"
             }))
 
+(let [bf (require :bigfile)]
+  (bf.setup))
+
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
 (tset vim.o :colorcolumn "80")
