@@ -57,10 +57,6 @@
 
 (require :lightspeed)
 
-(let [t (require :telescope)]
-  (t.setup)
-  (t.load_extension "lazygit"))
-
 (let [rp (require :rose-pine)]
   (rp.setup {:disable_italics true
              :variant "dawn"
@@ -123,6 +119,6 @@
 (nnoremap "<leader>wh" "<C-w>h")
 (nnoremap "<leader>wj" "<C-w>j")
 (nnoremap "<leader>wk" "<C-w>k")
-(nnoremap "<leader>m" "<cmd>LazyGit<cr>")
+(nnoremap "<leader>m" "<cmd>Git<cr>")
 (nnoremap "<leader>gb" "<cmd>Git blame<cr>")
 (nnoremap "<leader>gs" "<cmd>GBrowse<cr>")

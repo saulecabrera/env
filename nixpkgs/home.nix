@@ -48,7 +48,6 @@ in {
     vistafonts
     dejavu_fonts
     fennel
-    lazygit
     jrnl
     glow
     zellij
@@ -178,7 +177,6 @@ in {
 
       vim-commentary
       plenary-nvim
-      lazygit-nvim
       vim-rhubarb
       vim-fugitive
       git-blame-nvim
