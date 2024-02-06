@@ -198,7 +198,6 @@ in {
 
       presenting-vim
       vim-abolish
-      vim-smoothie
       markdown-preview-nvim
       gruvbox-material
 
