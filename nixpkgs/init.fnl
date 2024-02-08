@@ -71,7 +71,7 @@
                      :folds false}
             :underline false
             :comment false
-            :contrast "soft"
+            :contrast "medium"
             }))
 
 (let [bf (require :bigfile)]

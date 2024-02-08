@@ -14,4 +14,5 @@ endif
 
 call plug#begin()
 Plug 'pechorin/any-jump.vim'
+Plug 'rhysd/vim-wasm'
 call plug#end()
