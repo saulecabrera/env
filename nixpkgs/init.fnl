@@ -62,18 +62,6 @@
              :variant "dawn"
              }))
 
-(let [g (require :gruvbox)]
-  (g.setup {:terminal_colors true
-            :bold false
-            :italic {:strings false
-                     :comments false
-                     :operators false
-                     :folds false}
-            :underline false
-            :comment false
-            :contrast "medium"
-            }))
-
 (let [bf (require :bigfile)]
   (bf.setup))
 
@@ -101,7 +89,11 @@
 (nvim.nvim_set_var "rustfmt_autosave" 1)
 (nvim.nvim_set_var "solarized_italics" 0)
 
-(nvim.nvim_command "colorscheme gruvbox")
+(nvim.nvim_set_var "gruvbox_italic" 0)
+(nvim.nvim_set_var "gruvbox_bold" 0)
+(nvim.nvim_set_var "italicize_strings" 0)
+
+(nvim.nvim_command "colorscheme gruvbox8")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 

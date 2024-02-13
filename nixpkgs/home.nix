@@ -53,6 +53,11 @@ in {
     zellij
   ];
 
+
+  programs.fzf = {
+    enable = true;
+    enableZshIntegration = true;
+  };
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.eza.enable = true;
@@ -149,7 +154,6 @@ in {
       plugins = [
         "git"
         "z"
-        "git"
         "command-not-found"
       ];
     };
@@ -168,7 +172,6 @@ in {
       vim-signify
       zig-vim
 
-      gruvbox-nvim
       NeoSolarized
       vim-gruvbox8
       base16-vim
@@ -221,6 +224,7 @@ in {
       vim-liquid
       rose-pine
       bigfile-nvim
+      diffview-nvim
     ];
   };
   programs.wezterm = {
