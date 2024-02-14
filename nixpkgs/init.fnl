@@ -93,7 +93,7 @@
 (nvim.nvim_set_var "gruvbox_bold" 0)
 (nvim.nvim_set_var "italicize_strings" 0)
 
-(nvim.nvim_command "colorscheme gruvbox8")
+(nvim.nvim_command "colorscheme gruvbox8_soft")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
