@@ -51,8 +51,8 @@ in {
     jrnl
     glow
     zellij
+    zsh-fzf-tab
   ];
-
 
   programs.fzf = {
     enable = true;
@@ -61,13 +61,6 @@ in {
   programs.direnv.enable = true;
   programs.direnv.nix-direnv.enable = true;
   programs.eza.enable = true;
-
-  programs.kitty = {
-    enable = true;
-    extraConfig = builtins.readFile ./kitty.conf;
-    font.name = "PragmataPro Mono Liga";
-    font.size = 16;
-  };
 
   programs.bat = {
     enable = true;
@@ -125,6 +118,10 @@ in {
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
 
+      source "$(fzf-share)/key-bindings.zsh"
+      source "$(fzf-share)/completion.zsh"
+
+      source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
       source $HOME/Developer/env/nixpkgs/.p10k.zsh
     '';
@@ -154,6 +151,8 @@ in {
       plugins = [
         "git"
         "z"
+        "vi-mode"
+        "fzf"
         "command-not-found"
       ];
     };
@@ -181,6 +180,7 @@ in {
       vim-commentary
       plenary-nvim
       vim-rhubarb
+
       vim-fugitive
       git-blame-nvim
 
@@ -226,10 +226,6 @@ in {
       bigfile-nvim
       diffview-nvim
     ];
-  };
-  programs.wezterm = {
-    enable = true;
-    extraConfig = builtins.readFile ./.wezterm.lua;
   };
 }
 

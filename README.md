@@ -4,7 +4,7 @@
 
 ## Pre-requisites
 
-- Install ruby
-- Run `ruby setup.rb`
 - Install home-manger
-- `home-manager switch`
+- Run `make prepare`
+- Run `make link`
+- Run `home-manager switch`
