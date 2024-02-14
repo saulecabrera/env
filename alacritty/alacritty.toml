@@ -8,34 +8,34 @@ duration = 0
 [colors]
 draw_bold_text_with_bright_colors = false
 
-# Colors (Gruvbox Material Medium Dark)
+# Colors (Solarized Light)
 
 # Default colors
 [colors.primary]
-background = '#282828'
-foreground = '#d4be98'
+background = '#fdf6e3'
+foreground = '#586e75'
 
 # Normal colors
 [colors.normal]
-black   = '#3c3836'
-red     = '#ea6962'
-green   = '#a9b665'
-yellow  = '#d8a657'
-blue    = '#7daea3'
-magenta = '#d3869b'
-cyan    = '#89b482'
-white   = '#d4be98'
+black   = '#073642'
+red     = '#dc322f'
+green   = '#859900'
+yellow  = '#b58900'
+blue    = '#268bd2'
+magenta = '#d33682'
+cyan    = '#2aa198'
+white   = '#eee8d5'
 
-# Bright colors (same as normal colors)
+# Bright colors
 [colors.bright]
-black   = '#3c3836'
-red     = '#ea6962'
-green   = '#a9b665'
-yellow  = '#d8a657'
-blue    = '#7daea3'
-magenta = '#d3869b'
-cyan    = '#89b482'
-white   = '#d4be98'
+black   = '#002b36'
+red     = '#cb4b16'
+green   = '#586e75'
+yellow  = '#657b83'
+blue    = '#839496'
+magenta = '#6c71c4'
+cyan    = '#93a1a1'
+white   = '#fdf6e3'
 
 [cursor]
 style = "Block"
@@ -48,7 +48,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 14.0
+size = 14
 
 [font.bold]
 family = "PragmataPro Mono Liga"

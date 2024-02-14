@@ -172,6 +172,7 @@ in {
       zig-vim
 
       NeoSolarized
+      vim-solarized8
       vim-gruvbox8
       base16-vim
       papercolor-theme

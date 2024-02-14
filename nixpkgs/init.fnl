@@ -79,7 +79,7 @@
 (nvim.nvim_set_option "expandtab" true)
 (nvim.nvim_set_option "hidden" true)
 (nvim.nvim_set_option "termguicolors" true)
-(nvim.nvim_set_option "background" "dark")
+(nvim.nvim_set_option "background" "light")
 
 (nvim.nvim_set_var "everforest_background" "soft")
 (nvim.nvim_set_var "everforest_enable_italic" 0)
@@ -87,13 +87,13 @@
 (nvim.nvim_set_var "rustfmt_emit_files" 1)
 (nvim.nvim_set_var "rustfmt_fail_silently" 0)
 (nvim.nvim_set_var "rustfmt_autosave" 1)
-(nvim.nvim_set_var "solarized_italics" 0)
 
+(nvim.nvim_set_var "solarized_italics" 0)
 (nvim.nvim_set_var "gruvbox_italic" 0)
 (nvim.nvim_set_var "gruvbox_bold" 0)
 (nvim.nvim_set_var "italicize_strings" 0)
 
-(nvim.nvim_command "colorscheme gruvbox8_soft")
+(nvim.nvim_command "colorscheme solarized8_low")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
