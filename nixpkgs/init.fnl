@@ -92,6 +92,7 @@
 (nvim.nvim_set_var "gruvbox_italic" 0)
 (nvim.nvim_set_var "gruvbox_bold" 0)
 (nvim.nvim_set_var "italicize_strings" 0)
+(nvim.nvim_set_var "gruvbox_material_background" "soft")
 
 (nvim.nvim_command "colorscheme gruvbox-material")
 (nvim.nvim_command "set clipboard+=unnamedplus")
