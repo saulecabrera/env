@@ -4,10 +4,10 @@
 (fn register [dep fetch f]
   (let [d (require dep)]
     (when d
-      (if fetch?
+      (if fetch
           (let [config (fetch d)]
             (d.setup config)))
-      (if f?
+      (if f
           (f d)))))
 
 ;; Normal mode no recursive map.
