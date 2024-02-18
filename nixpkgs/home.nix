@@ -144,6 +144,8 @@ in {
       vim = "nvim";
       vi = "nvim";
       e = "open /Applications/Emacs.app";
+      jn = "jrnl";
+      jr = "jrnl -1 --edit";
     };
 
     oh-my-zsh = {

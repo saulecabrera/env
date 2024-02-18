@@ -19,10 +19,12 @@ prepare:
 	rm -rf ~/.config/nixpkgs/
 	rm -rf ~/.config/zellij/
 	rm -rf ~/.config/alacritty/
+	rm -rf ~/.config/jrnl
 	mkdir ~/.config/nixpkgs/
 	mkdir ~/.config/alacritty/
 	mkdir ~/.config/zellij/
 	mkdir ~/.config/zellij/layouts
+	mkdir ~/.config/jrnl
 
 link:
 	ln -s ~/Developer/env/nixpkgs/home.nix ~/.config/nixpkgs
@@ -31,4 +33,5 @@ link:
 	ln -s ~/Developer/env/alacritty/alacritty.toml ~/.config/alacritty
 	ln -s ~/Developer/env/zellij/config.kdl ~/.config/zellij
 	ln -s ~/Developer/env/zellij/layouts/main.kdl ~/.config/zellij/layouts/
+	ln -s ~/Developer/env/jrnl/jrnl.yaml ~/.config/jrnl/
 
