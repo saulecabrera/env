@@ -68,7 +68,7 @@ in {
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "ansi";
+      theme = "Solarized (light)";
       pager = "less -XFr";
     };
   };
@@ -174,10 +174,8 @@ in {
       vim-signify
       zig-vim
 
-      NeoSolarized
+      gruvbox
       vim-solarized8
-      vim-gruvbox8
-      base16-vim
       papercolor-theme
       nord-vim
 
@@ -206,7 +204,6 @@ in {
       presenting-vim
       vim-abolish
       markdown-preview-nvim
-      gruvbox-material
 
       nvim-lspconfig
       fennel-vim

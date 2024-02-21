@@ -47,10 +47,7 @@
                                      {:name :path}]}))
 
 (register :todo-comments
-          (fn [_] {:signs false
-           :keywords {:TODO {:color "#689d6a"}
-                      :WARN {:color "#d79921" :alt [:XXX :WARNING]}
-                      :NOTE {:color "#a89984"}}}))
+          (fn [_] {:signs false}))
 
 (register :lightspeed (fn [_] {}))
 
@@ -72,22 +69,21 @@
 (nvim.nvim_set_option :expandtab true)
 (nvim.nvim_set_option :hidden true)
 (nvim.nvim_set_option :termguicolors true)
-(nvim.nvim_set_option :background :dark)
+(nvim.nvim_set_option :background :light)
 
-(nvim.nvim_set_var :everforest_background :soft)
+(nvim.nvim_set_var :everforest_background :medium)
 (nvim.nvim_set_var :everforest_enable_italic 0)
 (nvim.nvim_set_var :everforest_disable_italic_comment 1)
 (nvim.nvim_set_var :rustfmt_emit_files 1)
 (nvim.nvim_set_var :rustfmt_fail_silently 0)
 (nvim.nvim_set_var :rustfmt_autosave 1)
 
-(nvim.nvim_set_var :solarized_italics 0)
 (nvim.nvim_set_var :gruvbox_italic 0)
 (nvim.nvim_set_var :gruvbox_bold 0)
-(nvim.nvim_set_var :italicize_strings 0)
-(nvim.nvim_set_var :gruvbox_material_background :soft)
+(nvim.nvim_set_var :gruvbox_constrast_dark :soft)
 
-(nvim.nvim_command "colorscheme gruvbox-material")
+
+(nvim.nvim_command "colorscheme rose-pine")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
