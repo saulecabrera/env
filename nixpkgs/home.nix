@@ -68,7 +68,7 @@ in {
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "Solarized (light)";
+      theme = "ansi";
       pager = "less -XFr";
     };
   };
@@ -82,7 +82,7 @@ in {
         tool = "vimdiff";
         conflictstyle = "diff3";
       };
-      core.editor = "nvim";
+      core.editor = "hx";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
