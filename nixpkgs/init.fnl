@@ -46,9 +46,6 @@
                                      {:name :vsnip}
                                      {:name :path}]}))
 
-(register :todo-comments
-          (fn [_] {:signs false}))
-
 (register :lightspeed (fn [_] {}))
 
 (register :rose-pine (fn [_] {:disable_italics true :variant :dawn}))
@@ -69,7 +66,7 @@
 (nvim.nvim_set_option :expandtab true)
 (nvim.nvim_set_option :hidden true)
 (nvim.nvim_set_option :termguicolors true)
-(nvim.nvim_set_option :background :light)
+(nvim.nvim_set_option :background :dark)
 
 (nvim.nvim_set_var :everforest_background :medium)
 (nvim.nvim_set_var :everforest_enable_italic 0)
@@ -80,10 +77,11 @@
 
 (nvim.nvim_set_var :gruvbox_italic 0)
 (nvim.nvim_set_var :gruvbox_bold 0)
-(nvim.nvim_set_var :gruvbox_constrast_dark :soft)
+(nvim.nvim_set_var :gruvbox_material_background :medium)
+(nvim.nvim_set_var :gruvbox_material_foreground :original)
 
 
-(nvim.nvim_command "colorscheme rose-pine")
+(nvim.nvim_command "colorscheme gruvbox-material")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 

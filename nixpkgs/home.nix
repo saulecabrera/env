@@ -68,7 +68,7 @@ in {
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "ansi";
+      theme = "gruvbox-dark";
       pager = "less -XFr";
     };
   };
@@ -82,7 +82,7 @@ in {
         tool = "vimdiff";
         conflictstyle = "diff3";
       };
-      core.editor = "hx";
+      core.editor = "nvim";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
@@ -177,6 +177,7 @@ in {
     extraConfig = builtins.readFile ./init.vim;
     extraLuaConfig = builtins.readFile luaCfg;
     plugins = with pkgs.vimPlugins; [
+      seoul256-vim
       vim-elixir
       nvim-treesitter
       vim-indent-guides
@@ -184,6 +185,7 @@ in {
       vim-signify
       zig-vim
 
+      gruvbox-material
       gruvbox
       vim-solarized8
       papercolor-theme
@@ -222,7 +224,6 @@ in {
       cmp-nvim-lsp
       cmp-buffer
       cmp-path
-      todo-comments-nvim
       cmp-vsnip
       vim-vsnip
       conflict-marker-vim
