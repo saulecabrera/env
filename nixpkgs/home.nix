@@ -119,16 +119,6 @@ in {
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
 
-      export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-        --color=fg:#575279,fg+:#907aa9,bg:#faf4ed,bg+:#dfdad9
-        --color=hl:#5f87af,hl+:#907aa9,info:#575279,marker:#d7827e
-        --color=prompt:#b4637a,spinner:#ea9d34,pointer:#d7827e,header:#87afaf
-        --color=gutter:#dfdad9,border:#262626,separator:#cecacd,scrollbar:#cecacd
-        --color=preview-bg:#fffaf4,preview-border:#cecacd,preview-scrollbar:#cecacd,label:#aeaeae
-        --color=query:#d9d9d9
-        --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
-        --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
-
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
 
