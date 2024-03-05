@@ -51,9 +51,14 @@ in {
     fnlfmt
     jrnl
     glow
-    zellij
     zsh-fzf-tab
   ];
+
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./tmux.conf;
+  };
+
 
   programs.fzf = {
     enable = true;
