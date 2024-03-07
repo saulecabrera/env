@@ -79,6 +79,8 @@
 (nvim.nvim_set_var :gruvbox_bold 0)
 (nvim.nvim_set_var :gruvbox_material_background :medium)
 (nvim.nvim_set_var :gruvbox_material_foreground :original)
+(nvim.nvim_set_var :tmux_navigator_disable_when_zoomed 1)
+(nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
 (nvim.nvim_command "colorscheme gruvbox-material")
@@ -95,10 +97,10 @@
 (nnoremap :<c-s> :<cmd>w<cr>)
 (nnoremap :<leader>wv :<C-w>v)
 (nnoremap :<leader>ws :<C-w>s)
-(nnoremap :<leader>wl :<C-w>l)
-(nnoremap :<leader>wh :<C-w>h)
-(nnoremap :<leader>wj :<C-w>j)
-(nnoremap :<leader>wk :<C-w>k)
+(nnoremap :<leader>wl :<cmd>TmuxNavigateRight<cr>)
+(nnoremap :<leader>wh :<cmd>TmuxNavigateLeft<cr>)
+(nnoremap :<leader>wj :<cmd>TmuxNavigateDown<cr>)
+(nnoremap :<leader>wk :<cmd>TmuxNavigateUp<cr>)
 (nnoremap :<leader>m :<cmd>Git<cr>)
 (nnoremap :<leader>gb "<cmd>Git blame<cr>")
 (nnoremap :<leader>gs :<cmd>GBrowse<cr>)
