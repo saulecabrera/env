@@ -57,6 +57,11 @@ in {
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
+    plugins = with pkgs.tmuxPlugins; [
+      fuzzback
+      vim-tmux-navigator
+      tmux-fzf
+    ];
   };
 
 
@@ -232,6 +237,7 @@ in {
       rose-pine
       bigfile-nvim
       diffview-nvim
+      tmux-navigator
     ];
   };
 }
