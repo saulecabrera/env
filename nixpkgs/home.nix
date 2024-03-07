@@ -78,7 +78,7 @@ in {
     config = {
       style = "plain";
       italic-text = "always";
-      theme = "gruvbox-dark";
+      theme = "ansi";
       pager = "less -XFr";
     };
   };
@@ -238,6 +238,7 @@ in {
       bigfile-nvim
       diffview-nvim
       tmux-navigator
+      kanagawa-nvim
     ];
   };
 }
