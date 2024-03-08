@@ -68,7 +68,7 @@
 (nvim.nvim_set_option :termguicolors true)
 (nvim.nvim_set_option :background :dark)
 
-(nvim.nvim_set_var :everforest_background :medium)
+(nvim.nvim_set_var :everforest_background :hard)
 (nvim.nvim_set_var :everforest_enable_italic 0)
 (nvim.nvim_set_var :everforest_disable_italic_comment 1)
 (nvim.nvim_set_var :rustfmt_emit_files 1)
@@ -77,13 +77,13 @@
 
 (nvim.nvim_set_var :gruvbox_italic 0)
 (nvim.nvim_set_var :gruvbox_bold 0)
-(nvim.nvim_set_var :gruvbox_material_background :medium)
-(nvim.nvim_set_var :gruvbox_material_foreground :original)
+(nvim.nvim_set_var :gruvbox_material_background :hard)
+(nvim.nvim_set_var :gruvbox_material_foreground :material)
 (nvim.nvim_set_var :tmux_navigator_disable_when_zoomed 1)
 (nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
-(nvim.nvim_command "colorscheme kanagawa-dragon")
+(nvim.nvim_command "colorscheme gruvbox-material")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
