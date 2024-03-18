@@ -42,7 +42,6 @@ in {
     elixir
     tree
     nasm
-    rust-analyzer
     ttf_bitstream_vera
     qemu
     vistafonts
@@ -52,6 +51,7 @@ in {
     jrnl
     glow
     zsh-fzf-tab
+    rustup
   ];
 
   programs.tmux = {
