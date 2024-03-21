@@ -51,7 +51,8 @@
 
 (register :rose-pine (fn [_] {:disable_italics true :variant :dawn}))
 
-(register :bigfile (fn [_] {}))
+(register :bigfile (fn [_] {:features [:syntax]
+                            }))
 
 (tset vim.g :mapleader " ")
 (tset vim.o :textwidth 80)
