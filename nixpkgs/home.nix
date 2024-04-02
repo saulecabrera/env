@@ -32,8 +32,8 @@ in {
     haskellPackages.hspec-discover
     nodejs
     hugo
-    python3
-    python39Packages.pip
+    # python3
+    # python39Packages.pip
     ripgrep
     figlet
     slides
