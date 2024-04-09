@@ -7,4 +7,13 @@ tags:
 
 ## Notes
 
+## Plan Bar
+
+| When | Activity  | Notes  |
+-----------------------------
+|      |           |        |
+|      |           |        |
+|      |           |        |
+
+
 
