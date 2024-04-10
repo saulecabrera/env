@@ -52,6 +52,7 @@ in {
     glow
     zsh-fzf-tab
     rustup
+    binaryen
   ];
 
   programs.tmux = {
