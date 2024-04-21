@@ -80,12 +80,12 @@
 (nvim.nvim_set_var :gruvbox_italic 0)
 (nvim.nvim_set_var :gruvbox_bold 0)
 (nvim.nvim_set_var :gruvbox_material_background :hard)
-(nvim.nvim_set_var :gruvbox_material_foreground :material)
+(nvim.nvim_set_var :gruvbox_material_foreground :mix)
 (nvim.nvim_set_var :tmux_navigator_disable_when_zoomed 1)
 (nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
-(nvim.nvim_command "colorscheme gruvbox")
+(nvim.nvim_command "colorscheme gruvbox-material")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
