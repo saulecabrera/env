@@ -242,6 +242,7 @@ in {
       diffview-nvim
       tmux-navigator
       kanagawa-nvim
+      vim-graphql
     ];
   };
 }
