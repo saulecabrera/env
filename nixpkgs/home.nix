@@ -53,6 +53,8 @@ in {
     zsh-fzf-tab
     rustup
     binaryen
+    gnupg
+    pinentry_mac
   ];
 
   programs.tmux = {
