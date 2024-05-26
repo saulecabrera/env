@@ -55,6 +55,7 @@ in {
     binaryen
     gnupg
     pinentry_mac
+    trunk
   ];
 
   programs.tmux = {
