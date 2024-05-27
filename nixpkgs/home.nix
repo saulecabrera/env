@@ -56,6 +56,7 @@ in {
     gnupg
     pinentry_mac
     trunk
+    jq
   ];
 
   programs.tmux = {
