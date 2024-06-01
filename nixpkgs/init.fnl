@@ -68,7 +68,7 @@
 (nvim.nvim_set_option :expandtab true)
 (nvim.nvim_set_option :hidden true)
 (nvim.nvim_set_option :termguicolors true)
-(nvim.nvim_set_option :background :dark)
+(nvim.nvim_set_option :background :light)
 
 (nvim.nvim_set_var :everforest_background :hard)
 (nvim.nvim_set_var :everforest_enable_italic 0)
@@ -85,7 +85,7 @@
 (nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
-(nvim.nvim_command "colorscheme gruvbox-material")
+(nvim.nvim_command "colorscheme rose-pine")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 

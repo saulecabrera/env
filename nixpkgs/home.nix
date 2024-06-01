@@ -97,6 +97,9 @@ in {
         tool = "vimdiff";
         conflictstyle = "diff3";
       };
+      diff = {
+        tool = "vimdiff";
+      };
       core.editor = "nvim";
       commit.gpgsign = true;
       alias = {
@@ -137,7 +140,20 @@ in {
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
 
-      export FZF_DEFAULT_OPTS='--color=bg+:#3c3836,bg:#32302f,spinner:#fb4934,hl:#928374,fg:#ebdbb2,header:#928374,info:#8ec07c,pointer:#fb4934,marker:#fb4934,fg+:#ebdbb2,prompt:#fb4934,hl+:#fb4934'
+
+      export FZF_DEFAULT_OPTS="
+    	  --color=fg:#797593,bg:#faf4ed,hl:#d7827e
+      	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
+	      --color=border:#dfdad9,header:#286983,gutter:#faf4ed
+	      --color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
+	      --color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
+
+      export TMUX_FZF_OPTIONS="
+    	  --color=fg:#797593,bg:#faf4ed,hl:#d7827e
+      	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
+	      --color=border:#dfdad9,header:#286983,gutter:#faf4ed
+	      --color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
+	      --color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
 
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh

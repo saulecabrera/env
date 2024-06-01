@@ -5,34 +5,81 @@ animation = "EaseOutExpo"
 color = "0xffffff"
 duration = 0
 
-# Colors (Gruvbox Material Hard Dark)
 
-# Default colors
+# Colors section of "Alacritty - TOML configuration file format"
+# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
+
 [colors.primary]
-background = '#1d2021'
-foreground = '#d4be98'
+foreground = "#575279"
+background = "#faf4ed"
+dim_foreground = "#797593"
+bright_foreground = "#575279"
 
-# Normal colors
+[colors.cursor]
+text = "#575279"
+cursor = "#cecacd"
+
+[colors.vi_mode_cursor]
+text = "#575279"
+cursor = "#cecacd"
+
+[colors.search.matches]
+foreground = "#797593"
+background = "#f2e9e1"
+
+[colors.search.focused_match]
+foreground = "#faf4ed"
+background = "#d7827e"
+
+[colors.hints.start]
+foreground = "#797593"
+background = "#fffaf3"
+
+[colors.hints.end]
+foreground = "#9893a5"
+background = "#fffaf3"
+
+[colors.line_indicator]
+foreground = "None"
+background = "None"
+
+[colors.footer_bar]
+foreground = "#575279"
+background = "#fffaf3"
+
+[colors.selection]
+text = "#575279"
+background = "#dfdad9"
+
 [colors.normal]
-black   = '#32302f'
-red     = '#ea6962'
-green   = '#a9b665'
-yellow  = '#d8a657'
-blue    = '#7daea3'
-magenta = '#d3869b'
-cyan    = '#89b482'
-white   = '#d4be98'
+black = "#f2e9e1"
+red = "#b4637a"
+green = "#286983"
+yellow = "#ea9d34"
+blue = "#56949f"
+magenta = "#907aa9"
+cyan = "#d7827e"
+white = "#575279"
 
-# Bright colors (same as normal colors)
 [colors.bright]
-black   = '#32302f'
-red     = '#ea6962'
-green   = '#a9b665'
-yellow  = '#d8a657'
-blue    = '#7daea3'
-magenta = '#d3869b'
-cyan    = '#89b482'
-white   = '#d4be98'
+black = "#9893a5"
+red = "#b4637a"
+green = "#286983"
+yellow = "#ea9d34"
+blue = "#56949f"
+magenta = "#907aa9"
+cyan = "#d7827e"
+white = "#575279"
+
+[colors.dim]
+black = "#9893a5"
+red = "#b4637a"
+green = "#286983"
+yellow = "#ea9d34"
+blue = "#56949f"
+magenta = "#907aa9"
+cyan = "#d7827e"
+white = "#575279"
 
 [cursor]
 style = "Block"
@@ -48,20 +95,20 @@ render_timer = false
 size = 13
 
 [font.bold]
-family = "PragmataPro Mono Liga"
-style = "Bold"
+family = "ZedMono Nerd Font"
+style = "Extended Bold"
 
 [font.glyph_offset]
 x = 0
 y = 0
 
 [font.italic]
-family = "PragmataPro Mono Liga"
-style = "Italic"
+family = "ZedMono Nerd Font"
+style = "Extended Italic"
 
 [font.normal]
-family = "PragmataPro Mono Liga"
-style = "Regular"
+family = "ZedMono Nerd Font"
+style = "Extended"
 
 [font.offset]
 x = 0
