@@ -59,13 +59,16 @@ in {
     jq
   ];
 
+  programs.starship = {
+    enable = true;
+  };
+
   programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
     plugins = with pkgs.tmuxPlugins; [
       fuzzback
       vim-tmux-navigator
-      tmux-fzf
     ];
   };
 
@@ -117,11 +120,6 @@ in {
     enable = true;
     autocd = true;
     plugins = [
-      {
-        name = "powerlevel10k";
-        src = pkgs.zsh-powerlevel10k;
-        file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-      }
     ];
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
@@ -148,16 +146,8 @@ in {
 	      --color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
 	      --color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
 
-      export TMUX_FZF_OPTIONS="
-    	  --color=fg:#797593,bg:#faf4ed,hl:#d7827e
-      	--color=fg+:#575279,bg+:#f2e9e1,hl+:#d7827e
-	      --color=border:#dfdad9,header:#286983,gutter:#faf4ed
-	      --color=spinner:#ea9d34,info:#56949f,separator:#dfdad9
-	      --color=pointer:#907aa9,marker:#b4637a,prompt:#797593"
-
       source ${pkgs.zsh-fzf-tab}/share/fzf-tab/fzf-tab.plugin.zsh
       source ${pkgs.zsh-vi-mode}/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-      source $HOME/Developer/env/nixpkgs/.p10k.zsh
     '';
 
 
@@ -189,6 +179,8 @@ in {
         "z"
         "vi-mode"
         "fzf"
+        "colorize"
+        "colored-man-pages"
         "command-not-found"
       ];
     };

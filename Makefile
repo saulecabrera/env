@@ -7,6 +7,7 @@ prepare:
 	rm -rf ~/.config/alacritty/
 	rm -rf ~/.config/jrnl
 	rm -rf ~/.config/helix
+	rm ~/.config/starship.toml
 	mkdir ~/.config/nixpkgs/
 	mkdir ~/.config/alacritty/
 	mkdir ~/.config/jrnl
@@ -19,4 +20,4 @@ link:
 	ln -s ~/Developer/env/alacritty/alacritty.toml ~/.config/alacritty
 	ln -s ~/Developer/env/jrnl/jrnl.yaml ~/.config/jrnl/
 	ln -s ~/Developer/env/helix/config.toml ~/.config/helix/
-
+	ln -s ~/Developer/env/nixpkgs/starship.toml ~/.config/
