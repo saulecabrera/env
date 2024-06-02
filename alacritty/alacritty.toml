@@ -92,11 +92,11 @@ print_events = false
 render_timer = false
 
 [font]
-size = 12
+size = 13.5
 
 [font.bold]
 family = "ZedMono Nerd Font"
-style = "Extended Bold"
+style = "Bold"
 
 [font.glyph_offset]
 x = 0
@@ -104,11 +104,11 @@ y = 0
 
 [font.italic]
 family = "ZedMono Nerd Font"
-style = "Extended Italic"
+style = "Italic"
 
 [font.normal]
 family = "ZedMono Nerd Font"
-style = "Extended"
+style = "Regular"
 
 [font.offset]
 x = 0
