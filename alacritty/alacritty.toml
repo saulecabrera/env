@@ -92,10 +92,10 @@ print_events = false
 render_timer = false
 
 [font]
-size = 14
+size = 13
 
 [font.bold]
-family = "ZedMono Nerd Font"
+family = "PragmataPro Mono Liga"
 style = "Bold"
 
 [font.glyph_offset]
@@ -103,11 +103,11 @@ x = 0
 y = 0
 
 [font.italic]
-family = "ZedMono Nerd Font"
+family = "PragmataPro Mono Liga"
 style = "Italic"
 
 [font.normal]
-family = "ZedMono Nerd Font"
+family = "PragmataPro Mono Liga"
 style = "Regular"
 
 [font.offset]
