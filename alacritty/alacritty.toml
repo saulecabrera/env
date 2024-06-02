@@ -92,7 +92,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 13.5
+size = 14
 
 [font.bold]
 family = "ZedMono Nerd Font"
