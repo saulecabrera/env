@@ -5,81 +5,36 @@ animation = "EaseOutExpo"
 color = "0xffffff"
 duration = 0
 
+# colors (miasma) https://github.com/xero/miasma.nvim
+[colors]
+indexed_colors = [{ index = 16, color = "0x222222"}]
 
-# Colors section of "Alacritty - TOML configuration file format"
-# https://github.com/alacritty/alacritty/blob/master/extra/man/alacritty.5.scd#colors
-
+# Primary colors
 [colors.primary]
-foreground = "#575279"
-background = "#faf4ed"
-dim_foreground = "#797593"
-bright_foreground = "#575279"
+background = "#222222"
+foreground = "#c2c2b0"
 
-[colors.cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.vi_mode_cursor]
-text = "#575279"
-cursor = "#cecacd"
-
-[colors.search.matches]
-foreground = "#797593"
-background = "#f2e9e1"
-
-[colors.search.focused_match]
-foreground = "#faf4ed"
-background = "#d7827e"
-
-[colors.hints.start]
-foreground = "#797593"
-background = "#fffaf3"
-
-[colors.hints.end]
-foreground = "#9893a5"
-background = "#fffaf3"
-
-[colors.line_indicator]
-foreground = "None"
-background = "None"
-
-[colors.footer_bar]
-foreground = "#575279"
-background = "#fffaf3"
-
-[colors.selection]
-text = "#575279"
-background = "#dfdad9"
-
+# Normal colors
 [colors.normal]
-black = "#f2e9e1"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black = "#222222"
+red = "#685742"
+green = "#5f875f"
+yellow = "#b36d43"
+blue = "#78824b"
+magenta = "#bb7744"
+cyan = "#c9a554"
+white = "#d7c483"
 
+# Bright colors
 [colors.bright]
-black = "#9893a5"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
-
-[colors.dim]
-black = "#9893a5"
-red = "#b4637a"
-green = "#286983"
-yellow = "#ea9d34"
-blue = "#56949f"
-magenta = "#907aa9"
-cyan = "#d7827e"
-white = "#575279"
+black = "#666666"
+red = "#685742"
+green = "#5f875f"
+yellow = "#b36d43"
+blue = "#78824b"
+magenta = "#bb7744"
+cyan = "#c9a554"
+white = "#d7c483"
 
 [cursor]
 style = "Block"
