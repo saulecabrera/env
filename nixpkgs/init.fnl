@@ -86,7 +86,7 @@
 (nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
-(nvim.nvim_command "colorscheme miasma")
+(nvim.nvim_command "colorscheme kanagawa-dragon")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
@@ -109,3 +109,4 @@
 (nnoremap :<leader>gs :<cmd>GBrowse<cr>)
 (nnoremap :<leader>do :<cmd>DiffviewOpen<cr>)
 (nnoremap :<leader>dc :<cmd>DiffviewClose<cr>)
+(nnoremap :<leader>z :<cmd>UndotreeToggle<cr>)

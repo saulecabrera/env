@@ -5,36 +5,44 @@ animation = "EaseOutExpo"
 color = "0xffffff"
 duration = 0
 
-# colors (miasma) https://github.com/xero/miasma.nvim
-[colors]
-indexed_colors = [{ index = 16, color = "0x222222"}]
+# Colors (Kanagawa Dragon)
+# Source https//github.com/rebelot/kanagawa.nvim
 
-# Primary colors
 [colors.primary]
-background = "#222222"
-foreground = "#c2c2b0"
+background = '#181616'
+foreground = '#c5c9c5'
 
-# Normal colors
 [colors.normal]
-black = "#222222"
-red = "#685742"
-green = "#5f875f"
-yellow = "#b36d43"
-blue = "#78824b"
-magenta = "#bb7744"
-cyan = "#c9a554"
-white = "#d7c483"
+black = '#0d0c0c'
+blue = '#8ba4b0'
+cyan = '#8ea4a2'
+green = '#8a9a7b'
+magenta = '#a292a3'
+red = '#c4746e'
+white = '#C8C093'
+yellow = '#c4b28a'
 
-# Bright colors
 [colors.bright]
-black = "#666666"
-red = "#685742"
-green = "#5f875f"
-yellow = "#b36d43"
-blue = "#78824b"
-magenta = "#bb7744"
-cyan = "#c9a554"
-white = "#d7c483"
+black = '#a6a69c'
+blue = '#7FB4CA'
+cyan = '#7AA89F'
+green = '#87a987'
+magenta = '#938AA9'
+red = '#E46876'
+white = '#c5c9c5'
+yellow = '#E6C384'
+
+[colors.selection]
+background = '#2d4f67'
+foreground = '#c8c093'
+
+[[colors.indexed_colors]]
+index = 16
+color = '#ffa066'
+
+[[colors.indexed_colors]]
+index = 17
+color = '#ff5d62'
 
 [cursor]
 style = "Block"
