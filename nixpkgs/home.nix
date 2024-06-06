@@ -249,7 +249,7 @@ in {
       vim-graphql
       miasma-nvim
       undotree
-      tokyonight-nvim
+      vim-svelte
     ];
   };
 }
