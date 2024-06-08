@@ -27,6 +27,7 @@
             (lsp.tsserver.setup {})
             (lsp.rust_analyzer.setup {})
             (lsp.clangd.setup {})
+            (lsp.fennel_ls.setup {})
             (nnoremap :gd "<cmd>lua vim.lsp.buf.definition()<cr>")
             (nnoremap :gD "<cmd>lua vim.lsp.buf.declaration()<cr>")
             (nnoremap :gr "<cmd>lua vim.lsp.buf.references()<cr>")

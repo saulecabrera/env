@@ -47,6 +47,7 @@ in {
     vistafonts
     dejavu_fonts
     fennel
+    fennel-ls
     fnlfmt
     jrnl
     glow
