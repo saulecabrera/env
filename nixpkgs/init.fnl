@@ -20,7 +20,7 @@
                                :lualine_x [:encoding :filetype]
                                :lualine_y [:progress]
                                :lualine_z [:location]}
-                            :options {:section_separators {:left "░▒▓" :right "▓▒░"} :component_separators ""}}))
+                            :options {:section_separators {:left "░▒▓" :right "▓▒░"} :component_separators "" :theme "gruvbox-material"}}))
 
 (register :lspconfig nil
           (fn [lsp]
@@ -86,7 +86,7 @@
 (nvim.nvim_set_var :tmux_navigator_no_mappings 1)
 
 
-(nvim.nvim_command "colorscheme kanagawa-dragon")
+(nvim.nvim_command "colorscheme gruvbox8")
 (nvim.nvim_command "set clipboard+=unnamedplus")
 (nvim.nvim_command "set formatoptions=tcqrn1")
 
