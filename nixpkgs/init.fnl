@@ -50,8 +50,6 @@
 
 (register :lightspeed (fn [_] {}))
 
-(register :rose-pine (fn [_] {:disable_italics true :variant :dawn}))
-
 (register :bigfile (fn [_] {:features [:syntax]
                             }))
 

@@ -15,5 +15,4 @@ endif
 call plug#begin()
 Plug 'pechorin/any-jump.vim'
 Plug 'rhysd/vim-wasm'
-Plug 'whatyouhide/vim-gotham'
 call plug#end()

@@ -57,6 +57,7 @@ in {
     pinentry_mac
     trunk
     jq
+    deno
   ];
 
   programs.starship = {
@@ -212,7 +213,6 @@ in {
     extraConfig = builtins.readFile ./init.vim;
     extraLuaConfig = builtins.readFile luaCfg;
     plugins = with pkgs.vimPlugins; [
-      seoul256-vim
       vim-elixir
       nvim-treesitter
       vim-indent-guides
@@ -222,9 +222,6 @@ in {
 
       gruvbox-material
       gruvbox
-      vim-solarized8
-      papercolor-theme
-      nord-vim
 
       vim-commentary
       plenary-nvim
@@ -263,22 +260,19 @@ in {
       vim-vsnip
       conflict-marker-vim
       lualine-nvim
-      everforest
       ale
       wilder-nvim
       rust-vim
       telescope-nvim
       vim-liquid
-      rose-pine
       bigfile-nvim
       diffview-nvim
       tmux-navigator
-      kanagawa-nvim
       vim-graphql
-      miasma-nvim
       undotree
       vim-svelte
       vim-gruvbox8
+      vim-markdown
     ];
   };
 }
