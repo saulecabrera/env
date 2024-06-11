@@ -126,10 +126,10 @@
                 :<leader>ff "<cmd>Telescope find_files<cr>"
                 :<leader>f/ "<cmd>Telescope live_grep<cr>"
                 :<leader>fc "<cmd>Telescope grep_string<cr>"
-                :<leader>fs "<cmd>Telescope current_buffer_fuzzy_find<cr>"
                 :<leader>fr "<cmd>Telescope buffers<cr>"
-                ;; Save
-                :<c-s> :<cmd>w<cr>
+                ;; Misc
+                :<leader>q :<cmd>quit<cr>
+                :<leader>fs :<cmd>w<cr>
                 ;; Windows
                 :<leader>wv :<C-w>v
                 :<leader>ws :<C-w>s
@@ -147,5 +147,6 @@
                 :<leader>z :<cmd>UndotreeToggle<cr>
                })
 
-(map! inoremap {:jj :<esc>
+(map! inoremap { ;; Normal mappings
+                :jj :<esc>
                })
