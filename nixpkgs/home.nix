@@ -59,6 +59,7 @@ in {
     trunk
     jq
     deno
+    raycast
   ];
 
   programs.starship = {
