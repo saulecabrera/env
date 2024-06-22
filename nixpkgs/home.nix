@@ -275,6 +275,7 @@ in {
       vim-svelte
       vim-gruvbox8
       vim-markdown
+      git-worktree-nvim
     ];
   };
 }

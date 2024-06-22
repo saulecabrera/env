@@ -88,6 +88,12 @@
 (register :bigfile (fn [_] {:features [:syntax]
                             }))
 
+(register "git-worktree" (fn [_] {}))
+
+
+(let [telescope (require :telescope)]
+  (telescope.load_extension :git_worktree))
+
 ;; VARS & OPTS
 
 (g! {:mapleader " "})
@@ -145,6 +151,9 @@
                 :<leader>dc :<cmd>DiffviewClose<cr>
                 ;; Undo tree
                 :<leader>z :<cmd>UndotreeToggle<cr>
+                ;; Worktrees
+                :<leader>gws "<cmd>Telescope git_worktree git_worktrees<CR>" 
+                :<leader>gwc "<cmd>Telescope git_worktree create_git_worktree<CR>" 
                })
 
 (map! inoremap { ;; Normal mappings
