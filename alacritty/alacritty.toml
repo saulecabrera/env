@@ -46,7 +46,7 @@ print_events = false
 render_timer = false
 
 [font]
-size = 15
+size = 14
 
 [font.bold]
 family = "PragmataPro Mono Liga"

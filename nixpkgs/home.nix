@@ -60,6 +60,7 @@ in {
     jq
     deno
     raycast
+    zsh-forgit
   ];
 
   programs.starship = {
