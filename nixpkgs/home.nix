@@ -25,6 +25,7 @@ in {
   home.stateVersion = "21.05";
 
   home.packages = with pkgs; [
+    nodePackages.pnpm
     tig
     shellharden
     nix-prefetch-git
