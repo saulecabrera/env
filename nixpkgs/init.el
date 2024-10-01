@@ -155,13 +155,6 @@
 	    "fm"  'consult-man
 	    "fr"  'consult-project-buffer
 	    "s"  'consult-line
-	    ;; Perspective
-	    "wb"  'persp-list-buffers
-	    "ww"  'persp-switch
-	    "wn"  'persp-next
-	    "wp"  'persp-prev
-	    "wx"  'persp-kill
-	    "wy"  'persp-scratch-buffer
 	    ;; General
 	    "fs"  'save-buffer
 	    ;; Dumb jump
@@ -288,14 +281,6 @@
   (setq company-minimum-prefix-length 1
       company-idle-delay 0.0))
 
-
-(use-package perspective
-  :init
-  (persp-mode))
-
-(use-package persp-projectile
-  :ensure t
-  :init (require 'persp-projectile))
 
 (use-package exec-path-from-shell
   :ensure t
