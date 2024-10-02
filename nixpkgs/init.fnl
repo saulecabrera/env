@@ -95,7 +95,7 @@
   (telescope.load_extension :git_worktree))
 
 (register :projections (fn [_] 
-                        {:workspaces [ "~/Developer" ]}))
+                        {:workspaces [ "~/Developer" "~/Developer/javy" ]}))
 
 ;; VARS & OPTS
 
