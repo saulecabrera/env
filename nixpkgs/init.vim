@@ -15,4 +15,5 @@ endif
 call plug#begin()
 Plug 'pechorin/any-jump.vim'
 Plug 'rhysd/vim-wasm'
+Plug 'gnikdroy/projections.nvim'
 call plug#end()
