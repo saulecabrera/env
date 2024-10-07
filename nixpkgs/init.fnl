@@ -158,6 +158,8 @@
                 :<leader>gws "<cmd>Telescope git_worktree git_worktrees<CR>" 
                 :<leader>gwc "<cmd>Telescope git_worktree create_git_worktree<CR>" 
                 :<leader>pp "<cmd>Telescope projections<cr>"
+                ;; Diagnostics
+                :<leader>xx "<cmd>Telescope diagnostics<cr>"
                })
 
 (map! inoremap { ;; Normal mappings
