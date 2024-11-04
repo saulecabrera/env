@@ -94,11 +94,6 @@
 (let [telescope (require :telescope)]
   (telescope.load_extension :git_worktree))
 
-(register :projections (fn [_] 
-                        {:workspaces [ "~/Developer" ]
-                         :patterns [ ".git" "worktrees" ]
-                         }))
-
 ;; VARS & OPTS
 
 (g! {:mapleader " "})
@@ -159,7 +154,6 @@
                 ;; Worktrees
                 :<leader>gws "<cmd>Telescope git_worktree git_worktrees<CR>" 
                 :<leader>gwc "<cmd>Telescope git_worktree create_git_worktree<CR>" 
-                :<leader>pp "<cmd>Telescope projections<cr>"
                 ;; Diagnostics
                 :<leader>xx "<cmd>Telescope diagnostics<cr>"
                })
