@@ -11,8 +11,8 @@ in {
 
   # Home Manager needs a bit of information about you and the
   # paths it should manage.
-  home.username = "saulecabrera";
-  home.homeDirectory = "/Users/saulecabrera";
+  home.username = "saul";
+  home.homeDirectory = "/home/saul";
 
   # This value determines the Home Manager release that your
   # configuration is compatible with. This helps avoid breakage
@@ -25,28 +25,20 @@ in {
   home.stateVersion = "21.05";
 
   home.packages = with pkgs; [
+    yubikey-manager
+    gnumake
     nodePackages.pnpm
-    tig
-    shellharden
     nix-prefetch-git
     fd
-    haskellPackages.hspec-discover
     nodejs
     hugo
-    # python3
-    # python39Packages.pip
     ripgrep
     figlet
     slides
-    graph-easy
     yarn
     elixir
     tree
-    nasm
-    ttf_bitstream_vera
     qemu
-    vistafonts
-    dejavu_fonts
     fennel
     fennel-ls
     fnlfmt
@@ -56,27 +48,24 @@ in {
     rustup
     binaryen
     gnupg
-    pinentry_mac
-    trunk
     jq
     deno
-    raycast
-    zsh-forgit
+    # raycast
+    via
   ];
 
   programs.starship = {
     enable = true;
+    enableZshIntegration = true;
+    settings = builtins.fromTOML (builtins.readFile ./starship.toml);
   };
 
-  programs.tmux = {
+  programs.alacritty = {
     enable = true;
-    extraConfig = builtins.readFile ./tmux.conf;
-    plugins = with pkgs.tmuxPlugins; [
-      fuzzback
-      vim-tmux-navigator
-    ];
+    settings = builtins.fromTOML (builtins.readFile ../alacritty/alacritty.toml);
   };
 
+  programs.tmux = import ./tmux.nix {inherit pkgs;};
 
   programs.fzf = {
     enable = true;
@@ -119,6 +108,49 @@ in {
         cbr = "rev-parse --abbrev-ref HEAD";
       };
     };
+  };
+
+  programs.gpg = {
+    enable = true;
+
+    # https://support.yubico.com/hc/en-us/articles/4819584884124-Resolving-GPG-s-CCID-conflicts
+    scdaemonSettings = {
+      disable-ccid = true;
+    };
+ 
+    settings = {
+      personal-cipher-preferences = "AES256 AES192 AES";
+      personal-digest-preferences = "SHA512 SHA384 SHA256";
+      personal-compress-preferences = "ZLIB BZIP2 ZIP Uncompressed";
+      default-preference-list = "SHA512 SHA384 SHA256 AES256 AES192 AES ZLIB BZIP2 ZIP Uncompressed";
+      cert-digest-algo = "SHA512";
+      s2k-digest-algo = "SHA512";
+      s2k-cipher-algo = "AES256";
+      charset = "utf-8";
+      fixed-list-mode = true;
+      no-comments = true;
+      no-emit-version = true;
+      keyid-format = "0xlong";
+      list-options = "show-uid-validity";
+      verify-options = "show-uid-validity";
+      with-fingerprint = true;
+      require-cross-certification = true;
+      no-symkey-cache = true;
+      use-agent = true;
+      throw-keyids = true;
+    };
+  };
+ 
+  services.gpg-agent = {
+    enable = true;
+   
+    # https://github.com/drduh/config/blob/master/gpg-agent.conf
+    defaultCacheTtl = 60;
+    maxCacheTtl = 120;
+    pinentryPackage = pkgs.pinentry-curses;
+    extraConfig = ''
+      ttyname $GPG_TTY
+    '';
   };
 
   programs.zsh = {
@@ -194,6 +226,7 @@ in {
       e = "open /Applications/Emacs.app";
       jn = "jrnl";
       jr = "jrnl -1 --edit";
+      find = "fd";
     };
 
     oh-my-zsh = {
@@ -274,7 +307,6 @@ in {
       tmux-navigator
       vim-graphql
       undotree
-      vim-svelte
       vim-gruvbox8
       vim-markdown
       git-worktree-nvim
