@@ -12,5 +12,4 @@
   * `darwin-rebuild switch --flake /path/to/this/repo#aarch64-darwin --impure`
 
 ### NixOS
-
-TODO
+* Run `sudo nixos-rebuild switch --flake /path/to/this/repo#x86_64-linux`
