@@ -1,74 +1,19 @@
-{ config, pkgs, lib, ... }:
+{config, pkgs, lib}:
 
 let
   # Compile Fennel to Lua
   luaCfg = pkgs.runCommandLocal "init.lua" {} ''
-    ${pkgs.fennel}/bin/fennel --compile ${./init.fnl} > $out
+    ${pkgs.fennel}/bin/fennel --compile ${../shared/init.fnl} > $out
   '';
-in {
-  # Let Home Manager install and manage itself.
-  programs.home-manager.enable = true;
-
-  # Home Manager needs a bit of information about you and the
-  # paths it should manage.
-  home.username = "saulecabrera";
-  home.homeDirectory = "/Users/saulecabrera";
-
-  # This value determines the Home Manager release that your
-  # configuration is compatible with. This helps avoid breakage
-  # when a new Home Manager release introduces backwards
-  # incompatible changes.
-  #
-  # You can update Home Manager without changing this value. See
-  # the Home Manager release notes for a list of state version
-  # changes in each release.
-  home.stateVersion = "21.05";
-
-  home.packages = with pkgs; [
-    nodePackages.pnpm
-    tig
-    shellharden
-    nix-prefetch-git
-    fd
-    haskellPackages.hspec-discover
-    nodejs
-    hugo
-    # python3
-    # python39Packages.pip
-    ripgrep
-    figlet
-    slides
-    graph-easy
-    yarn
-    elixir
-    tree
-    nasm
-    ttf_bitstream_vera
-    qemu
-    vistafonts
-    dejavu_fonts
-    fennel
-    fennel-ls
-    fnlfmt
-    jrnl
-    glow
-    zsh-fzf-tab
-    rustup
-    binaryen
-    gnupg
-    pinentry_mac
-    trunk
-    jq
-    deno
-    raycast
-    zsh-forgit
-  ];
-
-  programs.starship = {
+in 
+{
+ starship = {
     enable = true;
+    enableZshIntegration = true;
+    settings = builtins.fromTOML (builtins.readFile ../shared/starship.toml);
   };
 
-  programs.tmux = {
+  tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
     plugins = with pkgs.tmuxPlugins; [
@@ -78,15 +23,23 @@ in {
   };
 
 
-  programs.fzf = {
+  fzf = {
     enable = true;
     enableZshIntegration = true;
   };
-  programs.direnv.enable = true;
-  programs.direnv.nix-direnv.enable = true;
-  programs.eza.enable = true;
 
-  programs.bat = {
+  direnv = {
+   enable = true;
+   nix-direnv = {
+     enable = true;
+   };
+  };
+
+  eza = {
+    enable = true;
+  };
+
+  bat = {
     enable = true;
     config = {
       style = "plain";
@@ -96,7 +49,7 @@ in {
     };
   };
 
-  programs.git = {
+  git = {
     enable = true;
     userName = "Saúl Cabrera";
     userEmail = "saulecabrera@gmail.com";
@@ -121,7 +74,12 @@ in {
     };
   };
 
-  programs.zsh = {
+  alacritty = {
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ../shared/alacritty.toml);
+  };
+
+  zsh = {
     enable = true;
     autocd = true;
     plugins = [
@@ -211,7 +169,7 @@ in {
     };
   };
 
-  programs.neovim = {
+  neovim = {
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;
@@ -280,5 +238,4 @@ in {
       git-worktree-nvim
     ];
   };
-}
-
+} 
