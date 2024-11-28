@@ -15,10 +15,10 @@ in
     extraSpecialArgs = { inherit inputs; };
     users.${user} = {pkgs, config, lib, ...}: {
       home = {
-	stateVersion = "24.05";
-	username = "saulecabrera";
-	homeDirectory = "/Users/saulecabrera";
-	packages = pkgs.callPackage ./packages.nix {};
+        stateVersion = "24.05";
+        username = user;
+        homeDirectory = "/Users/${user}";
+        packages = pkgs.callPackage ./packages.nix {};
       };
       programs = {} // import ../shared/programs.nix {inherit config pkgs lib;};
     };
