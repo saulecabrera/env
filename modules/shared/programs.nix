@@ -19,6 +19,7 @@ in
     plugins = with pkgs.tmuxPlugins; [
       fuzzback
       vim-tmux-navigator
+      tmux-fzf
     ];
   };
 
@@ -145,15 +146,13 @@ in
     };
     enableCompletion = true;
     shellAliases = {
+      find = "fd";
       ls = "eza";
       l = "eza -l";
       la = "eza -la";
       cl = "clear";
       vim = "nvim";
       vi = "nvim";
-      e = "open /Applications/Emacs.app";
-      jn = "jrnl";
-      jr = "jrnl -1 --edit";
     };
 
     oh-my-zsh = {
