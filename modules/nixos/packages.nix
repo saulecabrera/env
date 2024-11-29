@@ -6,4 +6,5 @@ shared-packages ++ [
   gnumake
   yubikey-manager
   via
-]  
+  clang
+]
