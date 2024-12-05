@@ -97,6 +97,12 @@ in
     shell = pkgs.zsh;
   };
 
+  fonts = {
+    fontconfig = {
+      antialias = true;
+    };
+  };
+
   # Install firefox.
   programs.firefox.enable = true;
   # Install zsh.

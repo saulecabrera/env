@@ -7,4 +7,5 @@ shared-packages ++ [
   yubikey-manager
   via
   clang
+  zulip
 ]
