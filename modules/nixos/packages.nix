@@ -8,4 +8,5 @@ shared-packages ++ [
   via
   clang
   zulip
+  clangStdenv
 ]
