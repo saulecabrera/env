@@ -126,7 +126,7 @@ in
     extraSpecialArgs = { inherit inputs; };
     users.saul = {pkgs, config, lib, ...}: {
       home = {
-        stateVersion = "24.05";
+        stateVersion = "24.11";
         username = "saul";
         homeDirectory = "/home/saul";
         packages = pkgs.callPackage ./packages.nix {};
