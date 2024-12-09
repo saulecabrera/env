@@ -107,6 +107,9 @@ in
   programs.firefox.enable = true;
   # Install zsh.
   programs.zsh.enable = true;
+  programs.hyprland.enable = true;
+  # Hyprland
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
@@ -126,7 +129,7 @@ in
     extraSpecialArgs = { inherit inputs; };
     users.saul = {pkgs, config, lib, ...}: {
       home = {
-        stateVersion = "24.11";
+        stateVersion = "25.05";
         username = "saul";
         homeDirectory = "/home/saul";
         packages = pkgs.callPackage ./packages.nix {};

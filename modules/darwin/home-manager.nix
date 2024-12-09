@@ -15,7 +15,7 @@ in
     extraSpecialArgs = { inherit inputs; };
     users.${user} = {pkgs, config, lib, ...}: {
       home = {
-        stateVersion = "24.11";
+        stateVersion = "unstable";
         username = user;
         homeDirectory = "/Users/${user}";
         packages = pkgs.callPackage ./packages.nix {};

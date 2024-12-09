@@ -2,7 +2,8 @@
   description = "System Setup";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     # Darwin config.
     nix-darwin.url = "github:LnL7/nix-darwin";
@@ -10,12 +11,12 @@
 
     # Home Manager.
     home-manager =  {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];
