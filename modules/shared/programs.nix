@@ -19,7 +19,6 @@ in
     plugins = with pkgs.tmuxPlugins; [
       fuzzback
       vim-tmux-navigator
-      tmux-fzf
     ];
   };
 

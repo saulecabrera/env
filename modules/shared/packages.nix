@@ -18,6 +18,7 @@ with pkgs; [
    rustup
    binaryen
    jq
+   sesh
 ]
 
 
