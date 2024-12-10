@@ -19,6 +19,7 @@ with pkgs; [
    binaryen
    jq
    sesh
+   zoxide
 ]
 
 

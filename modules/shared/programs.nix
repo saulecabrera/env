@@ -159,7 +159,6 @@ in
       theme = "lambda";
       plugins = [
         "git"
-        "z"
         "vi-mode"
         "fzf"
         "colorize"
