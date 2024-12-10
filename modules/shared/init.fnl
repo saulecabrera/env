@@ -58,7 +58,6 @@
 
 (register :lspconfig nil
           (fn [lsp]
-            (lsp.tsserver.setup {})
             (lsp.rust_analyzer.setup {})
             (lsp.clangd.setup {})
             (lsp.fennel_ls.setup {})
@@ -116,13 +115,14 @@
         :rustfmt_autosave 1
         :tmux_navigator_disable_when_zoomed 1
         :tmux_navigator_no_mappings 1
+        :gruvbox_material_foreground :original
         })
 
 (nvim.nvim_buf_set_option 0 :modeline false)
 (nvim.nvim_win_set_option 0 :number true)
 (nvim.nvim_buf_set_option 0 :fileencoding :utf-8)
 
-(cmd.colorscheme "gruvbox8")
+(cmd.colorscheme "gruvbox-material")
 (cmd.set "clipboard+=unnamedplus")
 (cmd.set "formatoptions=tcqrn1")
 
