@@ -28,6 +28,11 @@ in
     enableZshIntegration = true;
   };
 
+  zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+  };
+
   direnv = {
    enable = true;
    nix-direnv = {
