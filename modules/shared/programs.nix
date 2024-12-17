@@ -102,6 +102,7 @@ in
       export PATH="$HOME/.local/bin:$PATH"
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
+      export GTK_THEME=Gruvbox-Green-Dark
 
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"

@@ -9,4 +9,6 @@ shared-packages ++ [
   clang
   zulip
   clangStdenv
+  wbg
+  pamixer
 ]

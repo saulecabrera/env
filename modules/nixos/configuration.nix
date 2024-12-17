@@ -22,10 +22,6 @@ in
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
-  # Configure network proxy if necessary
-  # networking.proxy.default = "http://user:password@proxy:port/";
-  # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
-
   # Enable networking
   networking.networkmanager.enable = true;
 
@@ -49,11 +45,11 @@ in
 
   # Enable the X11 windowing system.
   services.xserver.enable = true;
+  services.xserver.videoDrivers = [ "amdgpu" ];
 
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+  services.desktopManager.plasma6.enable = true;
 
-  services.xserver.videoDrivers = [ "modesetting" "displaylink" ];
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "us";
@@ -136,8 +132,21 @@ in
         homeDirectory = "/home/saul";
         packages = pkgs.callPackage ./packages.nix {};
       };
+      gtk = {
+        enable = true;
+        theme = {
+          name = "Gruvbox-Green-Dark";
+          package = pkgs.gruvbox-gtk-theme;
+        };
+      };
       programs = programs // import ../shared/programs.nix {inherit config pkgs lib;};
       services = {} // import ../nixos/services.nix {inherit config pkgs lib;};
+       wayland.windowManager.hyprland = {
+         enable = true;
+
+         extraConfig = builtins.readFile ./hyprland.conf;
+       };
+       systemd.user.services.hypridle.Unit.After = lib.mkForce "graphical-session.target";
     };
   };
 
