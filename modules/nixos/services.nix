@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 {
-  gpg-agent = {
+  services.gpg-agent = {
     enable = true;
     # https://github.com/drduh/config/blob/master/gpg-agent.conf
     defaultCacheTtl = 60;
@@ -12,7 +12,7 @@
     '';
   };
 
-  hypridle = {
+  services.hypridle = {
     enable = true;
     settings = {
       general = {

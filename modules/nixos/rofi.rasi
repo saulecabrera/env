@@ -11,9 +11,6 @@
     urgent:         #FB4934FF;
 }
 
-* {
-  font: "PragmataPro 12";
-}
 
 /*****----- Configuration -----*****/
 configuration {

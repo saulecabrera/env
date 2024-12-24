@@ -1,7 +1,7 @@
 {config, pkgs, lib, ...}:
 
 {
-   gpg = {
+   programs.gpg = {
     enable = true;
     # https://support.yubico.com/hc/en-us/articles/4819584884124-Resolving-GPG-s-CCID-conflicts
     scdaemonSettings = {
@@ -30,12 +30,12 @@
     };
   };
 
-  rofi = {
+  programs.rofi = {
     enable = true;
     theme = ./rofi.rasi;
   };
 
-  hyprlock = {
+  programs.hyprlock = {
     enable = true;
     extraConfig = ''
       # BACKGROUND
@@ -109,77 +109,5 @@
           valign = bottom
       }
     '';
-  };
-
-  waybar = {
-    enable = true;
-    style = builtins.readFile ./waybar.css;
-    settings = [{
-      layer = "top";
-      position = "top";
-
-      modules-left =  ["hyprland/workspaces"];
-      modules-center =  ["clock"];
-      modules-right = [
-        "pulseaudio"
-        "network"
-        "battery"
-      ];
-
-    
-      battery = {
-        format = "<span>{icon}</span> {capacity}%";
-        format-icons = [
-            " "
-            " "
-            " "
-            " "
-            " "
-        ];
-        format-charging = "<span> </span>{capacity}%";
-        format-full = "<span> </span>{capacity}%";
-        format-warning = "<span> </span>{capacity}%";
-        interval = 5;
-        states = {
-          warning = 20;
-        };
-        format-time = "{H}h{M}m";
-        tooltip = true;
-        tooltip-format = "{time}";
-      };
-
-      clock = {
-        format =  "{:%I:%M %p}";
-        format-alt = "{:%a, %d. %b  %I:%M %p}";
-      };
-
-      pulseaudio = {
-        format = "{icon} {volume}%";
-        format-muted = "<span>🔇 </span> {volume}%";
-        format-icons = {
-          default = [ "<span> </span>" ];
-        };
-        scroll-step = 2;
-        on-click = "pamixer -t";
-      };
-
-      network = {
-        format-wifi = "<span>  </span> {signalStrength}%";
-        format-ethernet = "<span>󰀂</span>";
-        tooltip-format = "Connected to {essid} {ifname} via {gwaddr}";
-        format-linked = "{ifname} (No IP)";
-        format-disconnected = "<span> 󰖪 </span>";
-      };
-
-      "hyprland/workspaces" = {
-        disable-scroll = true;
-        all-outputs = true;
-        format = "{icon}";
-        persistent_workspaces = {
-          "1" = {};
-          "2" = {};
-        };
-      };
-    }];
   };
 }

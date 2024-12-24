@@ -7,13 +7,13 @@ let
   '';
 in 
 {
- starship = {
+ programs.starship = {
     enable = true;
     enableZshIntegration = true;
     settings = builtins.fromTOML (builtins.readFile ../shared/starship.toml);
   };
 
-  tmux = {
+  programs.tmux = {
     enable = true;
     extraConfig = builtins.readFile ./tmux.conf;
     plugins = with pkgs.tmuxPlugins; [
@@ -23,28 +23,28 @@ in
   };
 
 
-  fzf = {
+  programs.fzf = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  zoxide = {
+  programs.zoxide = {
     enable = true;
     enableZshIntegration = true;
   };
 
-  direnv = {
+  programs.direnv = {
    enable = true;
    nix-direnv = {
      enable = true;
    };
   };
 
-  eza = {
+  programs.eza = {
     enable = true;
   };
 
-  bat = {
+  programs.bat = {
     enable = true;
     config = {
       style = "plain";
@@ -54,7 +54,7 @@ in
     };
   };
 
-  git = {
+  programs.git = {
     enable = true;
     userName = "Saúl Cabrera";
     userEmail = "saulecabrera@gmail.com";
@@ -79,12 +79,12 @@ in
     };
   };
 
-  alacritty = {
+  programs.alacritty = {
     enable = true;
     settings = builtins.fromTOML (builtins.readFile ../shared/alacritty.toml);
   };
 
-  zsh = {
+  programs.zsh = {
     enable = true;
     autocd = true;
     plugins = [
@@ -173,7 +173,7 @@ in
     };
   };
 
-  neovim = {
+  programs.neovim = {
     enable = true;
     vimAlias = true;
     extraConfig = builtins.readFile ./init.vim;

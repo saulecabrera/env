@@ -14,9 +14,11 @@
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    stylix.url = "github:danth/stylix";
+    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland, stylix, hyprpanel }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];
@@ -39,8 +41,24 @@
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.home-manager
+          stylix.nixosModules.stylix
+          {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
           ./hosts/nixos.nix
         ];
+      }
+    );
+
+    homeConfigurations."saul@nixos" = nixpkgs.lib.genAttrs linuxSystems(system: home-manager.lib.homeManagerConfiguration {
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [
+            inputs.hyprpanel.overlay
+          ];
+        };
+        extraSpecialArgs = {
+          inherit system;
+          inherit inputs;
+        };
       }
     );
   };
