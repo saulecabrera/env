@@ -19,6 +19,11 @@
     desktop = 10;
     popups = 10;
   };
+
+  stylix.fonts.sansSerif = {
+    name = "DejaVu Sans";
+    package = pkgs.dejavu_fonts;
+  };
   
 
   # Bootloader.

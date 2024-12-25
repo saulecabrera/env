@@ -65,7 +65,7 @@
           text = cmd[update:1000] echo "$(date +"%k:%M")"
           color = rgba(235, 219, 178, .9)
           font_size = 115
-          font_family = PragmataPro Mono Liga
+          font_family = DejaVu Sans 
           shadow_passes = 3
           position = 0, -25
           halign = center
@@ -78,7 +78,7 @@
           text = cmd[update:1000] echo "- $(date +"%A, %B %d") -"
           color = rgba(235, 219, 178, .9)
           font_size = 18
-          font_family = PragmataPro Mono Liga
+          font_family = DejaVu Sans
           shadow_passes = 3
           position = 0, -225
           halign = center
@@ -100,7 +100,7 @@
           color = rgba(235, 219, 178, .9)
           font_color = rgba(235, 219, 178, .9)
           font_size = 15
-          font_family = PragmataPro Mono Liga Bold
+          font_family = DejaVu Sans
           fade_on_empty = false
           placeholder_text = <span foreground="##fbf1c7">Password</span>
           hide_input = false

@@ -36,5 +36,6 @@
     rofi.enable = false;
     alacritty.enable = false;
     bat.enable = false;
+    hyprlock.enable = false;
   };
 }
