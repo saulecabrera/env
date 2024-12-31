@@ -16,9 +16,13 @@
     };
     stylix.url = "github:danth/stylix";
     hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
+
+    ghostty = {
+      url = "github:ghostty-org/ghostty";
+    };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland, stylix, hyprpanel }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland, stylix, hyprpanel,  ghostty }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];
@@ -42,8 +46,13 @@
         modules = [
           home-manager.nixosModules.home-manager
           stylix.nixosModules.stylix
-          {nixpkgs.overlays = [inputs.hyprpanel.overlay];}
+          { nixpkgs.overlays = [inputs.hyprpanel.overlay]; }
           ./hosts/nixos.nix
+          {
+            environment.systemPackages = [
+              ghostty.packages.x86_64-linux.default
+            ];
+          }
         ];
       }
     );

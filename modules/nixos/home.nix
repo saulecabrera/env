@@ -33,7 +33,7 @@
 
   stylix.targets = {
     neovim.enable = false;
-    rofi.enable = false;
+    tmux.enable = false;
     alacritty.enable = false;
     bat.enable = false;
     hyprlock.enable = false;

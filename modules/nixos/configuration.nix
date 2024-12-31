@@ -21,8 +21,13 @@
   };
 
   stylix.fonts.sansSerif = {
-    name = "DejaVu Sans";
-    package = pkgs.dejavu_fonts;
+    name = "Noto Sans";
+    package = pkgs.noto-fonts;
+  };
+
+  stylix.fonts.monospace = {
+    name = "Noto Mono";
+    package = pkgs.noto-fonts;
   };
   
 

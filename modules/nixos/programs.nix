@@ -30,11 +30,6 @@
     };
   };
 
-  programs.rofi = {
-    enable = true;
-    theme = ./rofi.rasi;
-  };
-
   programs.hyprlock = {
     enable = true;
     extraConfig = ''
