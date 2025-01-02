@@ -64,8 +64,8 @@
   services.xserver.enable = true;
   services.xserver.videoDrivers = [ "amdgpu" ];
 
-  services.displayManager.sddm.wayland.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -116,9 +116,6 @@
   programs.firefox.enable = true;
   # Install zsh.
   programs.zsh.enable = true;
-  programs.hyprland.enable = true;
-  # Hyprland
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland;
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];

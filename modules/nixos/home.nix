@@ -26,11 +26,6 @@
 
   programs.home-manager.enable = true;
 
-  wayland.windowManager.hyprland = {
-    enable = true;
-    extraConfig = builtins.readFile ./hyprland.conf;
-  };
-
   stylix.targets = {
     neovim.enable = false;
     tmux.enable = false;

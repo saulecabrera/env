@@ -3,7 +3,6 @@
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     # Darwin config.
     nix-darwin.url = "github:LnL7/nix-darwin";
@@ -22,7 +21,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, hyprland, stylix, hyprpanel,  ghostty }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel,  ghostty }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];

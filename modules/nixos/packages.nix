@@ -8,8 +8,5 @@
     clang
     zulip
     clangStdenv
-    wbg
-    pamixer
-    hyprlauncher
   ];
 }
