@@ -13,14 +13,6 @@ in
 
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    users.${user} = {pkgs, config, lib, ...}: {
-      home = {
-        stateVersion = "25.05";
-        username = user;
-        homeDirectory = "/Users/${user}";
-        packages = pkgs.callPackage ./packages.nix {};
-      };
-      programs = {} // import ../shared/programs.nix {inherit config pkgs lib;};
-    };
+    users.saulecabrera.imports = [./home.nix];
   };
 } 

@@ -124,7 +124,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpanel
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
