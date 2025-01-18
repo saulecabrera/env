@@ -242,4 +242,8 @@ in
       git-worktree-nvim
     ];
   };
+
+  programs.gitui = {
+    enable = true;
+  };
 } 

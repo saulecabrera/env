@@ -20,9 +20,11 @@
     ghostty = {
       url = "github:ghostty-org/ghostty";
     };
+
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel, ghostty, hyprland }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel, ghostty, hyprland, nixos-hardware }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];

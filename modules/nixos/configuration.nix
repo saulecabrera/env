@@ -3,8 +3,9 @@
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [
       ./hardware-configuration.nix
+      inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ];
 
   stylix.enable = true;
