@@ -7,6 +7,7 @@
     # Darwin config.
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     # Home Manager.
     home-manager =  {
@@ -21,7 +22,7 @@
     };
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel,  ghostty }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel, ghostty, hyprland }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];

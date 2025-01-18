@@ -9,7 +9,7 @@
 
   stylix.enable = true;
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-  stylix.image = /home/saul/media/wallpaper.jpg;
+  stylix.image = /home/saul/media/among-us.jpg;
   stylix.cursor.package = pkgs.bibata-cursors;
   stylix.cursor.name = "Bibata-Modern-Ice";
   stylix.cursor.size = 22;
@@ -59,11 +59,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  services.xserver.desktopManager.gnome.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        command = "${pkgs.hyprland}/bin/Hyprland";
+        user = "saul";
+      };
+      default_session = initial_session;
+    };
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -114,6 +119,9 @@
   programs.firefox.enable = true;
   # Install zsh.
   programs.zsh.enable = true;
+  # Hyprland
+  programs.hyprland.enable = true;
+  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland; 
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
@@ -122,6 +130,7 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    hyprpanel
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

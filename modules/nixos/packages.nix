@@ -8,5 +8,6 @@
     clang
     zulip
     clangStdenv
+    wbg
   ];
 }
