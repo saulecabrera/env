@@ -5,8 +5,8 @@
     gnumake
     yubikey-manager
     via
-    clang
     zulip
+    llvmPackages.clangUseLLVM
     clangStdenv
     wbg
   ];
