@@ -6,8 +6,7 @@
     yubikey-manager
     via
     zulip
-    llvmPackages.clangUseLLVM
-    clangStdenv
+    clang
     wbg
   ];
 }
