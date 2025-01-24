@@ -8,29 +8,6 @@
       inputs.nixos-hardware.nixosModules.framework-16-7040-amd
     ];
 
-  stylix.enable = true;
-  stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/gruvbox-dark-medium.yaml";
-  stylix.image = /home/saul/media/among-us.jpg;
-  stylix.cursor.package = pkgs.bibata-cursors;
-  stylix.cursor.name = "Bibata-Modern-Ice";
-  stylix.cursor.size = 22;
-
-  stylix.fonts.sizes = {
-    applications = 10;
-    desktop = 10;
-    popups = 10;
-  };
-
-  stylix.fonts.sansSerif = {
-    name = "Noto Sans";
-    package = pkgs.noto-fonts;
-  };
-
-  stylix.fonts.monospace = {
-    name = "Noto Mono";
-    package = pkgs.noto-fonts;
-  };
-  
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -120,9 +97,6 @@
   programs.firefox.enable = true;
   # Install zsh.
   programs.zsh.enable = true;
-  # Hyprland
-  programs.hyprland.enable = true;
-  programs.hyprland.package = inputs.hyprland.packages."${pkgs.system}".hyprland; 
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
@@ -131,7 +105,6 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    hyprpanel
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

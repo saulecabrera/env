@@ -7,15 +7,12 @@
     # Darwin config.
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
-    hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 
     # Home Manager.
     home-manager =  {
       url = "github:nix-community/home-manager/";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
-    hyprpanel.url = "github:Jas-SinghFSU/HyprPanel";
 
     ghostty = {
       url = "github:ghostty-org/ghostty";
@@ -24,7 +21,7 @@
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, stylix, hyprpanel, ghostty, hyprland, nixos-hardware }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ghostty, nixos-hardware }:
   let
     linuxSystems = ["x86_64-linux"];
     darwinSystems = ["aarch64-darwin"];
@@ -47,8 +44,6 @@
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.home-manager
-          stylix.nixosModules.stylix
-          { nixpkgs.overlays = [inputs.hyprpanel.overlay]; }
           ./hosts/nixos.nix
           {
             environment.systemPackages = [

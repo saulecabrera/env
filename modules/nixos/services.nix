@@ -12,20 +12,20 @@
     '';
   };
   
-    services.hypridle = {
-    enable = true;
-    settings = {
-      general = {
-        before_sleep_cmd = "loginctl lock-session";
-        after_sleep_cmd = "hyprctl dispatch dpms on";
-        lock_cmd = "pidof hyprlock || hyprlock";
-      };
-      listener = [
-        {
-          timeout = 120;
-          on-timeout = "hyprlock";
-        }
-      ];
-    };
-  };
+  # services.hypridle = {
+  #   enable = true;
+  #   settings = {
+  #     general = {
+  #       before_sleep_cmd = "loginctl lock-session";
+  #       after_sleep_cmd = "hyprctl dispatch dpms on";
+  #       lock_cmd = "pidof hyprlock || hyprlock";
+  #     };
+  #     listener = [
+  #       {
+  #         timeout = 120;
+  #         on-timeout = "hyprlock";
+  #       }
+  #     ];
+  #   };
+  # };
 }
