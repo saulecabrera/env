@@ -37,16 +37,10 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  services.greetd = {
-    enable = true;
-    settings = rec {
-      initial_session = {
-        command = "${pkgs.hyprland}/bin/Hyprland";
-        user = "saul";
-      };
-      default_session = initial_session;
-    };
-  };
+
+  services.xserver.enable = true;
+  services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.displayManager.gdm.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {
