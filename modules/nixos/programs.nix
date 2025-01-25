@@ -29,9 +29,4 @@
       throw-keyids = true;
     };
   };
-  programs.rofi = {
-    enable  = true;
-    theme = ./rofi.rasi;
-    font = "Noto Sans 12";
-  };
 }
