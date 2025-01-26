@@ -99,6 +99,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
+    gnomeExtensions.paperwm
+    gnomeExtensions.arcmenu
+    gnomeExtensions.blur-my-shell
+    gnomeExtensions.dash-to-panel
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
