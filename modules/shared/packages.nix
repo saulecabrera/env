@@ -20,6 +20,7 @@
     binaryen
     jq
     sesh
+    just
   ];
 }
 
