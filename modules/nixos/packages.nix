@@ -6,7 +6,6 @@
     yubikey-manager
     via
     zulip
-    clang
     wbg
   ];
 }

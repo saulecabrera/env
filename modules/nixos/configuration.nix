@@ -92,6 +92,12 @@
   # Install zsh.
   programs.zsh.enable = true;
 
+
+   programs.nix-ld = {
+     enable = true;
+     libraries = with pkgs; [ clang ];
+   };
+
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
 
@@ -103,6 +109,9 @@
     gnomeExtensions.arcmenu
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-panel
+    
+    gcc_multi
+    llvmPackages.clangNoLibc
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
