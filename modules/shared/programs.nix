@@ -103,6 +103,8 @@ in
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
+      export GIT_EDITOR=vim
+
 
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
