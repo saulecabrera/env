@@ -22,7 +22,6 @@ in
     ];
   };
 
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -66,7 +65,7 @@ in
       diff = {
         tool = "vimdiff";
       };
-      core.editor = "nvim";
+      core.editor = "hx";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
@@ -103,8 +102,7 @@ in
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
-      export GIT_EDITOR=vim
-
+      export GIT_EDITOR=hx
 
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
@@ -174,6 +172,11 @@ in
         "command-not-found"
       ];
     };
+  };
+
+  programs.helix = {
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ../shared/helix.toml); 
   };
 
   programs.neovim = {
