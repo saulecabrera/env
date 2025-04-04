@@ -254,5 +254,6 @@ in
   };
   programs.yazi = {
     enable = true;
+    theme = builtins.fromTOML (builtins.readFile ../shared/yazi.gruvbox.toml);
   };
 } 
