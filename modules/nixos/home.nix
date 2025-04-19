@@ -18,6 +18,7 @@
 
   home.file.".config/zed/keymap.json".text = builtins.readFile ../shared/zed-keymap.json;
   home.file.".config/zed/settings.json".text = builtins.readFile ../shared/zed-settings.json;
+  home.file.".config/ghostty/config".text = builtins.readFile ../shared/ghostty-config;
 
   gtk = {
     enable = true;
