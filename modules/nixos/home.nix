@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 
 {
-  imports = 
+  imports =
   [
     ../shared/programs.nix
     ../shared/packages.nix
@@ -15,6 +15,9 @@
     homeDirectory = "/home/saul";
     stateVersion = "25.05";
   };
+
+  home.file.".config/zed/keymap.json".text = builtins.readFile ../shared/zed-keymap.json;
+  home.file.".config/zed/settings.json".text = builtins.readFile ../shared/zed-settings.json;
 
   gtk = {
     enable = true;

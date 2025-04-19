@@ -39,6 +39,10 @@ in
    };
   };
 
+  programs.zed-editor = {
+    enable = true;
+  };
+
   programs.eza = {
     enable = true;
   };

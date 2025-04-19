@@ -21,8 +21,6 @@
     jq
     sesh
     just
+    nixd
   ];
 }
-
-
-  
