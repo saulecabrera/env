@@ -2,6 +2,7 @@
   {
     "context": "Editor && VimControl && !VimWaiting && !menu",
     "bindings": {
+      "f s": "workspace::Save",
       "space g b": "git::Blame",
       "space g d": "git::Diff",
       "space g s": "git_panel::ToggleFocus",
@@ -18,7 +19,6 @@
 
       "space space": "command_palette::Toggle",
       "space c": "editor::ToggleComments",
-      "space s": "workspace::Save",
       "space q": "pane::CloseAllItems",
 
       "space w d": "pane::SplitDown",
