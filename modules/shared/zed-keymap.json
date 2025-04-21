@@ -19,7 +19,7 @@
       "space space": "command_palette::Toggle",
       "space c": "editor::ToggleComments",
       "space s": "workspace::Save",
-      "space q": "pane::CloseActiveItem",
+      "space q": "pane::CloseAllItems",
 
       "space w d": "pane::SplitDown",
       "space w v": "pane::SplitLeft",
