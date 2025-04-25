@@ -5,7 +5,7 @@ let
   luaCfg = pkgs.runCommandLocal "init.lua" {} ''
     ${pkgs.fennel}/bin/fennel --compile ${../shared/init.fnl} > $out
   '';
-in 
+in
 {
  programs.starship = {
     enable = true;
@@ -180,7 +180,7 @@ in
 
   programs.helix = {
     enable = true;
-    settings = builtins.fromTOML (builtins.readFile ../shared/helix.toml); 
+    settings = builtins.fromTOML (builtins.readFile ../shared/helix.toml);
   };
 
   programs.neovim = {
@@ -260,4 +260,24 @@ in
     enable = true;
     theme = builtins.fromTOML (builtins.readFile ../shared/yazi.gruvbox.toml);
   };
-} 
+
+  programs.emacs = {
+    enable = true;
+    extraConfig = builtins.readFile ./init.el;
+
+    extraPackages = epkgs: with pkgs.emacsPackages; [
+        doom-themes
+        evil
+        evil-collection
+        evil-leader
+        magit
+        diff-hl
+        lsp-mode
+        lsp-ui
+        rustic
+        which-key
+        fzf
+        projectile
+    ];
+  };
+}
