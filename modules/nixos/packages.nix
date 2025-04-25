@@ -7,5 +7,7 @@
     via
     zulip
     wbg
+    gphoto2
+    ffmpeg
   ];
 }

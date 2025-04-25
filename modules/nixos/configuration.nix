@@ -13,6 +13,19 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  boot.extraModulePackages = [
+    config.boot.kernelPackages.v4l2loopback.out
+  ];
+
+  boot.kernelModules = [
+    "v4l2loopback"
+  ];
+
+  boot.extraModprobeConfig = ''
+   # https://github.com/umlaeute/v4l2loopback
+    options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"
+  '';
+
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
@@ -37,10 +50,16 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-
   services.xserver.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
   services.xserver.displayManager.gdm.enable = true;
+  services.xserver.desktopManager.gnome = {
+    enable = true;
+    extraGSettingsOverridePackages = [ pkgs.mutter ];
+    extraGSettingsOverrides = ''
+        [org.gnome.mutter]
+        experimental-features=['scale-monitor-framebuffer']
+    '';
+  };
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -81,6 +100,9 @@
   fonts = {
     fontconfig = {
       antialias = true;
+      cache32Bit = true;
+      hinting.enable = true;
+      hinting.autohint = true;
     };
     packages = with pkgs; [
       nerd-fonts.dejavu-sans-mono
@@ -109,7 +131,7 @@
     gnomeExtensions.arcmenu
     gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-panel
-    
+
     gcc_multi
     llvmPackages.clangNoLibc
   ];
