@@ -2,7 +2,7 @@
 (require 'doom-themes)
 (setq doom-themes-enable-bold t
     doom-themes-enable-italic t
-	    doom-gruvbox-dark-variant "hard"
+	    doom-gruvbox-dark-variant "medium"
 		doom-themes-visual-bell-config t)
 (load-theme 'doom-gruvbox t)
 
@@ -134,10 +134,10 @@
 (evil-collection-ripgrep-setup)
 
 ;; Perspective
+(setq persp-suppress-no-prefix-key-warning t)
 (require 'perspective)
 (require 'persp-projectile)
 (persp-mode)
-(setq persp-suppress-no-prefix-key-warning t)
 
 
 ;; Nix
