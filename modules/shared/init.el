@@ -30,14 +30,18 @@
 ;; must set this to nil before loading `evil`
 (setq evil-want-keybinding nil)
 (require 'evil)
+(require 'evil-leader)
+(require 'evil-collection)
+(require 'evil-easymotion)
+(require 'evil-commentary)
+
 (setq evil-want-integration t)
 (setq evil-want-C-u-scroll t)
 (evil-mode 1)
 
-(require 'evil-collection)
 (evil-collection-init)
 
-(require 'evil-leader)
+(global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
   ;; Magit
@@ -65,16 +69,14 @@
   "wy"  'persp-scratch-buffer
   ;; General
   "fs"  'save-buffer
-  ;; Roam
-  "rc"  'org-roam-capture
-  "rt"  'org-roam-tag-add
-  "rr"  'org-roam-tag-remove
-  "rf"  'org-roam-node-find
-  ;; Org
-  "oa"  'org-agenda
   ;; Enhanced search via swoop
   "s"   'helm-swoop)
 
+(evilem-default-keybindings "SPC")
+(evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
+(evilem-define (kbd "SPC gW") 'evil-backward-word-begin)
+
+(evil-commentary-mode)
 
 ;; Git
 (require 'magit)
@@ -89,6 +91,7 @@
 ;; ISLE
 (add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
 
+;; LSP
 (require 'lsp-mode)
 (setq lsp-headerline-breadcrumb-enable-diagnostics nil
 	    lsp-headerline-breadcrumb-enable nil)
@@ -123,7 +126,27 @@
 
 ;; Projects
 (require 'projectile)
+(require 'projectile-ripgrep)
 (setq projectile-project-search-path '("~/Developer/" "~/src/github.com/"))
 (projectile-mode +1)
 (evil-collection-define-key 'normal 'projectile-mode-map
   "-" 'dired-jump)
+(evil-collection-ripgrep-setup)
+
+;; Perspective
+(require 'perspective)
+(require 'persp-projectile)
+(persp-mode)
+(setq persp-suppress-no-prefix-key-warning t)
+
+
+;; Nix
+(require 'nix-mode)
+
+;; Helm
+(require 'helm)
+(require 'helm-swoop)
+(require 'helm-projectile)
+(helm-mode 1)
+(helm-projectile-on)
+

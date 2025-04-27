@@ -270,6 +270,8 @@ in
         evil
         evil-collection
         evil-leader
+        evil-easymotion
+        evil-commentary
         magit
         diff-hl
         lsp-mode
@@ -278,6 +280,13 @@ in
         which-key
         fzf
         projectile
+        projectile-ripgrep
+        perspective
+        persp-projectile 
+        nix-mode
+        helm
+        helm-swoop
+        helm-projectile
     ];
   };
 }
