@@ -75,8 +75,6 @@
 (evil-global-set-key 'normal "fs" 'save-buffer)
 
 (evilem-default-keybindings "SPC")
-(evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
-(evilem-define (kbd "SPC gW") 'evil-backward-word-begin)
 
 (evil-commentary-mode)
 
