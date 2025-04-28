@@ -67,10 +67,12 @@
   "wp"  'persp-prev
   "wx"  'persp-kill
   "wy"  'persp-scratch-buffer
-  ;; General
-  "fs"  'save-buffer
+  ;; Open an eshell.
+  "e"   'eshell
   ;; Enhanced search via swoop
   "s"   'helm-swoop)
+
+(evil-global-set-key 'normal "fs" 'save-buffer)
 
 (evilem-default-keybindings "SPC")
 (evilem-define (kbd "SPC gw") 'evil-forward-word-begin)
@@ -147,6 +149,7 @@
 (require 'helm)
 (require 'helm-swoop)
 (require 'helm-projectile)
+(require 'helm-rg)
 (helm-mode 1)
 (helm-projectile-on)
 

@@ -287,6 +287,7 @@ in
         helm
         helm-swoop
         helm-projectile
+        helm-rg
     ];
   };
 }
