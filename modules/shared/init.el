@@ -44,6 +44,8 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
+  ;; Buffer
+  "q"  'kill-buffer-and-window
   ;; eshell
   "c"  'eshell
   ;; Magit
