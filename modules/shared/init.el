@@ -44,6 +44,8 @@
 (global-evil-leader-mode)
 (evil-leader/set-leader "<SPC>")
 (evil-leader/set-key
+  ;; eshell
+  "c"  'eshell
   ;; Magit
   "m"   'magit-status
   "gb"  'magit-blame
@@ -67,8 +69,6 @@
   "wp"  'persp-prev
   "wx"  'persp-kill
   "wy"  'persp-scratch-buffer
-  ;; Open an eshell.
-  "e"   'eshell
   ;; Enhanced search via swoop
   "s"   'helm-swoop)
 
