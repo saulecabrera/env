@@ -263,6 +263,7 @@ in
 
   programs.emacs = {
     enable = true;
+    package = pkgs.emacs-pgtk;
     extraConfig = builtins.readFile ./init.el;
 
     extraPackages = epkgs: with pkgs.emacsPackages; [
@@ -274,8 +275,7 @@ in
         evil-commentary
         magit
         diff-hl
-        lsp-mode
-        lsp-ui
+        eglot
         rustic
         which-key
         fzf
@@ -284,10 +284,11 @@ in
         perspective
         persp-projectile 
         nix-mode
-        helm
-        helm-swoop
-        helm-projectile
-        helm-rg
+        vertico
+        marginalia
+        orderless
+        consult
+        corfu
     ];
   };
 }

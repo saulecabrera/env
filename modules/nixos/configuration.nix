@@ -21,6 +21,8 @@
     "v4l2loopback"
   ];
 
+  boot.kernelParams = ["amdgpu.sg_display=0"];
+
   boot.extraModprobeConfig = ''
    # https://github.com/umlaeute/v4l2loopback
     options v4l2loopback exclusive_caps=1 card_label="Virtual Camera"

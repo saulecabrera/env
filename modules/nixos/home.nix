@@ -30,6 +30,18 @@
       name = "WhiteSur";
       package = pkgs.whitesur-icon-theme;
     };
+
+    gtk3.extraConfig = {
+        gtk-xft-antialias = 1;
+        gtk-xft-hinting = 1;
+        gtk-xft-hintstyle = "hintslight";
+      };
+
+      gtk4.extraConfig = {
+        gtk-xft-antialias = 1;
+        gtk-xft-hinting = 1;
+        gtk-xft-hintstyle = "hintslight";
+      };
   };
 
   programs.home-manager.enable = true;

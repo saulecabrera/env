@@ -60,8 +60,8 @@
   "wj"  'windmove-down
   "wk"  'windmove-up
   ;; Projectile
-  "ff"  'fzf-projectile
-  "f/"  'projectile-ripgrep
+  "ff"  'consult-find
+  "f/"  'consult-grep
   "fr"  'helm-buffers-list
   "pp"  'projectile-switch-project
   ;; Perspective
@@ -72,7 +72,7 @@
   "wx"  'persp-kill
   "wy"  'persp-scratch-buffer
   ;; Enhanced search via swoop
-  "s"   'helm-swoop)
+  "s"   'consult-outline)
 
 (evil-global-set-key 'normal "fs" 'save-buffer)
 
@@ -94,37 +94,14 @@
 (add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
 
 ;; LSP
-(require 'lsp-mode)
-(setq lsp-headerline-breadcrumb-enable-diagnostics nil
-	    lsp-headerline-breadcrumb-enable nil)
+(require 'eglot)
 
-(evil-collection-define-key 'normal 'lsp-mode-map
-  "gd" 'lsp-find-definition
-  "gr" 'lsp-find-references)
-
-(require 'lsp-ui)
-(setq lsp-ui-sideline-enable t
-	lsp-ui-sideline-show-diagnostics t
-	lsp-ui-doc-show-with-cursor t
-	lsp-ui-show-with-mouse t)
-
-;; Rust
 (require 'rustic)
-(setq rustic-lsp-client 'lsp-mode)
+(setq rustic-lsp-client 'eglot)
 
 ;; Which Key
 (require 'which-key)
 (which-key-mode)
-
-;; Fuzzy
-(require 'fzf)
-(setq fzf/args "-x --print-query --margin=1,0 --no-hscroll"
-	fzf/executable "fzf"
-	fzf/git-grep-args "-i --line-number %s"
-	fzf/grep-command "rg --no-heading -nH"
-	fzf/position-bottom t
-	fzf/window-height 15)
-
 
 ;; Projects
 (require 'projectile)
@@ -145,11 +122,25 @@
 ;; Nix
 (require 'nix-mode)
 
-;; Helm
-(require 'helm)
-(require 'helm-swoop)
-(require 'helm-projectile)
-(require 'helm-rg)
-(helm-mode 1)
-(helm-projectile-on)
+;; Vertico
+(require 'vertico)
+(setq vertico-cycle t)
+(setq vertico-resize nil)
+(vertico-mode 1)
 
+;; Marginalia
+(require 'marginalia)
+(marginalia-mode 1)
+
+;; Orderless
+(require 'orderless)
+(setq completion-styles '(orderless basic))
+
+;; Consult
+(require 'consult)
+
+;; Corfu
+(require 'corfu)
+(setq corfu-auto t
+      corfu-quit-no-match 'separator) ;; or t
+(global-corfu-mode)
