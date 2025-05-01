@@ -144,3 +144,6 @@
 (setq corfu-auto t
       corfu-quit-no-match 'separator) ;; or t
 (global-corfu-mode)
+
+;; WAT
+(require 'wat-mode)

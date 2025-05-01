@@ -289,6 +289,7 @@ in
         orderless
         consult
         corfu
+        wat-mode
     ];
   };
 }
