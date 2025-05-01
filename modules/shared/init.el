@@ -60,9 +60,9 @@
   "wj"  'windmove-down
   "wk"  'windmove-up
   ;; Projectile
-  "ff"  'consult-find
-  "f/"  'consult-grep
-  "fr"  'helm-buffers-list
+  "ff"  'consult-fd
+  "f/"  'consult-ripgrep
+  "fr"  'consult-buffer
   "pp"  'projectile-switch-project
   ;; Perspective
   "wb"  'persp-list-buffers
@@ -72,7 +72,7 @@
   "wx"  'persp-kill
   "wy"  'persp-scratch-buffer
   ;; Enhanced search via swoop
-  "s"   'consult-outline)
+  "s"   'consult-line)
 
 (evil-global-set-key 'normal "fs" 'save-buffer)
 
