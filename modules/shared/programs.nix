@@ -69,7 +69,7 @@ in
       diff = {
         tool = "vimdiff";
       };
-      core.editor = "hx";
+      core.editor = "emacsclient";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
@@ -106,7 +106,7 @@ in
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
-      export GIT_EDITOR=hx
+      export GIT_EDITOR=emacsclient
 
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
