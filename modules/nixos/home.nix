@@ -1,7 +1,7 @@
 { lib, pkgs, config, ... }:
 
 {
-  imports = 
+  imports =
   [
     ../shared/programs.nix
     ../shared/packages.nix
@@ -16,6 +16,10 @@
     stateVersion = "25.05";
   };
 
+  home.file.".config/zed/keymap.json".text = builtins.readFile ../shared/zed-keymap.json;
+  home.file.".config/zed/settings.json".text = builtins.readFile ../shared/zed-settings.json;
+  home.file.".config/ghostty/config".text = builtins.readFile ../shared/ghostty-config;
+
   gtk = {
     enable = true;
     theme = {
@@ -26,6 +30,18 @@
       name = "WhiteSur";
       package = pkgs.whitesur-icon-theme;
     };
+
+    gtk3.extraConfig = {
+        gtk-xft-antialias = 1;
+        gtk-xft-hinting = 1;
+        gtk-xft-hintstyle = "hintslight";
+      };
+
+      gtk4.extraConfig = {
+        gtk-xft-antialias = 1;
+        gtk-xft-hinting = 1;
+        gtk-xft-hintstyle = "hintslight";
+      };
   };
 
   programs.home-manager.enable = true;

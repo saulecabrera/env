@@ -1,0 +1,13 @@
+theme = "gruvbox"
+
+[editor]
+rulers = [80]
+
+[keys.normal]
+C-s = ":w!"
+f = { s = ":w!" }
+space = { q = ":q!" }
+
+[keys.insert]
+C-s = ":w!"
+j = { j = "normal_mode" }

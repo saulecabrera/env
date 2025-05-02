@@ -6,7 +6,8 @@
     yubikey-manager
     via
     zulip
-    clang
     wbg
+    gphoto2
+    ffmpeg
   ];
 }

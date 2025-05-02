@@ -1,0 +1,29 @@
+{
+  "theme": "Gruvbox Dark",
+  "buffer_line_height": {
+    "custom": 1.25
+  },
+  "format_on_save": "on",
+  "ui_font_size": 13,
+  "buffer_font_size": 12,
+  "buffer_font_family": "PragmataPro Mono Liga",
+  "vim_mode": true,
+  "terminal": {
+    "line_height": {
+      "custom": 1.25
+    }
+  },
+  "cursor_blink": false,
+  "relative_line_numbers": true,
+  "scrollbar": {
+    "show": "never"
+  },
+  "vertical_scroll_margin": 0,
+  "tab_bar": {
+    "show": false
+  },
+  "toolbar": {
+    "breadcrumbs": true,
+    "quick_actions": false
+  }
+}

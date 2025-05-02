@@ -5,7 +5,7 @@ let
   luaCfg = pkgs.runCommandLocal "init.lua" {} ''
     ${pkgs.fennel}/bin/fennel --compile ${../shared/init.fnl} > $out
   '';
-in 
+in
 {
  programs.starship = {
     enable = true;
@@ -22,7 +22,6 @@ in
     ];
   };
 
-
   programs.fzf = {
     enable = true;
     enableZshIntegration = true;
@@ -38,6 +37,10 @@ in
    nix-direnv = {
      enable = true;
    };
+  };
+
+  programs.zed-editor = {
+    enable = true;
   };
 
   programs.eza = {
@@ -66,7 +69,7 @@ in
       diff = {
         tool = "vimdiff";
       };
-      core.editor = "nvim";
+      core.editor = "emacsclient";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
@@ -92,7 +95,7 @@ in
     initExtra = ''
       [ -f /opt/dev/dev.sh ] && source /opt/dev/dev.sh
 
-      [[ -f /opt/dev/sh/chruby/chruby.sh ]] && type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; }
+      [[ -f /opt/dev/sh/chruby/chruby.sh ]] && { type chruby >/dev/null 2>&1 || chruby () { source /opt/dev/sh/chruby/chruby.sh; chruby "$@"; } }
 
       [[ -x /opt/homebrew/bin/brew ]] && eval $(/opt/homebrew/bin/brew shellenv)
 
@@ -103,6 +106,7 @@ in
       export PATH="/nix/var/nix/profiles/default/bin:$PATH"
       export GPG_TTY=$(tty)
       export LIBCLANG_PATH=${pkgs.llvmPackages.libclang.lib}/lib
+      export GIT_EDITOR=emacsclient
 
       source "$(fzf-share)/key-bindings.zsh"
       source "$(fzf-share)/completion.zsh"
@@ -172,6 +176,11 @@ in
         "command-not-found"
       ];
     };
+  };
+
+  programs.helix = {
+    enable = true;
+    settings = builtins.fromTOML (builtins.readFile ../shared/helix.toml);
   };
 
   programs.neovim = {
@@ -247,4 +256,40 @@ in
   programs.gitui = {
     enable = true;
   };
-} 
+  programs.yazi = {
+    enable = true;
+    theme = builtins.fromTOML (builtins.readFile ../shared/yazi.gruvbox.toml);
+  };
+
+  programs.emacs = {
+    enable = true;
+    package = pkgs.emacs-pgtk;
+    extraConfig = builtins.readFile ./init.el;
+
+    extraPackages = epkgs: with pkgs.emacsPackages; [
+        doom-themes
+        evil
+        evil-collection
+        evil-leader
+        evil-easymotion
+        evil-commentary
+        magit
+        diff-hl
+        eglot
+        rustic
+        which-key
+        fzf
+        projectile
+        projectile-ripgrep
+        perspective
+        persp-projectile 
+        nix-mode
+        vertico
+        marginalia
+        orderless
+        consult
+        corfu
+        wat-mode
+    ];
+  };
+}

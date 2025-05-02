@@ -15,4 +15,5 @@ in
     extraSpecialArgs = { inherit inputs; };
     users.saulecabrera.imports = [./home.nix];
   };
+  services.emacs.enable = true;
 } 
