@@ -290,6 +290,7 @@ in
         consult
         corfu
         wat-mode
+        fancy-compilation
     ];
   };
 }

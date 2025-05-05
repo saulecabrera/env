@@ -147,3 +147,8 @@
 
 ;; WAT
 (require 'wat-mode)
+
+
+;; fancy-compilation
+(require 'fancy-compilation)
+(fancy-compilation-mode)
