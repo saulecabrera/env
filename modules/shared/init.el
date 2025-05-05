@@ -152,3 +152,9 @@
 ;; fancy-compilation
 (require 'fancy-compilation)
 (fancy-compilation-mode)
+
+;; exec-path-from-shell
+(require 'exec-path-from-shell)
+(dolist (var '("GPG_TTY"))
+  (add-to-list 'exec-path-from-shell-variables var))
+(exec-path-from-shell-initialize)

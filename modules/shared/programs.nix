@@ -291,6 +291,7 @@ in
         corfu
         wat-mode
         fancy-compilation
+        exec-path-from-shell
     ];
   };
 }
