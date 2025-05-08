@@ -73,6 +73,9 @@
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
+  # Flatpak
+  services.flatpak.enable = true;
+
   # Enable qmk and zsa.
   hardware.keyboard.zsa.enable = true;
   hardware.keyboard.qmk.enable = true;
