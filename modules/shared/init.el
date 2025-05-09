@@ -46,8 +46,6 @@
 (evil-leader/set-key
   ;; Buffer
   "q"  'kill-buffer-and-window
-  ;; eshell
-  "c"  'eshell
   ;; Magit
   "m"   'magit-status
   "gb"  'magit-blame
@@ -59,11 +57,17 @@
   "wh"  'windmove-left
   "wj"  'windmove-down
   "wk"  'windmove-up
-  ;; Projectile
+  ;; Project
   "ff"  'consult-fd
   "f/"  'consult-ripgrep
   "fr"  'consult-buffer
   "pp"  'projectile-switch-project
+  "pc"  'projectile-compile-project
+  "ps"  'project-shell
+
+  ;; Cargo
+  ;; TODO: Load only when in Rust mode?
+  "cf"  'rustic-cargo-fmt
   ;; Perspective
   "wb"  'persp-list-buffers
   "ww"  'persp-switch
