@@ -64,6 +64,7 @@
   "pp"  'projectile-switch-project
   "pc"  'projectile-compile-project
   "ps"  'project-shell
+  "pd"  'flymake-show-project-diagnostics
 
   ;; Cargo
   ;; TODO: Load only when in Rust mode?
@@ -75,6 +76,9 @@
   "wp"  'persp-prev
   "wx"  'persp-kill
   "wy"  'persp-scratch-buffer
+  ;; Avy
+  "jc"  'avy-goto-char
+  "jl"  'avy-goto-line
   ;; Enhanced search via swoop
   "s"   'consult-line)
 
