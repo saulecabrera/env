@@ -23,7 +23,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ghostty, nixos-hardware }:
   let
-    linuxSystems = ["x86_64-linux"];
+    linuxSystems = ["x86_64-linux" "aarch64-linux"];  # Added aarch64-linux
     darwinSystems = ["aarch64-darwin"];
   in
   {
@@ -44,17 +44,18 @@
         specialArgs = { inherit inputs; };
         modules = [
           home-manager.nixosModules.home-manager
-          ./hosts/nixos.nix
+          (if system == "x86_64-linux" then ./hosts/nixos-x86_64.nix else ./hosts/nixos-aarch64.nix)
           {
             environment.systemPackages = [
-              ghostty.packages.x86_64-linux.default
+              # Adjusted to support both architectures
+              (if system == "x86_64-linux" then ghostty.packages.x86_64-linux.default else ghostty.packages.aarch64-linux.default)
             ];
           }
         ];
       }
     );
 
-    homeConfigurations."saul@nixos" = nixpkgs.lib.genAttrs linuxSystems(system: home-manager.lib.homeManagerConfiguration {
+    homeConfigurations."saul@nixos" = nixpkgs.lib.genAttrs linuxSystems (system: home-manager.lib.homeManagerConfiguration {
         pkgs = import nixpkgs {
           inherit system;
           overlays = [
