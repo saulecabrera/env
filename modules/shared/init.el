@@ -176,7 +176,7 @@
 
 ;; Org
 (setq org-agenda-files
-      (directory-files-recursively "~/Documents/t" org-agenda-file-regexp))
+      (directory-files-recursively "~/Developer/t" org-agenda-file-regexp))
 
 (require 'org-super-agenda)
 
