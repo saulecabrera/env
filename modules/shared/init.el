@@ -66,6 +66,12 @@
   "ps"  'project-shell
   "pd"  'flymake-show-project-diagnostics
 
+  ;; Org mode
+  "oa"  'org-agenda
+  "os"  'org-schedule
+  "od"  'org-deadline
+  "ot"  'org-toggle-checkbox
+  
   ;; Cargo
   ;; TODO: Load only when in Rust mode?
   "cf"  'rustic-cargo-fmt
@@ -166,3 +172,21 @@
 (dolist (var '("GPG_TTY"))
   (add-to-list 'exec-path-from-shell-variables var))
 (exec-path-from-shell-initialize)
+
+
+;; Org
+(setq org-agenda-files
+      (directory-files-recursively "~/Documents/t" org-agenda-file-regexp))
+
+(require 'org-super-agenda)
+
+(setq org-agenda-skip-deadline-if-done t
+      org-agenda-include-deadlines t
+      org-agenda-block-separator nil
+      org-agenda-compact-blocks t
+      org-agenda-start-day nil ;; i.e. today
+      org-agenda-span 1
+      org-agenda-start-on-weekday nil
+      org-super-agenda-groups
+      '((:auto-group t)))
+(org-super-agenda-mode)
