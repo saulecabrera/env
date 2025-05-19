@@ -215,3 +215,5 @@
 	;; (org-agenda-list))
 
 (org-super-agenda-mode)
+
+(with-eval-after-load 'org (global-org-modern-mode))

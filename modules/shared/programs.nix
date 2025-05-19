@@ -294,6 +294,7 @@ in
         exec-path-from-shell
         avy
         org-super-agenda
+        org-modern
     ];
   };
 }
