@@ -178,6 +178,13 @@
 (setq org-agenda-files
       (directory-files-recursively "~/Developer/t" org-agenda-file-regexp))
 
+(setq org-refile-targets '((nil :maxlevel . 9)
+                                (org-agenda-files :maxlevel . 9)))
+(setq org-outline-path-complete-in-steps nil)
+(setq org-refile-use-outline-path t)
+
+(require 'org)
+(require 'org-agenda)
 (require 'org-super-agenda)
 
 (setq org-agenda-skip-deadline-if-done t
@@ -187,6 +194,24 @@
       org-agenda-start-day nil ;; i.e. today
       org-agenda-span 1
       org-agenda-start-on-weekday nil
+
       org-super-agenda-groups
-      '((:auto-group t)))
+       '((:log t)  ; Automatically named "Log"
+         (:name "Schedule"
+                :time-grid t)
+         (:name "Today"
+                :scheduled today)
+         (:name "Due today"
+                :deadline today)
+         (:name "Overdue"
+                :deadline past)
+         (:name "Due soon"
+                :deadline future)
+         (:name "Waiting..."
+                :todo "WAITING"
+                :order 98)
+         (:name "Scheduled earlier"
+                :scheduled past)))
+	;; (org-agenda-list))
+
 (org-super-agenda-mode)
