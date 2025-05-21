@@ -64,6 +64,7 @@
   "pp"  'projectile-switch-project
   "pc"  'projectile-compile-project
   "ps"  'project-shell
+  "pe"  'project-eshell
   "pd"  'flymake-show-project-diagnostics
 
   ;; Org mode
