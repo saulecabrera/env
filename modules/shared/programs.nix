@@ -295,6 +295,7 @@ in
         avy
         org-super-agenda
         org-modern
+        zoom
     ];
   };
 }

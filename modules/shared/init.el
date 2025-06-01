@@ -218,3 +218,7 @@
 (org-super-agenda-mode)
 
 (with-eval-after-load 'org (global-org-modern-mode))
+
+(require 'zoom)
+(custom-set-variables
+ '(zoom-mode t))
