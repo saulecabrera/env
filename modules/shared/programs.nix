@@ -295,6 +295,8 @@ in
         avy
         org-super-agenda
         org-modern
+        shackle
+        denote
     ];
   };
 }

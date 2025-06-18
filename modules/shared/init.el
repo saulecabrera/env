@@ -179,10 +179,14 @@
 (setq org-agenda-files
       (directory-files-recursively "~/Developer/t" org-agenda-file-regexp))
 
+(setq org-todo-keywords
+      '((sequence "TODO" "WAITING" "DONE")))
+
 (setq org-refile-targets '((nil :maxlevel . 9)
                                 (org-agenda-files :maxlevel . 9)))
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-use-outline-path t)
+
 
 (require 'org)
 (require 'org-agenda)
@@ -218,3 +222,15 @@
 (org-super-agenda-mode)
 
 (with-eval-after-load 'org (global-org-modern-mode))
+(with-eval-after-load 'org
+    (setq org-directory "~/Developer/t"))
+(with-eval-after-load 'org
+  (setq org-default-notes-file (concat org-directory "/inbox.org")))
+
+;; Shackle
+(require 'shackle)
+(setq shackle-default-rule '(:same t))
+(shackle-mode)
+
+(require 'denote)
+(setq denote-directory (expand-file-name "~/Developer/t/"))
