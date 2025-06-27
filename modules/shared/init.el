@@ -50,13 +50,9 @@
   "m"   'magit-status
   "gb"  'magit-blame
   ;; Windows
-  "wo"  'other-window
+  "wo"  'ace-window
   "wv"  'split-window-horizontally
   "ws"  'split-window-vertically
-  "wl"  'windmove-right
-  "wh"  'windmove-left
-  "wj"  'windmove-down
-  "wk"  'windmove-up
   ;; Project
   "ff"  'consult-fd
   "f/"  'consult-ripgrep
@@ -229,8 +225,14 @@
 
 ;; Shackle
 (require 'shackle)
-(setq shackle-default-rule '(:same t))
-(shackle-mode)
+(setq shackle-rules '((compilation-mode :noselect t :align bottom :size 0.5)
+		      ("*env-shell*" :select t :popup t :align bottom)
+                      (magit-status-mode :select t :popup t :align t :size 0.9))
+      shackle-default-rule '(:select t))
+(shackle-mode 1)
 
 (require 'denote)
 (setq denote-directory (expand-file-name "~/Developer/t/"))
+
+;; Ace Window
+(require 'ace-window)

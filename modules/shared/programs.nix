@@ -297,6 +297,7 @@ in
         org-modern
         shackle
         denote
+        ace-window
     ];
   };
 }
