@@ -298,6 +298,7 @@ in
         shackle
         denote
         ace-window
+        eldoc-box
     ];
   };
 }

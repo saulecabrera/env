@@ -106,6 +106,11 @@
 
 ;; LSP
 (require 'eglot)
+;; Eldoc box
+(require 'eldoc-box)
+
+(evil-collection-define-key 'normal 'eglot-mode-map
+    "K" 'eldoc-box-eglot-help-at-point)
 
 (require 'rustic)
 (setq rustic-lsp-client 'eglot)
