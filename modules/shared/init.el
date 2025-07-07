@@ -230,9 +230,7 @@
 
 ;; Shackle
 (require 'shackle)
-(setq shackle-rules '((compilation-mode :noselect t :align bottom :size 0.9)
-		      ("*env-shell*" :select t :popup t :align bottom, :size 0.9)
-		      ("*env-eshell*" :select t :popup t :align bottom :size 0.9)
+(setq shackle-rules '((compilation-mode  :noselect t :align bottom :size 0.9)
                       (magit-status-mode :select t :popup t :align t :size 0.9))
       shackle-default-rule '(:select t))
 (shackle-mode 1)
