@@ -53,7 +53,7 @@
   };
 
   services.xserver.enable = true;
-  services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome = {
     enable = true;
     extraGSettingsOverridePackages = [ pkgs.mutter ];
@@ -75,6 +75,19 @@
 
   # Flatpak
   services.flatpak.enable = true;
+
+  services.greetd = {
+    enable = true;
+    settings = rec {
+      initial_session = {
+        # TODO Ask for pwd
+        command = "Hyprland";
+        user = "saul";
+      };
+      default_session = initial_session;
+    };
+  };
+
 
   # Enable qmk and zsa.
   hardware.keyboard.zsa.enable = true;
@@ -120,10 +133,16 @@
   programs.zsh.enable = true;
 
 
-   programs.nix-ld = {
-     enable = true;
-     libraries = with pkgs; [ clang ];
-   };
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [ clang ];
+  };
+
+  programs.hyprland = {
+    enable = true;
+    package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+    portalPackage = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland;
+  };
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];

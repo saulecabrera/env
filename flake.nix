@@ -19,9 +19,10 @@
     };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ghostty, nixos-hardware }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ghostty, nixos-hardware, hyprland }:
   let
     linuxSystems = ["x86_64-linux" "aarch64-linux"];  # Added aarch64-linux
     darwinSystems = ["aarch64-darwin"];
