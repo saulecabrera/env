@@ -6,8 +6,10 @@
     yubikey-manager
     via
     zulip
-    wbg
     gphoto2
     ffmpeg
+    wbg
+    hypridle
+    hyprlock
   ];
 }

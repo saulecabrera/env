@@ -22,6 +22,5 @@
     sesh
     just
     nixd
-    kanata
   ];
 }
