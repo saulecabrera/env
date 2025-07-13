@@ -70,6 +70,7 @@ in
         tool = "vimdiff";
       };
       core.editor = "emacsclient";
+      gpg.program = "/opt/gpg-auto";
       commit.gpgsign = true;
       alias = {
         l = "log --pretty=oneline -n 20 --graph --abbrev-commit";
