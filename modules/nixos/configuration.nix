@@ -132,10 +132,10 @@
   nixpkgs.config.allowUnfree = true;
 
   environment.systemPackages = with pkgs; [
-    gnomeExtensions.paperwm
     gnomeExtensions.arcmenu
-    gnomeExtensions.blur-my-shell
     gnomeExtensions.dash-to-panel
+    gnomeExtensions.forge
+    gnomeExtensions.space-bar
 
     gcc_multi
     llvmPackages.clangNoLibc

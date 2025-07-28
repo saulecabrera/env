@@ -44,5 +44,30 @@
       };
   };
 
+  dconf.settings = {
+    "org/gnome/desktop/wm/keybindings" = {
+      activate-window-menu = "disabled";
+      toggle-message-tray = "disabled";
+      close = ["<Super>q"];
+      maximize = "disabled";
+      minimize = ["<Super>comma"];
+      move-to-workspace-1 = ["<Super><Shift>1"];
+      switch-to-workspace-1 = ["<Super>1"];
+      move-to-workspace-2 = ["<Super><Shift>2"];
+      switch-to-workspace-2 = ["<Super>2"];
+      move-to-workspace-3 = ["<Super><Shift>3"];
+      switch-to-workspace-3 = ["<Super>3"];
+      move-to-workspace-4 = ["<Super><Shift>4"];
+      switch-to-workspace-4 = ["<Super>4"];
+      move-to-workspace-5 = ["<Super><Shift>5"];
+      switch-to-workspace-5 = ["<Super>5"];
+      unmaximize = "disabled";
+    };
+    "org/gnome/desktop/wm/preferences" = {
+      button-layout = "close,minimize,maximize:appmenu";
+      num-workspaces = 10;
+    };
+  };
+
   programs.home-manager.enable = true;
 }
