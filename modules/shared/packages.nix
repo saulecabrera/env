@@ -22,6 +22,6 @@
     sesh
     just
     nixd
-    kanata
+    shopify-cli
   ];
 }
