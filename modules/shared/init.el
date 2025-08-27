@@ -68,6 +68,8 @@
   "os"  'org-schedule
   "od"  'org-deadline
   "ot"  'org-toggle-checkbox
+  "oci" 'org-clock-in
+  "oco" 'org-clock-out
   
   ;; Cargo
   ;; TODO: Load only when in Rust mode?
