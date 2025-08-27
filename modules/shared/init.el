@@ -188,6 +188,9 @@
 (setq org-outline-path-complete-in-steps nil)
 (setq org-refile-use-outline-path t)
 
+(setq org-clock-persist 'history)
+(org-clock-persistence-insinuate)
+
 
 (require 'org)
 (require 'org-agenda)
