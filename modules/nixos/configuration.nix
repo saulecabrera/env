@@ -122,7 +122,11 @@
 
    programs.nix-ld = {
      enable = true;
-     libraries = with pkgs; [ clang ];
+     libraries = with pkgs; [
+       llvmPackages.libclang
+       clang
+       glibc
+     ];
    };
 
   services.pcscd.enable = true;
@@ -138,7 +142,7 @@
     gnomeExtensions.space-bar
 
     gcc_multi
-    llvmPackages.clangNoLibc
+    llvmPackages.clang
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

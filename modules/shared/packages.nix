@@ -23,5 +23,7 @@
     just
     nixd
     shopify-cli
+    ruby
+    libffi
   ];
 }
