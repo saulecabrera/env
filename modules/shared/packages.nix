@@ -25,5 +25,7 @@
     shopify-cli
     ruby
     libffi
+    gh
+    github-changelog-generator
   ];
 }
