@@ -268,6 +268,7 @@ in
     extraConfig = builtins.readFile ./init.el;
 
     extraPackages = epkgs: with pkgs.emacsPackages; [
+        direnv
         doom-themes
         evil
         evil-collection

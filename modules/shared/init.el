@@ -245,3 +245,7 @@
 
 ;; Ace Window
 (require 'ace-window)
+
+;; Direnv integration
+(require 'direnv)
+(direnv-mode)
