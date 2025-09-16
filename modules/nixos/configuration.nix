@@ -119,15 +119,23 @@
   # Install zsh.
   programs.zsh.enable = true;
 
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "saul" ];
+  };
 
-   programs.nix-ld = {
-     enable = true;
-     libraries = with pkgs; [
-       llvmPackages.libclang
-       clang
-       glibc
-     ];
-   };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      llvmPackages.libclang
+      clang
+      glibc
+    ];
+  };
 
   services.pcscd.enable = true;
   services.udev.packages = [pkgs.yubikey-personalization];
