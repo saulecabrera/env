@@ -180,10 +180,10 @@
 
 ;; Org
 (setq org-agenda-files
-      (directory-files-recursively "~/Developer/t" org-agenda-file-regexp))
+      (directory-files-recursively "~/Developer/t/agenda" org-agenda-file-regexp))
 
 (setq org-todo-keywords
-      '((sequence "TODO" "WAITING" "DONE")))
+      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")))
 
 (setq org-refile-targets '((nil :maxlevel . 9)
                                 (org-agenda-files :maxlevel . 9)))
@@ -218,18 +218,16 @@
                 :deadline past)
          (:name "Due soon"
                 :deadline future)
-         (:name "Waiting..."
-                :todo "WAITING"
-                :order 98)
+         (:name "Next"
+                :todo "NEXT")
          (:name "Scheduled earlier"
                 :scheduled past)))
-	;; (org-agenda-list))
 
 (org-super-agenda-mode)
 
 (with-eval-after-load 'org (global-org-modern-mode))
 (with-eval-after-load 'org
-    (setq org-directory "~/Developer/t"))
+    (setq org-directory "~/Developer/t/agenda"))
 (with-eval-after-load 'org
   (setq org-default-notes-file (concat org-directory "/inbox.org")))
 
@@ -241,7 +239,7 @@
 (shackle-mode 1)
 
 (require 'denote)
-(setq denote-directory (expand-file-name "~/Developer/t/"))
+(setq denote-directory (expand-file-name "~/Developer/t/notes/"))
 
 ;; Ace Window
 (require 'ace-window)
