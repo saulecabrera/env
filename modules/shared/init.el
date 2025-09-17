@@ -198,7 +198,9 @@
 (require 'org-agenda)
 (require 'org-super-agenda)
 
-(setq org-agenda-skip-deadline-if-done t
+(setq org-agenda-skip-timestamp-if-done t
+      org-agenda-skip-deadline-if-done t
+      org-agenda-skip-scheduled-if-done t
       org-agenda-include-deadlines t
       org-agenda-block-separator nil
       org-agenda-compact-blocks t
@@ -207,21 +209,27 @@
       org-agenda-start-on-weekday nil
 
       org-super-agenda-groups
-       '((:log t)  ; Automatically named "Log"
-         (:name "Schedule"
-                :time-grid t)
-         (:name "Today"
-                :scheduled today)
-         (:name "Due today"
-                :deadline today)
+       '((:log t)
+
+	 ;; Overdue stuff
          (:name "Overdue"
-                :deadline past)
-         (:name "Due soon"
-                :deadline future)
+		:face 'error
+		:deadline past)
+
+	 ;; Needs attention 
+         (:name "Reschedule"
+		:face 'warning
+		:scheduled past)
+
+         ;; Day
+         (:name "Today"
+		:date today
+                :time-grid t)
+
+	 ;; Next items
          (:name "Next"
-                :todo "NEXT")
-         (:name "Scheduled earlier"
-                :scheduled past)))
+		:and (:todo "NEXT" :scheduled future)
+		:and (:todo "NEXT" :deadline future))))
 
 (org-super-agenda-mode)
 
