@@ -211,6 +211,10 @@
       org-super-agenda-groups
        '((:log t)
 
+         ;; Things to work for the day.
+         (:name "Today"
+                :time-grid t)
+
 	 ;; Overdue stuff
          (:name "Overdue"
 		:face 'error
@@ -219,17 +223,17 @@
 	 ;; Needs attention 
          (:name "Reschedule"
 		:face 'warning
-		:scheduled past)
+		:and (:scheduled past))
 
-         ;; Day
-         (:name "Today"
-		:date today
-                :time-grid t)
+	 ;; Deadline, today.
+	 (:name "Due today"
+		:face 'warning
+		:and (:deadline today :scheduled nil))
 
 	 ;; Next items
          (:name "Next"
-		:and (:todo "NEXT" :scheduled future)
-		:and (:todo "NEXT" :deadline future))))
+		:and (:todo "NEXT" :scheduled future :not (:scheduled today) :not (:deadline today))
+		:and (:todo "NEXT" :deadline future :not (:scheduled today) :not (:deadline today)))))
 
 (org-super-agenda-mode)
 
