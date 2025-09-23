@@ -268,13 +268,12 @@ in
     extraConfig = builtins.readFile ./init.el;
 
     extraPackages = epkgs: with pkgs.emacsPackages; [
+        mixed-pitch
+        olivetti
+        expand-region
+        devil
         direnv
         doom-themes
-        evil
-        evil-collection
-        evil-leader
-        evil-easymotion
-        evil-commentary
         magit
         diff-hl
         eglot

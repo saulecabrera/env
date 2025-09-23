@@ -111,6 +111,8 @@
     };
     packages = with pkgs; [
       nerd-fonts.dejavu-sans-mono
+      nerd-fonts.inconsolata
+      nerd-fonts.liberation
     ];
   };
 

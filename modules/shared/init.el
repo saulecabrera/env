@@ -16,87 +16,39 @@
 (setq font-family "PragmataPro Mono Liga")
 (setq font-size 120)
 
-(set-face-attribute 'default nil
-    :family font-family
-    :height font-size
-    :weight 'normal
-    :width 'normal)
+(when (member "PragmataPro Mono Liga" (font-family-list))
+  (set-face-attribute 'default nil :font font-family :height font-size)
+  (set-face-attribute 'fixed-pitch nil :family font-family :height font-size))
+
+(when (member "Liberation Mono" (font-family-list))
+  (set-face-attribute 'variable-pitch nil :family "Liberation Mono" :height 120))
+
+(setq inhibit-startup-message           t       ;; No startup message
+      inhibit-startup-echo-area-message t       ;; No startup message in echo area
+      inhibit-startup-screen            t       ;; No default startup screen
+      initial-buffer-choice             t       ;; *scratch* is default startup buffer
+      initial-major-mode                'fundamental-mode
+      ring-bell-function                'ignore ;; No bell
+      display-time-default-load-average nil     ;; Don't show me load time
+      scroll-margin                     0       ;; Space between top/bottom
+      use-dialog-box                    nil)    ;; Disable dialog
+;; Decrease the font size, a bit.
+(setq text-scale-mode-step 1.1)
+
+;; Devil mode
+(require 'devil)
+(global-devil-mode t)
+(global-set-key (kbd "C-,") 'global-devil-mode)
+;; To ensure that `devil-mode` is correctly
+;; loaded at the startup screen.
+(advice-add 'display-startup-screen
+              :after (lambda (&optional _) (devil-mode 1)))
 
 ;; Line numbers
-(setq column-number-mode t)
-(global-display-line-numbers-mode 1)
-
-;; evil
-;; must set this to nil before loading `evil`
-(setq evil-want-keybinding nil)
-(require 'evil)
-(require 'evil-leader)
-(require 'evil-collection)
-(require 'evil-easymotion)
-(require 'evil-commentary)
-
-(setq evil-want-integration t)
-(setq evil-want-C-u-scroll t)
-(evil-mode 1)
-
-(evil-collection-init)
-
-(global-evil-leader-mode)
-(evil-leader/set-leader "<SPC>")
-(evil-leader/set-key
-  ;; Buffer
-  "q"  'kill-buffer-and-window
-  ;; Magit
-  "m"   'magit-status
-  "gb"  'magit-blame
-  ;; Windows
-  "wo"  'ace-window
-  "wv"  'split-window-horizontally
-  "ws"  'split-window-vertically
-  ;; Project
-  "ff"  'consult-fd
-  "f/"  'consult-ripgrep
-  "fr"  'consult-buffer
-  "pp"  'projectile-switch-project
-  "pc"  'projectile-compile-project
-  "ps"  'project-shell
-  "pe"  'project-eshell
-  "pd"  'flymake-show-project-diagnostics
-
-  ;; Org mode
-  "oa"  'org-agenda
-  "os"  'org-schedule
-  "od"  'org-deadline
-  "ot"  'org-toggle-checkbox
-  "oci" 'org-clock-in
-  "oco" 'org-clock-out
-  
-  ;; Cargo
-  ;; TODO: Load only when in Rust mode?
-  "cf"  'rustic-cargo-fmt
-  ;; Perspective
-  "wb"  'persp-list-buffers
-  "ww"  'persp-switch
-  "wn"  'persp-next
-  "wp"  'persp-prev
-  "wx"  'persp-kill
-  "wy"  'persp-scratch-buffer
-  ;; Avy
-  "jc"  'avy-goto-char
-  "jl"  'avy-goto-line
-  ;; Enhanced search via swoop
-  "s"   'consult-line)
-
-(evil-global-set-key 'normal "fs" 'save-buffer)
-
-(evilem-default-keybindings "SPC")
-
-(evil-commentary-mode)
+(add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
 ;; Git
 (require 'magit)
-(evil-collection-define-key 'normal 'magit-mode-map
-    "C-<tab>" 'magit-section-cycle-diffs)
 
 ;; Diff highlight
 (require 'diff-hl)
@@ -111,9 +63,6 @@
 ;; Eldoc box
 (require 'eldoc-box)
 
-(evil-collection-define-key 'normal 'eglot-mode-map
-    "K" 'eldoc-box-eglot-help-at-point)
-
 (require 'rustic)
 (setq rustic-lsp-client 'eglot)
 
@@ -126,9 +75,7 @@
 (require 'projectile-ripgrep)
 (setq projectile-project-search-path '("~/Developer/" "~/src/github.com/"))
 (projectile-mode +1)
-(evil-collection-define-key 'normal 'projectile-mode-map
-  "-" 'dired-jump)
-(evil-collection-ripgrep-setup)
+(global-set-key (kbd "C-x p p") 'projectile-switch-project)
 
 ;; Perspective
 (setq persp-suppress-no-prefix-key-warning t)
@@ -156,6 +103,12 @@
 
 ;; Consult
 (require 'consult)
+(global-set-key (kbd "M-s f") 'consult-find)
+(global-set-key (kbd "M-s /") 'consult-ripgrep)
+(global-set-key (kbd "C-x b") 'consult-buffer)
+(global-set-key (kbd "M-s e") 'consult-isearch-history)
+(define-key isearch-mode-map (kbd "M-e") 'consult-isearch-history)
+(define-key isearch-mode-map (kbd "M-s e") 'consult-isearch-history)
 
 ;; Corfu
 (require 'corfu)
@@ -193,6 +146,8 @@
 (setq org-clock-persist 'history)
 (org-clock-persistence-insinuate)
 
+(global-set-key (kbd "C-c a") #'org-agenda)
+(global-set-key (kbd "C-c c") #'org-capture)
 
 (require 'org)
 (require 'org-agenda)
@@ -255,7 +210,27 @@
 
 ;; Ace Window
 (require 'ace-window)
+(global-set-key (kbd "M-o") 'ace-window)
+(setq aw-dispatch-always t)
 
 ;; Direnv integration
 (require 'direnv)
 (direnv-mode)
+
+;; avy
+(require 'avy)
+(global-set-key (kbd "C-:") 'avy-goto-char)
+
+;; expand-region
+(require 'expand-region)
+(global-set-key (kbd "C-$") 'er/expand-region)
+
+;; Mixed pitch mode
+(require 'mixed-pitch)
+(add-hook 'org-mode-hook 'mixed-pitch-mode)
+(add-hook 'org-mode-hook 'variable-pitch-mode)
+
+;; Olivetti mode
+(setq olivetti-body-width 85)
+(require 'olivetti)
+(add-hook 'org-mode-hook 'olivetti-mode)
