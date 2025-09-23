@@ -35,6 +35,11 @@
 ;; Decrease the font size, a bit.
 (setq text-scale-mode-step 1.1)
 
+(require 'undo-fu)
+(global-unset-key (kbd "C-z"))
+(global-set-key (kbd "C-z")   'undo-fu-only-undo)
+(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)
+
 ;; Devil mode
 (require 'devil)
 (global-devil-mode t)
