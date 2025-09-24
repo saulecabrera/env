@@ -274,6 +274,7 @@ in
         expand-region
         evil
         evil-collection
+        evil-commentary
         devil
         direnv
         doom-themes

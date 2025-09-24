@@ -66,6 +66,9 @@
   :after (evil)
   :config (evil-collection-init))
 
+(use-package evil-commentary
+  :config (evil-commentary-mode))
+
 ;; Git
 (use-package magit)
 
@@ -189,8 +192,9 @@
         org-default-notes-file saul/inbox-file))
 
 (use-package org-modern
-  :after (org org-agenda))
-  ;; :hook ((org-mode . org-modern-mode)))
+  :after (org org-agenda)
+  :hook ((org-mode . org-modern-mode)
+	 (org-agenda-finalize . org-modern-agenda)))
 
 (use-package org-super-agenda
   :after (org-agenda)
