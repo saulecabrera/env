@@ -1,175 +1,203 @@
-;; Theme
-(require 'doom-themes)
-(setq doom-themes-enable-bold t
-    doom-themes-enable-italic t
-	    doom-gruvbox-dark-variant "medium"
-		doom-themes-visual-bell-config t)
-(load-theme 'doom-gruvbox t)
+;; Base
 
-(setq inhibit-startup-message t)
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
 (defalias 'yes-or-no-p 'y-or-n-p)
 
-;; Font
-(setq font-family "PragmataPro Mono Liga")
-(setq font-size 120)
-
-(when (member "PragmataPro Mono Liga" (font-family-list))
-  (set-face-attribute 'default nil :font font-family :height font-size)
-  (set-face-attribute 'fixed-pitch nil :family font-family :height font-size))
-
-(when (member "Liberation Mono" (font-family-list))
-  (set-face-attribute 'variable-pitch nil :family "Liberation Mono" :height 120))
-
-(setq inhibit-startup-message           t       ;; No startup message
-      inhibit-startup-echo-area-message t       ;; No startup message in echo area
-      inhibit-startup-screen            t       ;; No default startup screen
-      initial-buffer-choice             t       ;; *scratch* is default startup buffer
+(setq saul/font-family "PragmataPro Mono Liga"
+      saul/font-size                    120
+      saul/agenda-files                 (directory-files-recursively (expand-file-name "~/Developer/t/agenda/") "\\.org$")
+      saul/org-directory                (expand-file-name "~/Developer/t/agenda")
+      saul/notes                        (expand-file-name "~/Developer/t/notes")
+      saul/inbox-file                   (concat saul/org-directory "/inbox.org")
+      inhibit-startup-message           t      
+      inhibit-startup-echo-area-message t      
+      inhibit-startup-screen            t      
+      initial-buffer-choice             t      
       initial-major-mode                'fundamental-mode
-      ring-bell-function                'ignore ;; No bell
-      display-time-default-load-average nil     ;; Don't show me load time
-      scroll-margin                     0       ;; Space between top/bottom
-      use-dialog-box                    nil)    ;; Disable dialog
-;; Decrease the font size, a bit.
-(setq text-scale-mode-step 1.1)
+      ring-bell-function                'ignore
+      display-time-default-load-average nil   
+      scroll-margin                     0     
+      use-dialog-box                    nil
+      text-scale-mode-step              1.1)
 
-(require 'undo-fu)
-(global-unset-key (kbd "C-z"))
-(global-set-key (kbd "C-z")   'undo-fu-only-undo)
-(global-set-key (kbd "C-S-z") 'undo-fu-only-redo)
+;; Font
+(when (member saul/font-family (font-family-list))
+  (set-face-attribute 'default nil :font saul/font-family :height saul/font-size)
+  (set-face-attribute 'fixed-pitch nil :family saul/font-family :height saul/font-size))
 
-;; Devil mode
-(require 'devil)
-(global-devil-mode t)
-(global-set-key (kbd "C-,") 'global-devil-mode)
-;; To ensure that `devil-mode` is correctly
-;; loaded at the startup screen.
-(advice-add 'display-startup-screen
-              :after (lambda (&optional _) (devil-mode 1)))
+(when (member saul/font-family (font-family-list))
+  (set-face-attribute 'variable-pitch nil :family saul/font-family :height saul/font-size))
 
 ;; Line numbers
 (add-hook 'prog-mode-hook 'display-line-numbers-mode)
 
+;; Theme
+(use-package doom-themes
+  :init
+  (setq doom-themes-enable-bold t
+	doom-themes-enable-italic t
+	doom-gruvbox-dark-variant "medium"
+	doom-themes-visual-bell-config t)
+  :config
+  (load-theme 'doom-gruvbox t))
+
+;; Undo
+(use-package undo-fu
+  :bind (("C-c u" . undo-fu-only-undo)
+	 ("C-c U" . undo-fu-only-redo)))
+
+;; Keybindings (evil + devil)
+(use-package devil
+  :init
+  ;; To ensure that `devil-mode` is correctly
+  ;; loaded at the startup screen.
+  (advice-add 'display-startup-screen
+	      :after (lambda (&optional _) (devil-mode 1)))
+  :config
+  (global-devil-mode t)
+  :bind (("C-," . global-devil-mode)))
+
+(use-package evil
+  :config (evil-mode 1))
+
+(use-package evil-collection
+  :after (evil)
+  :config (evil-collection-init))
+
 ;; Git
-(require 'magit)
+(use-package magit)
 
 ;; Diff highlight
-(require 'diff-hl)
-(global-diff-hl-mode)
-(diff-hl-dired-mode)
+(use-package diff-hl
+  :config
+  (global-diff-hl-mode)
+  (diff-hl-dired-mode))
 
 ;; ISLE
 (add-to-list 'auto-mode-alist '("\\.isle\\'" . lisp-mode))
 
 ;; LSP
-(require 'eglot)
-;; Eldoc box
-(require 'eldoc-box)
+(use-package eglot)
 
-(require 'rustic)
-(setq rustic-lsp-client 'eglot)
+;; Eldoc box
+(use-package eldoc-box
+  :after (eglot))
+
+;; Rust
+(use-package rustic
+  :after (eglot)
+  :init
+  (setq rustic-lsp-client 'eglot))
 
 ;; Which Key
-(require 'which-key)
-(which-key-mode)
+(use-package which-key
+  :config (which-key-mode))
 
 ;; Projects
-(require 'projectile)
-(require 'projectile-ripgrep)
-(setq projectile-project-search-path '("~/Developer/" "~/src/github.com/"))
-(projectile-mode +1)
-(global-set-key (kbd "C-x p p") 'projectile-switch-project)
+(use-package projectile
+  :bind (("C-x p p" . projectile-switch-project))
+  :init (setq projectile-project-search-path '("~/Developer/" "~/src/github.com/"))
+  :config (projectile-mode +1))
+
+(use-package projectile-ripgrep
+  :after (projectile))
 
 ;; Perspective
-(setq persp-suppress-no-prefix-key-warning t)
-(require 'perspective)
-(require 'persp-projectile)
-(persp-mode)
+(use-package perspective
+  :init (setq persp-suppress-no-prefix-key-warning t)
+  :config (persp-mode t))
 
+(use-package persp-projectile
+  :after (perspective projectile))
 
 ;; Nix
-(require 'nix-mode)
+(use-package nix-mode)
 
 ;; Vertico
-(require 'vertico)
-(setq vertico-cycle t)
-(setq vertico-resize nil)
-(vertico-mode 1)
+(use-package vertico
+  :config (vertico-mode 1)
+  :init
+  (setq vertico-cycle t
+        vertico-resize nil))
 
 ;; Marginalia
-(require 'marginalia)
-(marginalia-mode 1)
+(use-package marginalia
+  :config
+  (marginalia-mode 1))
 
 ;; Orderless
-(require 'orderless)
-(setq completion-styles '(orderless basic))
+(use-package orderless
+  :init (setq completion-styles '(orderless basic)))
 
 ;; Consult
-(require 'consult)
-(global-set-key (kbd "M-s f") 'consult-find)
-(global-set-key (kbd "M-s /") 'consult-ripgrep)
-(global-set-key (kbd "C-x b") 'consult-buffer)
-(global-set-key (kbd "M-s e") 'consult-isearch-history)
-(define-key isearch-mode-map (kbd "M-e") 'consult-isearch-history)
-(define-key isearch-mode-map (kbd "M-s e") 'consult-isearch-history)
-
+(use-package consult
+  :bind (("C-c f" . consult-find)
+	 ("C-c /" . consult-ripgrep)
+	 ("C-c b" . consult-buffer)))
 ;; Corfu
-(require 'corfu)
-(setq corfu-auto t
-      corfu-quit-no-match 'separator) ;; or t
-(global-corfu-mode)
+(use-package corfu
+  :init
+  (setq corfu-auto t
+        corfu-quit-no-match 'separator)
+  :config (global-corfu-mode))
 
 ;; WAT
-(require 'wat-mode)
-
+(use-package wat-mode)
 
 ;; fancy-compilation
-(require 'fancy-compilation)
-(fancy-compilation-mode)
+(use-package fancy-compilation
+  :config (fancy-compilation-mode))
 
 ;; exec-path-from-shell
-(require 'exec-path-from-shell)
-(dolist (var '("GPG_TTY"))
-  (add-to-list 'exec-path-from-shell-variables var))
-(exec-path-from-shell-initialize)
-
+(use-package exec-path-from-shell
+  :config
+  (dolist (var '("GPG_TTY"))
+    (add-to-list 'exec-path-from-shell-variables var))
+  (exec-path-from-shell-initialize))
 
 ;; Org
-(setq org-agenda-files
-      (directory-files-recursively "~/Developer/t/agenda" org-agenda-file-regexp))
+(use-package org
+  :init
+  (setq org-todo-keywords  '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)"))
+	org-refile-targets '((nil :maxlevel . 9)
+                             (saul/agenda-files :maxlevel . 9))
+	org-directory saul/org-directory
+	org-outline-path-complete-in-steps nil
+	org-refile-use-outline-path t
+	org-clock-persist 'history)
+  :config
+  (org-clock-persistence-insinuate)
+  :bind (("C-c a" . #'org-agenda)
+	 ("C-c c" . #'org-capture)))
 
-(setq org-todo-keywords
-      '((sequence "TODO(t)" "NEXT(n)" "|" "DONE(d)")))
 
-(setq org-refile-targets '((nil :maxlevel . 9)
-                                (org-agenda-files :maxlevel . 9)))
-(setq org-outline-path-complete-in-steps nil)
-(setq org-refile-use-outline-path t)
+(use-package org-agenda
+  :after (org)
+  :init
+  (setq org-agenda-skip-timestamp-if-done t
+	org-agenda-files saul/agenda-files
+	org-agenda-skip-deadline-if-done t
+	org-agenda-skip-scheduled-if-done t
+	org-agenda-include-deadlines t
+	org-agenda-block-separator nil
+	org-agenda-compact-blocks t
+	org-agenda-start-day nil ;; i.e. today
+	org-agenda-span 1
+	org-agenda-start-on-weekday nil
+        org-default-notes-file saul/inbox-file))
 
-(setq org-clock-persist 'history)
-(org-clock-persistence-insinuate)
+(use-package org-modern
+  :after (org org-agenda))
+  ;; :hook ((org-mode . org-modern-mode)))
 
-(global-set-key (kbd "C-c a") #'org-agenda)
-(global-set-key (kbd "C-c c") #'org-capture)
-
-(require 'org)
-(require 'org-agenda)
-(require 'org-super-agenda)
-
-(setq org-agenda-skip-timestamp-if-done t
-      org-agenda-skip-deadline-if-done t
-      org-agenda-skip-scheduled-if-done t
-      org-agenda-include-deadlines t
-      org-agenda-block-separator nil
-      org-agenda-compact-blocks t
-      org-agenda-start-day nil ;; i.e. today
-      org-agenda-span 1
-      org-agenda-start-on-weekday nil
-
-      org-super-agenda-groups
-       '((:log t)
+(use-package org-super-agenda
+  :after (org-agenda)
+  :config (org-super-agenda-mode)
+  :init
+  (setq org-super-agenda-groups
+	'((:log t)
 
          ;; Things to work for the day.
          (:name "Today"
@@ -193,49 +221,46 @@
 	 ;; Next items
          (:name "Next"
 		:and (:todo "NEXT" :scheduled future :not (:scheduled today) :not (:deadline today))
-		:and (:todo "NEXT" :deadline future :not (:scheduled today) :not (:deadline today)))))
+		:and (:todo "NEXT" :deadline future :not (:scheduled today) :not (:deadline today))))))
 
-(org-super-agenda-mode)
-
-(with-eval-after-load 'org (global-org-modern-mode))
-(with-eval-after-load 'org
-    (setq org-directory "~/Developer/t/agenda"))
-(with-eval-after-load 'org
-  (setq org-default-notes-file (concat org-directory "/inbox.org")))
 
 ;; Shackle
-(require 'shackle)
-(setq shackle-rules '((compilation-mode  :noselect t :align bottom :size 0.9)
+(use-package shackle
+  :init
+  (setq shackle-rules '((compilation-mode  :noselect t :align bottom :size 0.9)
                       (magit-status-mode :select t :popup t :align t :size 0.9))
-      shackle-default-rule '(:select t))
-(shackle-mode 1)
+	shackle-default-rule '(:select t))
+  :config
+  (shackle-mode 1))
 
-(require 'denote)
-(setq denote-directory (expand-file-name "~/Developer/t/notes/"))
-
+;; Denote
+(use-package denote
+  :init (setq denote-directory (expand-file-name saul/notes)))
+  
 ;; Ace Window
-(require 'ace-window)
-(global-set-key (kbd "M-o") 'ace-window)
-(setq aw-dispatch-always t)
+(use-package ace-window
+  :bind (("M-o" . ace-window))
+  :init (setq aw-dispatch-always t))
 
 ;; Direnv integration
-(require 'direnv)
-(direnv-mode)
+(use-package direnv
+  :cofnig (direnv-mode))
 
 ;; avy
-(require 'avy)
-(global-set-key (kbd "C-:") 'avy-goto-char)
+(use-package avy
+  :bind (("C-:" . avy-goto-char)))
 
 ;; expand-region
-(require 'expand-region)
-(global-set-key (kbd "C-$") 'er/expand-region)
+(use-package expand-region
+  :bind (("C-$" . 'er/expand-region)))
 
 ;; Mixed pitch mode
-(require 'mixed-pitch)
-(add-hook 'org-mode-hook 'mixed-pitch-mode)
-(add-hook 'org-mode-hook 'variable-pitch-mode)
+(use-package mixed-pitch
+  :hook
+  ((org-mode . mixed-pitch-mode)
+   (org-mode . variable-pitch-mode)))
 
 ;; Olivetti mode
-(setq olivetti-body-width 85)
-(require 'olivetti)
-(add-hook 'org-mode-hook 'olivetti-mode)
+(use-package olivetti
+  :init (setq olivetti-body-width 85)
+  :hook ((org-mode . olivetti-mode)))

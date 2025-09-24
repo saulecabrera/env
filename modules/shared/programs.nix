@@ -272,6 +272,8 @@ in
         mixed-pitch
         olivetti
         expand-region
+        evil
+        evil-collection
         devil
         direnv
         doom-themes
