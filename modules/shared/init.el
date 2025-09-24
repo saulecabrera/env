@@ -50,17 +50,18 @@
 
 ;; Keybindings (evil + devil)
 (use-package devil
-  :init
-  ;; To ensure that `devil-mode` is correctly
-  ;; loaded at the startup screen.
-  (advice-add 'display-startup-screen
-	      :after (lambda (&optional _) (devil-mode 1)))
   :config
   (global-devil-mode t)
   :bind (("C-," . global-devil-mode)))
 
 (use-package evil
-  :config (evil-mode 1))
+  :init
+  (setq evil-want-keybinding nil)
+  :config
+  ;; Ensure that , is not mapped to anything else
+  ;; and use it rather to control devil mode.
+  (define-key evil-motion-state-map "," nil)
+  (evil-mode 1))
 
 (use-package evil-collection
   :after (evil)
@@ -138,7 +139,9 @@
 (use-package consult
   :bind (("C-c f" . consult-find)
 	 ("C-c /" . consult-ripgrep)
-	 ("C-c b" . consult-buffer)))
+	 ("C-c b" . consult-buffer)
+	 ("M-g f" . consult-flymake)
+	 ("M-g s" . consult-line)))
 ;; Corfu
 (use-package corfu
   :init
@@ -231,7 +234,7 @@
 ;; Shackle
 (use-package shackle
   :init
-  (setq shackle-rules '((compilation-mode  :noselect t :align bottom :size 0.9)
+  (setq shackle-rules '((compilation-mode  :select t :align bottom :size 0.9)
                       (magit-status-mode :select t :popup t :align t :size 0.9))
 	shackle-default-rule '(:select t))
   :config
@@ -243,7 +246,9 @@
   
 ;; Ace Window
 (use-package ace-window
-  :bind (("M-o" . ace-window))
+  :bind (("C-c w" . ace-window)
+	 ("C-c h" . split-window-horizontally)
+	 ("C-c v" . split-window-vertically))
   :init (setq aw-dispatch-always t))
 
 ;; Direnv integration
