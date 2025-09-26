@@ -1,5 +1,8 @@
 ;; Base
 
+;; Windows
+(windmove-default-keybindings)
+
 (tool-bar-mode -1)
 (menu-bar-mode -1)
 (scroll-bar-mode -1)
@@ -137,6 +140,8 @@
 
 ;; Consult
 (use-package consult
+  :init
+  (setq consult-find-args "find .")
   :bind (("C-c f" . consult-find)
 	 ("C-c /" . consult-ripgrep)
 	 ("C-c b" . consult-buffer)
@@ -244,16 +249,9 @@
 (use-package denote
   :init (setq denote-directory (expand-file-name saul/notes)))
   
-;; Ace Window
-(use-package ace-window
-  :bind (("C-c w" . ace-window)
-	 ("C-c h" . split-window-horizontally)
-	 ("C-c v" . split-window-vertically))
-  :init (setq aw-dispatch-always t))
-
 ;; Direnv integration
 (use-package direnv
-  :cofnig (direnv-mode))
+  :config (direnv-mode))
 
 ;; avy
 (use-package avy

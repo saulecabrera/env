@@ -302,7 +302,6 @@ in
         org-modern
         shackle
         denote
-        ace-window
         eldoc-box
     ];
   };
